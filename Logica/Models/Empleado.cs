@@ -28,8 +28,15 @@ namespace Logica.Models
         { 
             DataTable R = new DataTable();
 
+            return R;
+        }
+
+
+        public DataTable Agregar()
+        {
+            DataTable R = new DataTable();
 
             return R;
         }
     }
-}
+    
