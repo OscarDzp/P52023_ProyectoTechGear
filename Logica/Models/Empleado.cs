@@ -45,5 +45,8 @@ namespace Logica.Models
 
             return R;
         }
+
+        // cre que funcionaya esto  xddddd
+
     }
     
