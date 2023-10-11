@@ -31,5 +31,12 @@ namespace Logica.Models
 
             return R;
         }
+        public DataTable Agregar()
+        {
+            DataTable R = new DataTable();
+
+
+            return R;
+        }
     }
 }
