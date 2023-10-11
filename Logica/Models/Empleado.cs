@@ -38,19 +38,6 @@ namespace Logica.Models
 
             return R;
         }
-        public DataTable Agregar()
-        {
-            DataTable R = new DataTable();
-
-
-            return R;
-        }
-
-        // cre que funcionaya esto  xddddd
-
-
-        //Byron rico
-        // naranjo zz
-        // Naranjo god
+  
     }
     
