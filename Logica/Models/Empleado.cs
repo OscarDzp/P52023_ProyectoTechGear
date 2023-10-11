@@ -48,5 +48,8 @@ namespace Logica.Models
 
         // cre que funcionaya esto  xddddd
 
+
+        //Byron rico
+
     }
     
