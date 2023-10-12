@@ -9,6 +9,8 @@ namespace Logica.Models
 {
     public class Empleado
     {
+
+      
         //Propiedades de la clase
 
         public int EmpleadoID { get; set; }
@@ -23,21 +25,39 @@ namespace Logica.Models
 
         public string Contrasennia { get; set;}
 
-        //Listar para empleados
-        public DataTable Listar()
-        { 
-            DataTable R = new DataTable();
-
-            return R;
-        }
-
-
+        //comportamientos ,operaciones , funciones, metodos
         public DataTable Agregar()
         {
             DataTable R = new DataTable();
 
             return R;
         }
-  
+
+        public DataTable Eliminar()
+        {
+            DataTable R = new DataTable();
+
+            return R;
+        }
+
+        public DataTable Actualizar()
+        {
+            DataTable R = new DataTable();
+
+            return R;
+        }
+
+        public DataTable ConsultarPorID()
+        {
+            DataTable R = new DataTable();
+
+            return R;
+        }
+        public DataTable ConsultarPorCorreoElectronico(string CorreoElectronico)
+        {
+            DataTable R = new DataTable();
+
+            return R;
+        }
     }
-    
+}
