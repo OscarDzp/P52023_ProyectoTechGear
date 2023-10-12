@@ -29,7 +29,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();  -------
+            Application.Exit();
         }
     }
 }
