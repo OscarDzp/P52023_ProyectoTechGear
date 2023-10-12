@@ -31,5 +31,10 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             Application.Exit();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
