@@ -86,7 +86,7 @@
             this.BtnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnIngresar.Location = new System.Drawing.Point(63, 388);
+            this.BtnIngresar.Location = new System.Drawing.Point(64, 425);
             this.BtnIngresar.Name = "BtnIngresar";
             this.BtnIngresar.Size = new System.Drawing.Size(94, 38);
             this.BtnIngresar.TabIndex = 4;
@@ -109,7 +109,7 @@
             this.BtnCerrar.BackColor = System.Drawing.Color.Red;
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrar.Location = new System.Drawing.Point(239, 425);
+            this.BtnCerrar.Location = new System.Drawing.Point(238, 382);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(94, 38);
             this.BtnCerrar.TabIndex = 7;
