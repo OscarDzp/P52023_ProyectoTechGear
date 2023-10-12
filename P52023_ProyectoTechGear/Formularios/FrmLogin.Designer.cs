@@ -62,7 +62,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::P52023_ProyectoTechGear.Properties.Resources.OIG;
-            this.pictureBox1.Location = new System.Drawing.Point(103, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(195, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
