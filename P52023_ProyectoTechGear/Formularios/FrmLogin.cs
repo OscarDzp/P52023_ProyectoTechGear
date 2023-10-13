@@ -34,6 +34,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+             //Prueba
 
         }
     }
