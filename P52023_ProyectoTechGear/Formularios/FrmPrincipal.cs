@@ -26,5 +26,19 @@ namespace P52023_ProyectoTechGear.Formularios
         {
 
         }
+
+        private void eMPLEADOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeEmpleados.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeEmpleados = new FrmEmpleadoGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeEmpleados.Show();
+            }
+        }
+
+        private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); 
+        }
     }
 }

@@ -37,5 +37,11 @@ namespace P52023_ProyectoTechGear.Formularios
             
 
         }
+
+        private void BtnIngresar_Click(object sender, EventArgs e)
+        {
+            Globales.ObjectosGlobales.MiFormularioPrincipal.Show();
+            this.Hide();
+        }
     }
 }

@@ -86,5 +86,21 @@ namespace P52023_ProyectoTechGear.Formularios
         {
 
         }
+
+        private void FrmEmpleadoGestion_Load(object sender, EventArgs e)
+        {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal();
+            CargarListaEmpleados();
+        }
+        private void CargarListaEmpleados()
+        { 
+        Logica.Models.Empleado miempleado = new Logica.Models.Empleado();
+            DataTable lista = new DataTable();
+
+            lista = miempleado.Listar();
+
+            DgvListaEmpleados.DataSource = lista;
+        }
+
     }
 }
