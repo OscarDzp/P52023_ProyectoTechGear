@@ -94,7 +94,7 @@ namespace P52023_ProyectoTechGear.Formularios
         }
         private void CargarListaEmpleados()
         { 
-        Logica.Models.Empleado miempleado = new Logica.Models.Empleado();
+        Logica.Models.Empleados miempleado = new Logica.Models.Empleados();
             DataTable lista = new DataTable();
 
             lista = miempleado.Listar();

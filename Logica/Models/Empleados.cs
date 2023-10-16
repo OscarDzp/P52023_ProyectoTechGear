@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class Empleado
+    public class Empleados
     {
-        public Empleado() 
+        public Empleados() 
         {
             MiEmpleadoRol = new EmpleadoRol();
-        
         }   
       
         //Propiedades de la clase
