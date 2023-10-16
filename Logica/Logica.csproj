@@ -43,8 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
-    <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Categorias.cs" />
+    <Compile Include="Models\Clientes.cs" />
+    <Compile Include="Models\DetalleVenta.cs" />
+    <Compile Include="Models\Empleados.cs" />
+    <Compile Include="Models\Facturas.cs" />
+    <Compile Include="Models\Garantias.cs" />
+    <Compile Include="Models\Marcas.cs" />
+    <Compile Include="Models\Modelos.cs" />
+    <Compile Include="Models\Productos.cs" />
+    <Compile Include="Models\Proveedores.cs" />
+    <Compile Include="Models\Sucursales.cs" />
+    <Compile Include="Models\Transacciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
