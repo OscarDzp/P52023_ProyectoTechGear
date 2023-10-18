@@ -24,4 +24,5 @@ namespace Logica.Models
             return R;
         }
     }
+
 }
