@@ -15,7 +15,7 @@ namespace Logica.Models
             MiEmpleadoRol = new EmpleadoRol();
         }   
       
-        //Propiedades de la clase
+        //Propiedades de la claseee
 
         public int EmpleadoID { get; set; }
 
