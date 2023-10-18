@@ -46,6 +46,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
+    <Compile Include="Models\EmpleadoRol.cs" />
     <Compile Include="Models\Empleados.cs" />
     <Compile Include="Models\Facturas.cs" />
     <Compile Include="Models\Garantias.cs" />

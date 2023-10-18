@@ -89,7 +89,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmEmpleadoGestion_Load(object sender, EventArgs e)
         {
-            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal();
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
             CargarListaEmpleados();
         }
         private void CargarListaEmpleados()

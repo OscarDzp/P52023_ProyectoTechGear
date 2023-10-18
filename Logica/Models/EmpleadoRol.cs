@@ -7,21 +7,24 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class Categorias
+    public class EmpleadoRol
     {
-        public int CategoriaID { get; set; }
-        public string Nombre { get; set; }
 
-        //Listar para Categorias
+        public int EmpleadoRolID { get; set; }
+
+        public string Rol { get; set; }
+
+
+
+
+
         public DataTable Listar()
         {
             DataTable R = new DataTable();
             return R;
         }
-        public DataTable Agregar()
-        {
-            DataTable R = new DataTable();
-            return R;
-        }
     }
+
+
+   
 }
