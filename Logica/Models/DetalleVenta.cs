@@ -20,24 +20,24 @@ namespace Logica.Models
         public int PrdoductoID { get; set; }
         public DetalleVenta MiDetalleVenta { get; set; }
 
-        public DataTable Agregar()
+        public bool Agregar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable Eliminar()
+        public bool Eliminar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable Actualizar()
+        public bool Actualizar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable ConsultarPorID()
+        public bool ConsultarPorID()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
     }

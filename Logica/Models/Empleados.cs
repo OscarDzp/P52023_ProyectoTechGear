@@ -37,44 +37,82 @@ namespace Logica.Models
 
         public DataTable Listar()
         {
+
             DataTable R = new DataTable();
 
             //hay que hacer instancia de la clase conexion
 
             Conexion MiCnn = new Conexion();
+
             R = MiCnn.EjecutarSelect("SPEmpleadosListar");
-            return R;
-        }
-        public DataTable Agregar()
-        {
-            DataTable R = new DataTable();
 
             return R;
         }
-
-        public DataTable Eliminar()
+        public bool Agregar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cargo", this.Cargo));    
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", this.Contrasennia));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoRolID", this.MiEmpleadoRol.EmpleadoRolID));
+
+            int resultado = MiCnn.EjecutarDML("SPEmpleadosAgregar");
+
+            if (resultado > 0) R = true;        
+
 
             return R;
         }
 
-        public DataTable Actualizar()
+        public bool Eliminar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
 
             return R;
         }
 
-        public DataTable ConsultarPorID()
+        public bool Actualizar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
 
             return R;
         }
-        public DataTable ConsultarPorCorreoElectronico(string CorreoElectronico)
+
+        public bool ConsultarPorCedula(string pCedula)
         {
-            DataTable R = new DataTable();
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", pCedula));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPEmpleadosConsultarPorCedula");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+            
+            return R;
+        }
+        public bool ConsultarPorCorreoElectronico(string pCorreoElectronico)
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", pCorreoElectronico));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPEmpleadosConsultarPorCorreo");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
 
             return R;
         }

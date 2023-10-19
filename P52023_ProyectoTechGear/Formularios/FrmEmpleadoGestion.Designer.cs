@@ -49,6 +49,8 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.TxtEmpleadoTelefono = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.ColEmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,15 +65,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 14);
+            this.label1.Location = new System.Drawing.Point(218, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar...";
+            this.label1.Text = "Buscar";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 11);
+            this.textBox1.Location = new System.Drawing.Point(264, 11);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(316, 20);
             this.textBox1.TabIndex = 1;
@@ -91,18 +93,21 @@
             this.ColCorreoElectronico,
             this.ColCargo,
             this.ColRol});
-            this.DgvListaEmpleados.Location = new System.Drawing.Point(12, 43);
+            this.DgvListaEmpleados.Location = new System.Drawing.Point(13, 43);
             this.DgvListaEmpleados.MultiSelect = false;
             this.DgvListaEmpleados.Name = "DgvListaEmpleados";
             this.DgvListaEmpleados.ReadOnly = true;
             this.DgvListaEmpleados.RowHeadersVisible = false;
             this.DgvListaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListaEmpleados.Size = new System.Drawing.Size(629, 229);
+            this.DgvListaEmpleados.Size = new System.Drawing.Size(767, 229);
             this.DgvListaEmpleados.TabIndex = 2;
             this.DgvListaEmpleados.VirtualMode = true;
+            this.DgvListaEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleados_CellContentClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.TxtEmpleadoTelefono);
             this.groupBox1.Controls.Add(this.CboxEmpleadoCargo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtEmpleadoContrasennia);
@@ -117,7 +122,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 278);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 279);
+            this.groupBox1.Size = new System.Drawing.Size(768, 320);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Empleado";
@@ -127,15 +132,15 @@
             // 
             this.CboxEmpleadoCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboxEmpleadoCargo.FormattingEnabled = true;
-            this.CboxEmpleadoCargo.Location = new System.Drawing.Point(195, 234);
+            this.CboxEmpleadoCargo.Location = new System.Drawing.Point(291, 268);
             this.CboxEmpleadoCargo.Name = "CboxEmpleadoCargo";
-            this.CboxEmpleadoCargo.Size = new System.Drawing.Size(128, 21);
+            this.CboxEmpleadoCargo.Size = new System.Drawing.Size(237, 21);
             this.CboxEmpleadoCargo.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 234);
+            this.label7.Location = new System.Drawing.Point(249, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 10;
@@ -144,7 +149,7 @@
             // 
             // TxtEmpleadoContrasennia
             // 
-            this.TxtEmpleadoContrasennia.Location = new System.Drawing.Point(194, 188);
+            this.TxtEmpleadoContrasennia.Location = new System.Drawing.Point(291, 187);
             this.TxtEmpleadoContrasennia.Name = "TxtEmpleadoContrasennia";
             this.TxtEmpleadoContrasennia.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoContrasennia.TabIndex = 9;
@@ -153,7 +158,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(127, 191);
+            this.label6.Location = new System.Drawing.Point(224, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 8;
@@ -162,7 +167,7 @@
             // 
             // TxtEmpleadoCorreoElectronico
             // 
-            this.TxtEmpleadoCorreoElectronico.Location = new System.Drawing.Point(194, 149);
+            this.TxtEmpleadoCorreoElectronico.Location = new System.Drawing.Point(291, 148);
             this.TxtEmpleadoCorreoElectronico.Name = "TxtEmpleadoCorreoElectronico";
             this.TxtEmpleadoCorreoElectronico.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoCorreoElectronico.TabIndex = 7;
@@ -171,7 +176,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(94, 152);
+            this.label5.Location = new System.Drawing.Point(191, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 6;
@@ -180,7 +185,7 @@
             // 
             // TxtEmpleadoNombre
             // 
-            this.TxtEmpleadoNombre.Location = new System.Drawing.Point(194, 110);
+            this.TxtEmpleadoNombre.Location = new System.Drawing.Point(291, 109);
             this.TxtEmpleadoNombre.Name = "TxtEmpleadoNombre";
             this.TxtEmpleadoNombre.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoNombre.TabIndex = 5;
@@ -189,7 +194,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(144, 113);
+            this.label4.Location = new System.Drawing.Point(241, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 4;
@@ -198,7 +203,7 @@
             // 
             // TxtEmpleadoCedula
             // 
-            this.TxtEmpleadoCedula.Location = new System.Drawing.Point(194, 71);
+            this.TxtEmpleadoCedula.Location = new System.Drawing.Point(291, 70);
             this.TxtEmpleadoCedula.Name = "TxtEmpleadoCedula";
             this.TxtEmpleadoCedula.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoCedula.TabIndex = 3;
@@ -207,7 +212,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 74);
+            this.label3.Location = new System.Drawing.Point(245, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 2;
@@ -216,7 +221,8 @@
             // 
             // TxtEmpleadoCodigo
             // 
-            this.TxtEmpleadoCodigo.Location = new System.Drawing.Point(194, 32);
+            this.TxtEmpleadoCodigo.Enabled = false;
+            this.TxtEmpleadoCodigo.Location = new System.Drawing.Point(291, 31);
             this.TxtEmpleadoCodigo.Name = "TxtEmpleadoCodigo";
             this.TxtEmpleadoCodigo.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoCodigo.TabIndex = 1;
@@ -225,7 +231,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(81, 35);
+            this.label2.Location = new System.Drawing.Point(178, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 0;
@@ -237,19 +243,20 @@
             this.BtnAgregar.BackColor = System.Drawing.Color.SeaGreen;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(13, 564);
+            this.BtnAgregar.Location = new System.Drawing.Point(13, 600);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(141, 37);
             this.BtnAgregar.TabIndex = 4;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnModificar
             // 
             this.BtnModificar.BackColor = System.Drawing.Color.Peru;
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnModificar.ForeColor = System.Drawing.Color.White;
-            this.BtnModificar.Location = new System.Drawing.Point(159, 564);
+            this.BtnModificar.Location = new System.Drawing.Point(159, 600);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(141, 37);
             this.BtnModificar.TabIndex = 5;
@@ -261,7 +268,7 @@
             this.BtnEliminar.BackColor = System.Drawing.Color.Brown;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(303, 564);
+            this.BtnEliminar.Location = new System.Drawing.Point(303, 600);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(141, 37);
             this.BtnEliminar.TabIndex = 6;
@@ -273,7 +280,7 @@
             this.BtnLimpiar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.BtnLimpiar.Location = new System.Drawing.Point(495, 568);
+            this.BtnLimpiar.Location = new System.Drawing.Point(634, 604);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(70, 28);
             this.BtnLimpiar.TabIndex = 7;
@@ -285,12 +292,28 @@
             this.BtnCerrar.BackColor = System.Drawing.Color.DarkOrange;
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(571, 568);
+            this.BtnCerrar.Location = new System.Drawing.Point(710, 604);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(70, 28);
             this.BtnCerrar.TabIndex = 13;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            // 
+            // TxtEmpleadoTelefono
+            // 
+            this.TxtEmpleadoTelefono.Location = new System.Drawing.Point(291, 228);
+            this.TxtEmpleadoTelefono.Name = "TxtEmpleadoTelefono";
+            this.TxtEmpleadoTelefono.Size = new System.Drawing.Size(238, 20);
+            this.TxtEmpleadoTelefono.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(235, 231);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Teléfono";
             // 
             // ColEmpleadoID
             // 
@@ -299,6 +322,7 @@
             this.ColEmpleadoID.HeaderText = "CÓDIGO";
             this.ColEmpleadoID.Name = "ColEmpleadoID";
             this.ColEmpleadoID.ReadOnly = true;
+            this.ColEmpleadoID.Width = 80;
             // 
             // ColCedula
             // 
@@ -314,7 +338,6 @@
             this.ColNombre.HeaderText = "NOMBRE";
             this.ColNombre.Name = "ColNombre";
             this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 26;
             // 
             // ColTelefono
             // 
@@ -329,6 +352,7 @@
             this.ColCorreoElectronico.HeaderText = "CORREO";
             this.ColCorreoElectronico.Name = "ColCorreoElectronico";
             this.ColCorreoElectronico.ReadOnly = true;
+            this.ColCorreoElectronico.Width = 120;
             // 
             // ColCargo
             // 
@@ -336,9 +360,11 @@
             this.ColCargo.HeaderText = "CARGO";
             this.ColCargo.Name = "ColCargo";
             this.ColCargo.ReadOnly = true;
+            this.ColCargo.Width = 80;
             // 
             // ColRol
             // 
+            this.ColRol.DataPropertyName = "Rol";
             this.ColRol.HeaderText = "ROL";
             this.ColRol.Name = "ColRol";
             this.ColRol.ReadOnly = true;
@@ -347,7 +373,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 611);
+            this.ClientSize = new System.Drawing.Size(792, 644);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnEliminar);
@@ -360,6 +386,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "FrmEmpleadoGestion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Empleados";
             this.Load += new System.EventHandler(this.FrmEmpleadoGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).EndInit();
@@ -393,6 +420,8 @@
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnCerrar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TxtEmpleadoTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleadoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;

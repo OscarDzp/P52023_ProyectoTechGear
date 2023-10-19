@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,12 +8,24 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class Categorias
+    internal class SoporteTecnico
     {
-        public int CategoriaID { get; set; }
-        public string Nombre { get; set; }
+        public SoporteTecnico()
+        {
+             MiGarantiaID = new Garantias();
+            
+        }
 
-        //Listar para Categorias
+        public int TecnicoID { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Especialidad { get; set; }
+        public string Disponibilidad { get; set; }
+        public Garantias MiGarantiaID { get; set; }
+
+
+        //Metodods 
+
         public bool Agregar()
         {
             bool R = false;
@@ -28,7 +41,13 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorNombre()
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            return R;
+        }
+
+        public bool ConsultarPorCorreo()
         {
             bool R = false;
             return R;
@@ -39,6 +58,6 @@ namespace Logica.Models
             DataTable R = new DataTable();
             return R;
         }
-    }
 
+    }
 }

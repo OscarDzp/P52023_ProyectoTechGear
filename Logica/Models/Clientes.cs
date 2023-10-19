@@ -20,22 +20,28 @@ namespace Logica.Models
         public string Telefono { get; set; }
         public Clientes MiCliente { get; set; }
 
-        public DataTable Agregar()
+        public bool Agregar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable Eliminar()
+        public bool Eliminar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable Actualizar()
+        public bool Actualizar()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable ConsultarPorID()
+        public bool ConsultarPorCedula()
+        {
+            bool R = false;
+            return R;
+        }
+
+        public DataTable Listar()
         {
             DataTable R = new DataTable();
             return R;

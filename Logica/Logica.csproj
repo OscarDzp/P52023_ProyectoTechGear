@@ -54,6 +54,7 @@
     <Compile Include="Models\Modelos.cs" />
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Models\Proveedores.cs" />
+    <Compile Include="Models\SoporteTecnico.cs" />
     <Compile Include="Models\Sucursales.cs" />
     <Compile Include="Models\Transacciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
