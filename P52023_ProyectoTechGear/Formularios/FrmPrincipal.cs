@@ -134,17 +134,38 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void tRANSACCIONESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeTransaccion.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeTransaccion = new FrmTransaccionGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeTransaccion.Show();
+            }
         }
 
         private void pROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeProveedor.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeProveedor = new FrmProveedorGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeProveedor.Show();
+            }
         }
 
         private void sUCURSALToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeSucursal.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeSucursal = new FrmSucursalGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeSucursal.Show();
+            }
+        }
 
+        private void sOPORTETECNICOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeSoporte.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeSoporte = new FrmSoporteGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeSoporte.Show();
+            }
         }
     }
 }

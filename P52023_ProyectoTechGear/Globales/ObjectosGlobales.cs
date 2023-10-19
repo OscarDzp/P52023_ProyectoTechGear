@@ -32,5 +32,13 @@ namespace P52023_ProyectoTechGear.Globales
 
         public static Formularios.FrmFacturas MiFormularioDeGestionDeFactura = new Formularios.FrmFacturas();
 
+        public static Formularios.FrmTransaccionGestion MiFormularioDeGestionDeTransaccion = new Formularios.FrmTransaccionGestion();
+
+        public static Formularios.FrmProveedorGestion MiFormularioDeGestionDeProveedor = new Formularios.FrmProveedorGestion();
+
+        public static Formularios.FrmSucursalGestion MiFormularioDeGestionDeSucursal = new Formularios.FrmSucursalGestion();
+
+        public static Formularios.FrmSoporteGestion MiFormularioDeGestionDeSoporte = new Formularios.FrmSoporteGestion();
+
     }
 }

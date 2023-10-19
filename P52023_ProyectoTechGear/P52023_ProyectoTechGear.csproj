@@ -125,6 +125,30 @@
     <Compile Include="Formularios\FrmProductoGestion.Designer.cs">
       <DependentUpon>FrmProductoGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmProveedorGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmProveedorGestion.Designer.cs">
+      <DependentUpon>FrmProveedorGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmSoporteGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmSoporteGestion.Designer.cs">
+      <DependentUpon>FrmSoporteGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmSucursalGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmSucursalGestion.Designer.cs">
+      <DependentUpon>FrmSucursalGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTransaccionGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmTransaccionGestion.Designer.cs">
+      <DependentUpon>FrmTransaccionGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globales\ObjectosGlobales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +187,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmProductoGestion.resx">
       <DependentUpon>FrmProductoGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmProveedorGestion.resx">
+      <DependentUpon>FrmProveedorGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmSoporteGestion.resx">
+      <DependentUpon>FrmSoporteGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmSucursalGestion.resx">
+      <DependentUpon>FrmSucursalGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTransaccionGestion.resx">
+      <DependentUpon>FrmTransaccionGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
