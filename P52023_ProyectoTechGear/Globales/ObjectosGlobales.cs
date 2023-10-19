@@ -14,6 +14,13 @@ namespace P52023_ProyectoTechGear.Globales
 
         public static Formularios.FrmEmpleadoGestion MiFormularioDeGestionDeEmpleados = new Formularios.FrmEmpleadoGestion();
 
-       
+        public static Formularios.FrmGarantiaGestion MiFormularioDeGestionDeGarantia = new Formularios.FrmGarantiaGestion();
+
+        public static Formularios.FrmMarcaGestion MiFormularioDeGestionDeMarca = new Formularios.FrmMarcaGestion();
+
+        public static Formularios.FrmModeloGestion MiFormularioDeGestionDeModelo = new Formularios.FrmModeloGestion();
+
+        public static Formularios.FrmProductoGestion MiFormularioDeGestionDeProductos = new Formularios.FrmProductoGestion();
+
     }
 }

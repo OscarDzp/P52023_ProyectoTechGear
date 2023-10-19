@@ -39,6 +39,8 @@
             this.ColCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.TxtEmpleadoCargo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtEmpleadoTelefono = new System.Windows.Forms.TextBox();
             this.CboxEmpleadoRol = new System.Windows.Forms.ComboBox();
@@ -58,8 +60,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.TxtEmpleadoCargo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -185,6 +185,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Empleado";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(650, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Cargo";
+            // 
+            // TxtEmpleadoCargo
+            // 
+            this.TxtEmpleadoCargo.Location = new System.Drawing.Point(558, 34);
+            this.TxtEmpleadoCargo.Name = "TxtEmpleadoCargo";
+            this.TxtEmpleadoCargo.Size = new System.Drawing.Size(210, 20);
+            this.TxtEmpleadoCargo.TabIndex = 16;
             // 
             // label9
             // 
@@ -372,22 +388,6 @@
             this.BtnCerrar.TabIndex = 13;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
-            // 
-            // TxtEmpleadoCargo
-            // 
-            this.TxtEmpleadoCargo.Location = new System.Drawing.Point(558, 34);
-            this.TxtEmpleadoCargo.Name = "TxtEmpleadoCargo";
-            this.TxtEmpleadoCargo.Size = new System.Drawing.Size(210, 20);
-            this.TxtEmpleadoCargo.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(650, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Cargo";
             // 
             // FrmEmpleadoGestion
             // 
