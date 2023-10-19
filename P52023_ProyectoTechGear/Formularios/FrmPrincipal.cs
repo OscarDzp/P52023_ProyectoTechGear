@@ -76,5 +76,75 @@ namespace P52023_ProyectoTechGear.Formularios
                 Globales.ObjectosGlobales.MiFormularioDeGestionDeProductos.Show();
             }
         }
+
+        private void cATEGORIASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeCategorias.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeCategorias = new FrmCategoriaGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeCategorias.Show();
+            }
+        }
+
+        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeClientes.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeClientes = new FrmClienteGestion();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeClientes.Show();
+            }
+        }
+
+        private void dETALLEDEVENTAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeDetalleVenta.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeDetalleVenta = new FrmDetalleVenta();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeDetalleVenta.Show();
+            }
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void eMPLEADOROLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeEmpleadoRol.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeEmpleadoRol = new FrmEmpleadoRol();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeEmpleadoRol.Show();
+            }
+        }
+
+        private void fACTURASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiFormularioDeGestionDeFactura.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeFactura = new FrmFacturas();
+                Globales.ObjectosGlobales.MiFormularioDeGestionDeFactura.Show();
+            }
+        }
+
+        private void tRANSACCIONESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sUCURSALToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

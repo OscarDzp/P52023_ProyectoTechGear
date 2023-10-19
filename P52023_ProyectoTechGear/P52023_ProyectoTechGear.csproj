@@ -53,11 +53,41 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmCategoriaGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCategoriaGestion.Designer.cs">
+      <DependentUpon>FrmCategoriaGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmClienteGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmClienteGestion.Designer.cs">
+      <DependentUpon>FrmClienteGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmDetalleVenta.Designer.cs">
+      <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmEmpleadoGestion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmEmpleadoGestion.Designer.cs">
       <DependentUpon>FrmEmpleadoGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmEmpleadoRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmEmpleadoRol.Designer.cs">
+      <DependentUpon>FrmEmpleadoRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmFacturas.Designer.cs">
+      <DependentUpon>FrmFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmGarantiaGestion.cs">
       <SubType>Form</SubType>
@@ -98,8 +128,23 @@
     <Compile Include="Globales\ObjectosGlobales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\FrmCategoriaGestion.resx">
+      <DependentUpon>FrmCategoriaGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmClienteGestion.resx">
+      <DependentUpon>FrmClienteGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmDetalleVenta.resx">
+      <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmEmpleadoGestion.resx">
       <DependentUpon>FrmEmpleadoGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmEmpleadoRol.resx">
+      <DependentUpon>FrmEmpleadoRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmFacturas.resx">
+      <DependentUpon>FrmFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmGarantiaGestion.resx">
       <DependentUpon>FrmGarantiaGestion.cs</DependentUpon>
