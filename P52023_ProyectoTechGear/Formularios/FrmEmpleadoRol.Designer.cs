@@ -39,10 +39,10 @@
             this.TxtEmpleadoRolCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaEmpleadoRol = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColEmpleadoRolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleadoRol)).BeginInit();
             this.SuspendLayout();
@@ -166,26 +166,11 @@
             this.DgvListaEmpleadoRol.MultiSelect = false;
             this.DgvListaEmpleadoRol.Name = "DgvListaEmpleadoRol";
             this.DgvListaEmpleadoRol.ReadOnly = true;
+            this.DgvListaEmpleadoRol.RowHeadersVisible = false;
             this.DgvListaEmpleadoRol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaEmpleadoRol.Size = new System.Drawing.Size(816, 165);
             this.DgvListaEmpleadoRol.TabIndex = 21;
             this.DgvListaEmpleadoRol.VirtualMode = true;
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
             // 
             // ColEmpleadoRolID
             // 
@@ -203,6 +188,22 @@
             this.ColRol.HeaderText = "ROL";
             this.ColRol.Name = "ColRol";
             this.ColRol.ReadOnly = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(184, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // FrmEmpleadoRol
             // 

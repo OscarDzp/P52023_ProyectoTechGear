@@ -51,8 +51,6 @@
             this.TxtFacturaID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaFactura = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColFacturaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTotalFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDetalledeventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +59,8 @@
             this.ColNombreS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaFactura)).BeginInit();
             this.SuspendLayout();
@@ -302,26 +302,11 @@
             this.DgvListaFactura.MultiSelect = false;
             this.DgvListaFactura.Name = "DgvListaFactura";
             this.DgvListaFactura.ReadOnly = true;
+            this.DgvListaFactura.RowHeadersVisible = false;
             this.DgvListaFactura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaFactura.Size = new System.Drawing.Size(813, 165);
             this.DgvListaFactura.TabIndex = 21;
             this.DgvListaFactura.VirtualMode = true;
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(300, 12);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(242, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
             // 
             // ColFacturaID
             // 
@@ -387,6 +372,22 @@
             this.ColNombreC.HeaderText = "CLIENTE";
             this.ColNombreC.Name = "ColNombreC";
             this.ColNombreC.ReadOnly = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(300, 12);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // FrmFacturas
             // 

@@ -31,6 +31,8 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvListaCategorias = new System.Windows.Forms.DataGridView();
+            this.ColCategoriaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtCategoriaNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.ColCategoriaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCategorias)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,10 +76,28 @@
             this.DgvListaCategorias.MultiSelect = false;
             this.DgvListaCategorias.Name = "DgvListaCategorias";
             this.DgvListaCategorias.ReadOnly = true;
+            this.DgvListaCategorias.RowHeadersVisible = false;
             this.DgvListaCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaCategorias.Size = new System.Drawing.Size(816, 165);
             this.DgvListaCategorias.TabIndex = 4;
             this.DgvListaCategorias.VirtualMode = true;
+            // 
+            // ColCategoriaID
+            // 
+            this.ColCategoriaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColCategoriaID.DataPropertyName = "CategoriaID";
+            this.ColCategoriaID.HeaderText = "CODIGO CATEGORIA";
+            this.ColCategoriaID.Name = "ColCategoriaID";
+            this.ColCategoriaID.ReadOnly = true;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColNombre.DataPropertyName = "Nombre";
+            this.ColNombre.HeaderText = "NOMBRE";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 500;
             // 
             // groupBox1
             // 
@@ -186,23 +204,6 @@
             this.BtnAgregar.TabIndex = 14;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // ColCategoriaID
-            // 
-            this.ColCategoriaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColCategoriaID.DataPropertyName = "CategoriaID";
-            this.ColCategoriaID.HeaderText = "CODIGO CATEGORIA";
-            this.ColCategoriaID.Name = "ColCategoriaID";
-            this.ColCategoriaID.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "NOMBRE";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 500;
             // 
             // FrmCategoriaGestion
             // 

@@ -45,13 +45,13 @@
             this.TxtCodigoDetalleVenta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaDetalleVenta = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColDetalleVentaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaDetalleVenta)).BeginInit();
             this.SuspendLayout();
@@ -233,26 +233,11 @@
             this.DgvListaDetalleVenta.MultiSelect = false;
             this.DgvListaDetalleVenta.Name = "DgvListaDetalleVenta";
             this.DgvListaDetalleVenta.ReadOnly = true;
+            this.DgvListaDetalleVenta.RowHeadersVisible = false;
             this.DgvListaDetalleVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaDetalleVenta.Size = new System.Drawing.Size(816, 165);
             this.DgvListaDetalleVenta.TabIndex = 21;
             this.DgvListaDetalleVenta.VirtualMode = true;
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(286, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
             // 
             // ColDetalleVentaID
             // 
@@ -294,6 +279,22 @@
             this.ColNombre.HeaderText = "PRODUCTO";
             this.ColNombre.Name = "ColNombre";
             this.ColNombre.ReadOnly = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(286, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // FrmDetalleVenta
             // 
