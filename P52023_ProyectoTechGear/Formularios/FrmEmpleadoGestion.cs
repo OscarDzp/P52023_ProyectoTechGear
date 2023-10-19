@@ -115,11 +115,11 @@ namespace P52023_ProyectoTechGear.Formularios
 
             if (dtRoles != null && dtRoles.Rows.Count > 0)
             {
-                CboxEmpleadoCargo.ValueMember = "ID";
-                CboxEmpleadoCargo.DisplayMember = "Rol";
+                CboxEmpleadoRol.ValueMember = "ID";
+                CboxEmpleadoRol.DisplayMember = "Rol";
 
-                CboxEmpleadoCargo.DataSource = dtRoles;
-                CboxEmpleadoCargo.SelectedIndex = -1;
+                CboxEmpleadoRol.DataSource = dtRoles;
+                CboxEmpleadoRol.SelectedIndex = -1;
             }
         }
 
@@ -147,7 +147,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 !string.IsNullOrEmpty(TxtEmpleadoCorreoElectronico.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtEmpleadoContrasennia.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtEmpleadoTelefono.Text.Trim()) &&
-                CboxEmpleadoCargo.SelectedIndex > -1
+                !string.IsNullOrEmpty(TxtEmpleadoCargo.Text.Trim()) &&
+                CboxEmpleadoRol.SelectedIndex > -1
                 )
             {
                 R = true;
@@ -181,12 +182,17 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe digitar en número telefónico", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
-                if (CboxEmpleadoCargo.SelectedIndex == -1)
+                if (CboxEmpleadoRol.SelectedIndex == -1)
                 {
                     MessageBox.Show("Se debe elegir un rol de empleado", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
-                
+                if (string.IsNullOrEmpty(TxtEmpleadoCargo.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe digitar eL cargo del empleado", "Error de validación", MessageBoxButtons.OK);
+                    return false;
+                }
+
             }
 
             return R;
@@ -212,8 +218,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiEmpleadoLocal.CorreoElectronico = TxtEmpleadoCorreoElectronico.Text.Trim();
                 MiEmpleadoLocal.Contrasennia = TxtEmpleadoContrasennia.Text.Trim();
                 MiEmpleadoLocal.Telefono = TxtEmpleadoTelefono.Text.Trim();
-                MiEmpleadoLocal.MiEmpleadoRol.EmpleadoRolID = Convert.ToInt32(CboxEmpleadoCargo.SelectedValue);
-                MiEmpleadoLocal.Cargo = CboxEmpleadoCargo.SelectedItem.ToString();
+                MiEmpleadoLocal.MiEmpleadoRol.EmpleadoRolID = Convert.ToInt32(CboxEmpleadoRol.SelectedValue);
+                MiEmpleadoLocal.Cargo = TxtEmpleadoCargo.Text.Trim();
 
                 bool CedulaValida = MiEmpleadoLocal.ConsultarPorCedula(MiEmpleadoLocal.Cedula);
 
@@ -259,7 +265,8 @@ namespace P52023_ProyectoTechGear.Formularios
             TxtEmpleadoCorreoElectronico.Clear();
             TxtEmpleadoContrasennia.Clear();
             TxtEmpleadoTelefono.Clear();
-            CboxEmpleadoCargo.SelectedIndex = -1;
+            TxtEmpleadoCargo.Clear();
+            CboxEmpleadoRol.SelectedIndex = -1;
         }
 
         private void DgvListaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -31,8 +31,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.DgvListaEmpleados = new System.Windows.Forms.DataGridView();
+            this.ColEmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CboxEmpleadoCargo = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtEmpleadoTelefono = new System.Windows.Forms.TextBox();
+            this.CboxEmpleadoRol = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtEmpleadoContrasennia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,15 +58,8 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.TxtEmpleadoTelefono = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ColEmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtEmpleadoCargo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -104,11 +106,67 @@
             this.DgvListaEmpleados.VirtualMode = true;
             this.DgvListaEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleados_CellContentClick);
             // 
+            // ColEmpleadoID
+            // 
+            this.ColEmpleadoID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColEmpleadoID.DataPropertyName = "EmpleadoID";
+            this.ColEmpleadoID.HeaderText = "CÓDIGO";
+            this.ColEmpleadoID.Name = "ColEmpleadoID";
+            this.ColEmpleadoID.ReadOnly = true;
+            this.ColEmpleadoID.Width = 80;
+            // 
+            // ColCedula
+            // 
+            this.ColCedula.DataPropertyName = "Cedula";
+            this.ColCedula.HeaderText = "CÉDULA";
+            this.ColCedula.Name = "ColCedula";
+            this.ColCedula.ReadOnly = true;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColNombre.DataPropertyName = "Nombre";
+            this.ColNombre.HeaderText = "NOMBRE";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            // 
+            // ColTelefono
+            // 
+            this.ColTelefono.DataPropertyName = "Telefono";
+            this.ColTelefono.HeaderText = "TELÉFONO";
+            this.ColTelefono.Name = "ColTelefono";
+            this.ColTelefono.ReadOnly = true;
+            // 
+            // ColCorreoElectronico
+            // 
+            this.ColCorreoElectronico.DataPropertyName = "CorreoElectronico";
+            this.ColCorreoElectronico.HeaderText = "CORREO";
+            this.ColCorreoElectronico.Name = "ColCorreoElectronico";
+            this.ColCorreoElectronico.ReadOnly = true;
+            this.ColCorreoElectronico.Width = 120;
+            // 
+            // ColCargo
+            // 
+            this.ColCargo.DataPropertyName = "Cargo";
+            this.ColCargo.HeaderText = "CARGO";
+            this.ColCargo.Name = "ColCargo";
+            this.ColCargo.ReadOnly = true;
+            this.ColCargo.Width = 80;
+            // 
+            // ColRol
+            // 
+            this.ColRol.DataPropertyName = "Rol";
+            this.ColRol.HeaderText = "ROL";
+            this.ColRol.Name = "ColRol";
+            this.ColRol.ReadOnly = true;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.TxtEmpleadoCargo);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TxtEmpleadoTelefono);
-            this.groupBox1.Controls.Add(this.CboxEmpleadoCargo);
+            this.groupBox1.Controls.Add(this.CboxEmpleadoRol);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtEmpleadoContrasennia);
             this.groupBox1.Controls.Add(this.label6);
@@ -128,23 +186,39 @@
             this.groupBox1.Text = "Detalles del Empleado";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // CboxEmpleadoCargo
+            // label9
             // 
-            this.CboxEmpleadoCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboxEmpleadoCargo.FormattingEnabled = true;
-            this.CboxEmpleadoCargo.Location = new System.Drawing.Point(291, 268);
-            this.CboxEmpleadoCargo.Name = "CboxEmpleadoCargo";
-            this.CboxEmpleadoCargo.Size = new System.Drawing.Size(237, 21);
-            this.CboxEmpleadoCargo.TabIndex = 12;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(235, 231);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Teléfono";
+            // 
+            // TxtEmpleadoTelefono
+            // 
+            this.TxtEmpleadoTelefono.Location = new System.Drawing.Point(291, 228);
+            this.TxtEmpleadoTelefono.Name = "TxtEmpleadoTelefono";
+            this.TxtEmpleadoTelefono.Size = new System.Drawing.Size(238, 20);
+            this.TxtEmpleadoTelefono.TabIndex = 13;
+            // 
+            // CboxEmpleadoRol
+            // 
+            this.CboxEmpleadoRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboxEmpleadoRol.FormattingEnabled = true;
+            this.CboxEmpleadoRol.Location = new System.Drawing.Point(291, 268);
+            this.CboxEmpleadoRol.Name = "CboxEmpleadoRol";
+            this.CboxEmpleadoRol.Size = new System.Drawing.Size(237, 21);
+            this.CboxEmpleadoRol.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(249, 268);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(23, 13);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Cargo";
+            this.label7.Text = "Rol";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // TxtEmpleadoContrasennia
@@ -299,75 +373,21 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
-            // TxtEmpleadoTelefono
+            // TxtEmpleadoCargo
             // 
-            this.TxtEmpleadoTelefono.Location = new System.Drawing.Point(291, 228);
-            this.TxtEmpleadoTelefono.Name = "TxtEmpleadoTelefono";
-            this.TxtEmpleadoTelefono.Size = new System.Drawing.Size(238, 20);
-            this.TxtEmpleadoTelefono.TabIndex = 13;
+            this.TxtEmpleadoCargo.Location = new System.Drawing.Point(558, 34);
+            this.TxtEmpleadoCargo.Name = "TxtEmpleadoCargo";
+            this.TxtEmpleadoCargo.Size = new System.Drawing.Size(210, 20);
+            this.TxtEmpleadoCargo.TabIndex = 16;
             // 
-            // label9
+            // label8
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(235, 231);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Teléfono";
-            // 
-            // ColEmpleadoID
-            // 
-            this.ColEmpleadoID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColEmpleadoID.DataPropertyName = "EmpleadoID";
-            this.ColEmpleadoID.HeaderText = "CÓDIGO";
-            this.ColEmpleadoID.Name = "ColEmpleadoID";
-            this.ColEmpleadoID.ReadOnly = true;
-            this.ColEmpleadoID.Width = 80;
-            // 
-            // ColCedula
-            // 
-            this.ColCedula.DataPropertyName = "Cedula";
-            this.ColCedula.HeaderText = "CÉDULA";
-            this.ColCedula.Name = "ColCedula";
-            this.ColCedula.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "NOMBRE";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            // 
-            // ColTelefono
-            // 
-            this.ColTelefono.DataPropertyName = "Telefono";
-            this.ColTelefono.HeaderText = "TELÉFONO";
-            this.ColTelefono.Name = "ColTelefono";
-            this.ColTelefono.ReadOnly = true;
-            // 
-            // ColCorreoElectronico
-            // 
-            this.ColCorreoElectronico.DataPropertyName = "CorreoElectronico";
-            this.ColCorreoElectronico.HeaderText = "CORREO";
-            this.ColCorreoElectronico.Name = "ColCorreoElectronico";
-            this.ColCorreoElectronico.ReadOnly = true;
-            this.ColCorreoElectronico.Width = 120;
-            // 
-            // ColCargo
-            // 
-            this.ColCargo.DataPropertyName = "Cargo";
-            this.ColCargo.HeaderText = "CARGO";
-            this.ColCargo.Name = "ColCargo";
-            this.ColCargo.ReadOnly = true;
-            this.ColCargo.Width = 80;
-            // 
-            // ColRol
-            // 
-            this.ColRol.DataPropertyName = "Rol";
-            this.ColRol.HeaderText = "ROL";
-            this.ColRol.Name = "ColRol";
-            this.ColRol.ReadOnly = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(650, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Cargo";
             // 
             // FrmEmpleadoGestion
             // 
@@ -414,7 +434,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtEmpleadoNombre;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox CboxEmpleadoCargo;
+        private System.Windows.Forms.ComboBox CboxEmpleadoRol;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnEliminar;
@@ -429,5 +449,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCorreoElectronico;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRol;
+        private System.Windows.Forms.TextBox TxtEmpleadoCargo;
+        private System.Windows.Forms.Label label8;
     }
 }
