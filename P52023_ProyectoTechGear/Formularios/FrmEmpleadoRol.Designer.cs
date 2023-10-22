@@ -106,6 +106,7 @@
             this.BtnAgregar.TabIndex = 23;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // groupBox1
             // 
@@ -224,6 +225,7 @@
             this.Name = "FrmEmpleadoRol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Empleado Rol";
+            this.Load += new System.EventHandler(this.FrmEmpleadoRol_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleadoRol)).EndInit();

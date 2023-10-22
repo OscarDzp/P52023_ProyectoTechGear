@@ -33,6 +33,8 @@
             this.ColPaisOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.TxtMarcaNombre = new System.Windows.Forms.TextBox();
@@ -44,8 +46,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaMarcas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -118,6 +118,22 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de Marcas";
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(504, 16);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(180, 20);
+            this.TxtBuscar.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(449, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Buscar...";
             // 
             // BtnCerrar
             // 
@@ -226,22 +242,7 @@
             this.BtnAgregar.TabIndex = 6;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(449, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Buscar...";
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(504, 16);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(180, 20);
-            this.TxtBuscar.TabIndex = 17;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // FrmMarcaGestion
             // 
@@ -253,6 +254,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmMarcaGestion";
             this.Text = "Mantenimiento de Marcas";
+            this.Load += new System.EventHandler(this.FrmMarcaGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaMarcas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

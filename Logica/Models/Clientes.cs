@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +12,34 @@ namespace Logica.Models
     {
         public Clientes ()
         {
-            MiCliente = new Clientes();
+            
         }
         public int ClienteID { get; set; }
         public string Nombre { get; set; }
+        public string Cedula { get; set; }
         public string CorreoElectronico { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
-        public Clientes MiCliente { get; set; }
+       
 
         public bool Agregar()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.Direccion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+
+            int resultado = MiCnn.EjecutarDML("SPClientesAgregar");
+
+            if (resultado > 0) R = true;
+
+
             return R;
+
         }
         public bool Eliminar()
         {
@@ -35,10 +51,42 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorCedula()
+        public bool ConsultarPorCedula(string pCedula)
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", pCedula));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPClientesConsultarPorCedula");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+
+
             return R;
+
+        }
+
+        public bool ConsultarPorCorreo(string pCorreo)
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", pCorreo));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPClientesConsultarPorCorreo");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+
+
+            return R;
+
         }
 
         public DataTable Listar()

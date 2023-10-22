@@ -33,7 +33,7 @@
             this.DgvListaProveedores = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtProveedorCorreoElectronico = new System.Windows.Forms.TextBox();
-            this.TxtProveedorContacto = new System.Windows.Forms.TextBox();
+            this.TxtProveedorCedula = new System.Windows.Forms.TextBox();
             this.TxtProveedorNombre = new System.Windows.Forms.TextBox();
             this.TxtProveedorTelefono = new System.Windows.Forms.TextBox();
             this.TxtProveedorCodigo = new System.Windows.Forms.TextBox();
@@ -49,7 +49,7 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProveedores)).BeginInit();
@@ -81,7 +81,7 @@
             this.DgvListaProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColProveedorID,
             this.ColNombre,
-            this.ColContacto,
+            this.ColCedula,
             this.ColTelefono,
             this.ColCorreo});
             this.DgvListaProveedores.Location = new System.Drawing.Point(12, 51);
@@ -97,7 +97,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TxtProveedorCorreoElectronico);
-            this.groupBox1.Controls.Add(this.TxtProveedorContacto);
+            this.groupBox1.Controls.Add(this.TxtProveedorCedula);
             this.groupBox1.Controls.Add(this.TxtProveedorNombre);
             this.groupBox1.Controls.Add(this.TxtProveedorTelefono);
             this.groupBox1.Controls.Add(this.TxtProveedorCodigo);
@@ -120,12 +120,12 @@
             this.TxtProveedorCorreoElectronico.Size = new System.Drawing.Size(152, 20);
             this.TxtProveedorCorreoElectronico.TabIndex = 20;
             // 
-            // TxtProveedorContacto
+            // TxtProveedorCedula
             // 
-            this.TxtProveedorContacto.Location = new System.Drawing.Point(148, 121);
-            this.TxtProveedorContacto.Name = "TxtProveedorContacto";
-            this.TxtProveedorContacto.Size = new System.Drawing.Size(153, 20);
-            this.TxtProveedorContacto.TabIndex = 19;
+            this.TxtProveedorCedula.Location = new System.Drawing.Point(148, 121);
+            this.TxtProveedorCedula.Name = "TxtProveedorCedula";
+            this.TxtProveedorCedula.Size = new System.Drawing.Size(153, 20);
+            this.TxtProveedorCedula.TabIndex = 19;
             // 
             // TxtProveedorNombre
             // 
@@ -169,11 +169,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(88, 129);
+            this.label4.Location = new System.Drawing.Point(94, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Contacto:";
+            this.label4.Text = "Cédula";
             // 
             // label3
             // 
@@ -204,6 +204,7 @@
             this.BtnAgregar.TabIndex = 5;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnModificar
             // 
@@ -268,12 +269,12 @@
             this.ColNombre.ReadOnly = true;
             this.ColNombre.Width = 79;
             // 
-            // ColContacto
+            // ColCedula
             // 
-            this.ColContacto.DataPropertyName = "Contacto";
-            this.ColContacto.HeaderText = "CONTACTO";
-            this.ColContacto.Name = "ColContacto";
-            this.ColContacto.ReadOnly = true;
+            this.ColCedula.DataPropertyName = "Cedula";
+            this.ColCedula.HeaderText = "CONTACTO";
+            this.ColCedula.Name = "ColCedula";
+            this.ColCedula.ReadOnly = true;
             // 
             // ColTelefono
             // 
@@ -308,6 +309,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmProveedorGestion";
             this.Text = "Mantenimientos de Proveedores";
+            this.Load += new System.EventHandler(this.FrmProveedorGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProveedores)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -333,13 +335,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtProveedorCorreoElectronico;
-        private System.Windows.Forms.TextBox TxtProveedorContacto;
+        private System.Windows.Forms.TextBox TxtProveedorCedula;
         private System.Windows.Forms.TextBox TxtProveedorNombre;
         private System.Windows.Forms.TextBox TxtProveedorTelefono;
         public System.Windows.Forms.TextBox TxtProveedorCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProveedorID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColContacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCorreo;
     }

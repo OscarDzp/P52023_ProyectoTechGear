@@ -45,13 +45,13 @@
             this.TxtSoporteCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaEmpleados = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColTecnicoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDisponibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -240,22 +240,6 @@
             this.DgvListaEmpleados.TabIndex = 16;
             this.DgvListaEmpleados.VirtualMode = true;
             // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(264, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(218, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Buscar";
-            // 
             // ColTecnicoID
             // 
             this.ColTecnicoID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -295,6 +279,22 @@
             this.ColDisponibilidad.Name = "ColDisponibilidad";
             this.ColDisponibilidad.ReadOnly = true;
             // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(264, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(218, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Buscar";
+            // 
             // FrmSoporteGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +313,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmSoporteGestion";
             this.Text = "Mantenimiento en Soporte Tecnico";
+            this.Load += new System.EventHandler(this.FrmSoporteGestion_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).EndInit();

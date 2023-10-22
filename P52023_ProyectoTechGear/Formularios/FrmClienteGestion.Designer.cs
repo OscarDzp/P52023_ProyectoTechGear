@@ -115,6 +115,7 @@
             this.BtnAgregar.TabIndex = 23;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // groupBox1
             // 
@@ -316,6 +317,7 @@
             this.Name = "FrmClienteGestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimento de Clientes";
+            this.Load += new System.EventHandler(this.FrmClienteGestion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaClientes)).EndInit();

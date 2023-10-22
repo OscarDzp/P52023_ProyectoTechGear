@@ -12,9 +12,108 @@ namespace P52023_ProyectoTechGear.Formularios
 {
     public partial class FrmProveedorGestion : Form
     {
+        private Logica.Models.Proveedores MiProveedorLocal { get; set; }
+
         public FrmProveedorGestion()
         {
             InitializeComponent();
+            MiProveedorLocal = new Logica.Models.Proveedores();
         }
+
+        private void FrmProveedorGestion_Load(object sender, EventArgs e)
+        {
+
+        }
+        private bool ValidarValorRequerido()
+        {
+            bool R = false;
+
+            if (!string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim())&&
+                !string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtProveedorTelefono.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtProveedorCorreoElectronico.Text.Trim()))
+            {
+                R = true;
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un nombre al proveedor");
+                    return false;
+                }
+                if (string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un cédula");
+                    return false;
+                }
+                if (string.IsNullOrEmpty(TxtProveedorTelefono.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un número telefónico");
+                    return false;
+                }
+                if (string.IsNullOrEmpty(TxtProveedorCorreoElectronico.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un correo electrónico");
+                    return false;
+                }
+            }
+
+            return R;
+
+        }
+
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            if (ValidarValorRequerido())
+            {
+
+                MiProveedorLocal = new Logica.Models.Proveedores();
+
+                MiProveedorLocal.Nombre = TxtProveedorNombre.Text.Trim();
+                MiProveedorLocal.Cedula = TxtProveedorCedula.Text.Trim();
+                MiProveedorLocal.Telefono = TxtProveedorTelefono.Text.Trim();
+                MiProveedorLocal.CorreoElectronico = TxtProveedorCorreoElectronico.Text.Trim();
+
+                bool CedulaValida = MiProveedorLocal.ConsultarPorCedula(MiProveedorLocal.Cedula);
+                bool CorreoValido = MiProveedorLocal.ConsultarPorCorreo(MiProveedorLocal.CorreoElectronico);
+
+                if (CedulaValida == false && CorreoValido ==  false)
+                {
+                    string Pregunta = string.Format("Esta seguro de agregar el proveedor {0}?", MiProveedorLocal.Nombre);
+
+                    DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
+
+                    if (respuesta == DialogResult.Yes)
+
+                    {
+                        bool ok = MiProveedorLocal.Agregar();
+
+                        if (ok)
+                        {
+                            MessageBox.Show("Proveedor agregadO correctamente", "Agregado", MessageBoxButtons.OK);
+                            LimpiarForm();
+ 
+                        }
+                        else
+                        {
+                            MessageBox.Show("El proveedor  no se ha añadido", "Cancelado", MessageBoxButtons.OK);
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+        private void LimpiarForm()
+        {
+            TxtProveedorNombre.Clear();
+            TxtProveedorCedula.Clear();
+            TxtProveedorTelefono.Clear();
+            TxtProveedorCorreoElectronico.Clear();
+        }
+
     }
 }

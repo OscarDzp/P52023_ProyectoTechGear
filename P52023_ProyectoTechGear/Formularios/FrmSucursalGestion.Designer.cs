@@ -109,6 +109,7 @@
             this.BtnAgregar.TabIndex = 27;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // groupBox1
             // 
@@ -256,6 +257,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmSucursalGestion";
             this.Text = "Mantenimiento de la Sucursal";
+            this.Load += new System.EventHandler(this.FrmSucursalGestion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).EndInit();

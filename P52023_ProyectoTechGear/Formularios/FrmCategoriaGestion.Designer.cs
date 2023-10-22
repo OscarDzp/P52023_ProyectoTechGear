@@ -204,6 +204,7 @@
             this.BtnAgregar.TabIndex = 14;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // FrmCategoriaGestion
             // 
@@ -224,6 +225,7 @@
             this.Name = "FrmCategoriaGestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Categoria";
+            this.Load += new System.EventHandler(this.FrmCategoriaGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCategorias)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

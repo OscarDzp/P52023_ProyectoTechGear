@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,10 +36,23 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorID()
+        public bool ConsultarPorID(int pID )
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pID));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPDetalleVentasConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+
+
             return R;
+
         }
     }
 }
