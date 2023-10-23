@@ -42,7 +42,6 @@ namespace Logica.Models
 
             if (resultado > 0) R = true;
 
-
             return R;
 
         }
