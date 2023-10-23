@@ -12,7 +12,8 @@ namespace Logica.Models
     {
         public Productos()
         {
-            MiProducto = new Productos();
+            MiProducto = null;
+
         }
         public int ProductoID { get; set; }
         public string Nombre { get; set; } 

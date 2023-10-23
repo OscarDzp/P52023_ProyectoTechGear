@@ -11,7 +11,7 @@ namespace Logica.Models
     {
         public Garantias()
         {
-            MiGarantia = new Garantias();
+            MiGarantia = null;
         }
         public int GarantiaID { get; set; }
         public string Tiempogarantia { get; set; } // Es una fecha

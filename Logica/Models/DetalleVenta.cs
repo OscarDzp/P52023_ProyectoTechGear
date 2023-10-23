@@ -18,12 +18,26 @@ namespace Logica.Models
         public string Subtotal { get; set; }
         public string PrecioUnitario { get; set; }
         public string Cantidad { get; set; }
-        public int PrdoductoID { get; set; }
+        public Productos MiProducto { get; set; }
         public DetalleVenta MiDetalleVenta { get; set; }
 
         public bool Agregar()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@DetalleVentaID", this.DetalleVentaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Subtotal", this.Subtotal));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@PrecioUnitario", this.PrecioUnitario));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cantidad", this.Cantidad));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiProducto.ProductoID));
+           
+
+            int resultado = MiCnn.EjecutarDML("SPFacturasAgregar");
+
+            if (resultado > 0) R = true;
+
             return R;
         }
         public bool Eliminar()
@@ -53,6 +67,19 @@ namespace Logica.Models
 
             return R;
 
+        }
+        public DataTable Listar()
+        {
+            DataTable R = new DataTable();
+
+
+
+            Conexion MiCnn = new Conexion();
+
+
+            R = MiCnn.EjecutarSelect("SPDetalleVentaListar");
+
+            return R;
         }
     }
 }

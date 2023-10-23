@@ -12,7 +12,7 @@ namespace Logica.Models
     {
         public Sucursales()
         {
-            MiSucursal = new Sucursales();
+            MiSucursal = null;
         }
         public int SucursalID { get; set; }
         public string Nombre { get; set; }

@@ -12,7 +12,7 @@ namespace Logica.Models
     {
         public Proveedores ()
         {
-            MiProveedor = new Proveedores();
+            MiProveedor = null;
         }
         public int ProveedorID { get; set; }
         public string Nombre { get; set; }

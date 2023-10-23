@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Logica.Models
 {
@@ -18,14 +19,31 @@ namespace Logica.Models
         public string Detalledeventa { get; set; }
         public string Impuestos { get; set; }
         public string FechaFactura { get; set; } // fecha
-        public int SucursalID { get; set; }
-        public int EmpleadoID { get; set; }
-        public int ClienteID { get; set; }
+        public Sucursales MiSucursal { get; set; }
+        public Empleados MiEmpleado { get; set; }
+        public Clientes MiCliente { get; set; }
+
         public Facturas MiFactura { get; set; }
 
         public bool Agregar()
         {
             bool R = false;
+
+             Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FacturaID", this.FacturaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@TotalFactura", this.TotalFactura));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Detalledeventa", this.Detalledeventa));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Impuestos", this.Impuestos));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaFactura", this.FechaFactura));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@SucursalID", this.MiSucursal.SucursalID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoID", this.MiEmpleado.EmpleadoID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ClienteID", this.MiCliente.ClienteID));
+
+            int resultado = MiCnn.EjecutarDML("SPFacturasAgregar");
+
+            if (resultado > 0) R = true;
+
             return R;
         }
         public bool Eliminar()
@@ -47,6 +65,14 @@ namespace Logica.Models
         public DataTable Listar()
         {
             DataTable R = new DataTable();
+
+
+
+            Conexion MiCnn = new Conexion();
+            
+
+            R = MiCnn.EjecutarSelect("SPFacturasListar");
+
             return R;
         }
     }
