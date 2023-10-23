@@ -44,7 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtSoporteCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.DgvListaEmpleados = new System.Windows.Forms.DataGridView();
+            this.DgvListaSoporteTecnico = new System.Windows.Forms.DataGridView();
             this.ColTecnicoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaSoporteTecnico)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnLimpiar
@@ -218,27 +218,27 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código de Tecnico:";
             // 
-            // DgvListaEmpleados
+            // DgvListaSoporteTecnico
             // 
-            this.DgvListaEmpleados.AllowUserToAddRows = false;
-            this.DgvListaEmpleados.AllowUserToDeleteRows = false;
-            this.DgvListaEmpleados.AllowUserToOrderColumns = true;
-            this.DgvListaEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvListaEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvListaSoporteTecnico.AllowUserToAddRows = false;
+            this.DgvListaSoporteTecnico.AllowUserToDeleteRows = false;
+            this.DgvListaSoporteTecnico.AllowUserToOrderColumns = true;
+            this.DgvListaSoporteTecnico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaSoporteTecnico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColTecnicoID,
             this.ColNombre,
             this.ColCorreo,
             this.ColEspecialidad,
             this.ColDisponibilidad});
-            this.DgvListaEmpleados.Location = new System.Drawing.Point(13, 41);
-            this.DgvListaEmpleados.MultiSelect = false;
-            this.DgvListaEmpleados.Name = "DgvListaEmpleados";
-            this.DgvListaEmpleados.ReadOnly = true;
-            this.DgvListaEmpleados.RowHeadersVisible = false;
-            this.DgvListaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListaEmpleados.Size = new System.Drawing.Size(767, 229);
-            this.DgvListaEmpleados.TabIndex = 16;
-            this.DgvListaEmpleados.VirtualMode = true;
+            this.DgvListaSoporteTecnico.Location = new System.Drawing.Point(13, 41);
+            this.DgvListaSoporteTecnico.MultiSelect = false;
+            this.DgvListaSoporteTecnico.Name = "DgvListaSoporteTecnico";
+            this.DgvListaSoporteTecnico.ReadOnly = true;
+            this.DgvListaSoporteTecnico.RowHeadersVisible = false;
+            this.DgvListaSoporteTecnico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvListaSoporteTecnico.Size = new System.Drawing.Size(767, 229);
+            this.DgvListaSoporteTecnico.TabIndex = 16;
+            this.DgvListaSoporteTecnico.VirtualMode = true;
             // 
             // ColTecnicoID
             // 
@@ -306,7 +306,7 @@
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.DgvListaEmpleados);
+            this.Controls.Add(this.DgvListaSoporteTecnico);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -316,7 +316,7 @@
             this.Load += new System.EventHandler(this.FrmSoporteGestion_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaSoporteTecnico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +340,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtSoporteCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView DgvListaEmpleados;
+        private System.Windows.Forms.DataGridView DgvListaSoporteTecnico;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTecnicoID;

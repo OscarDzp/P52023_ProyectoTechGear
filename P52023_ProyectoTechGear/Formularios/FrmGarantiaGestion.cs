@@ -31,5 +31,21 @@ namespace P52023_ProyectoTechGear.Formularios
         {
 
         }
+
+        private void FrmGarantiaGestion_Load(object sender, EventArgs e)
+        {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaGarantia();
+        }
+
+        private void CargarListaGarantia() {
+
+            Logica.Models.Garantias MiGarantia = new Logica.Models.Garantias();
+            DataTable lista = new DataTable();
+            lista = MiGarantia.Listar();
+            DgvListaGarantias.DataSource = lista;
+
+
+        }
     }
 }

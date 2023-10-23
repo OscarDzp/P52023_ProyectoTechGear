@@ -29,7 +29,15 @@
         private void InitializeComponent()
         {
             this.DgvListaGarantias = new System.Windows.Forms.DataGridView();
+            this.ColGarantiaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTiempogarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFechainicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFechafinalizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtProductoCodigo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtUsuarioDireccion = new System.Windows.Forms.TextBox();
             this.DtpFechaFinalizacion = new System.Windows.Forms.DateTimePicker();
@@ -40,16 +48,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtGarantiaCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.TxtProductoCodigo = new System.Windows.Forms.TextBox();
-            this.ColGarantiaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTiempogarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFechainicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFechafinalizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -82,6 +82,57 @@
             this.DgvListaGarantias.TabIndex = 0;
             this.DgvListaGarantias.VirtualMode = true;
             // 
+            // ColGarantiaID
+            // 
+            this.ColGarantiaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColGarantiaID.DataPropertyName = "GarantiaID";
+            this.ColGarantiaID.HeaderText = "CÓDIGO";
+            this.ColGarantiaID.Name = "ColGarantiaID";
+            this.ColGarantiaID.ReadOnly = true;
+            this.ColGarantiaID.Width = 60;
+            // 
+            // ColTiempogarantia
+            // 
+            this.ColTiempogarantia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColTiempogarantia.DataPropertyName = "Tiempogarantia";
+            this.ColTiempogarantia.HeaderText = "PERÍODO DE TIEMPO";
+            this.ColTiempogarantia.Name = "ColTiempogarantia";
+            this.ColTiempogarantia.ReadOnly = true;
+            this.ColTiempogarantia.Width = 150;
+            // 
+            // ColFechainicio
+            // 
+            this.ColFechainicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColFechainicio.DataPropertyName = "Fechainicio";
+            this.ColFechainicio.HeaderText = "FECHA DE INICIO";
+            this.ColFechainicio.Name = "ColFechainicio";
+            this.ColFechainicio.ReadOnly = true;
+            this.ColFechainicio.Width = 170;
+            // 
+            // ColFechafinalizacion
+            // 
+            this.ColFechafinalizacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColFechafinalizacion.DataPropertyName = "Fechafinalizacion";
+            this.ColFechafinalizacion.HeaderText = "FECHA DE FINALIZACIÓN";
+            this.ColFechafinalizacion.Name = "ColFechafinalizacion";
+            this.ColFechafinalizacion.ReadOnly = true;
+            this.ColFechafinalizacion.Width = 170;
+            // 
+            // ColDetalle
+            // 
+            this.ColDetalle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDetalle.DataPropertyName = "Detalle";
+            this.ColDetalle.HeaderText = "DESCRIPCION";
+            this.ColDetalle.Name = "ColDetalle";
+            this.ColDetalle.ReadOnly = true;
+            // 
+            // ColProductoID
+            // 
+            this.ColProductoID.DataPropertyName = "ProductoID";
+            this.ColProductoID.HeaderText = "CÓDIGO PRODUCTO";
+            this.ColProductoID.Name = "ColProductoID";
+            this.ColProductoID.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TxtProductoCodigo);
@@ -103,6 +154,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Detalle de la Garantía";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // TxtProductoCodigo
+            // 
+            this.TxtProductoCodigo.Location = new System.Drawing.Point(593, 20);
+            this.TxtProductoCodigo.Name = "TxtProductoCodigo";
+            this.TxtProductoCodigo.Size = new System.Drawing.Size(351, 20);
+            this.TxtProductoCodigo.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(486, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Código de Producto";
             // 
             // label5
             // 
@@ -188,15 +255,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código de Garantía";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Código de Producto";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -212,64 +270,6 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(223, 20);
             this.TxtBuscar.TabIndex = 3;
-            // 
-            // TxtProductoCodigo
-            // 
-            this.TxtProductoCodigo.Location = new System.Drawing.Point(593, 20);
-            this.TxtProductoCodigo.Name = "TxtProductoCodigo";
-            this.TxtProductoCodigo.Size = new System.Drawing.Size(351, 20);
-            this.TxtProductoCodigo.TabIndex = 18;
-            // 
-            // ColGarantiaID
-            // 
-            this.ColGarantiaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColGarantiaID.DataPropertyName = "GarantiaID";
-            this.ColGarantiaID.HeaderText = "CÓDIGO";
-            this.ColGarantiaID.Name = "ColGarantiaID";
-            this.ColGarantiaID.ReadOnly = true;
-            this.ColGarantiaID.Width = 60;
-            // 
-            // ColTiempogarantia
-            // 
-            this.ColTiempogarantia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColTiempogarantia.DataPropertyName = "Tiempogarantia";
-            this.ColTiempogarantia.HeaderText = "PERÍODO DE TIEMPO";
-            this.ColTiempogarantia.Name = "ColTiempogarantia";
-            this.ColTiempogarantia.ReadOnly = true;
-            this.ColTiempogarantia.Width = 150;
-            // 
-            // ColFechainicio
-            // 
-            this.ColFechainicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColFechainicio.DataPropertyName = "Fechainicio";
-            this.ColFechainicio.HeaderText = "FECHA DE INICIO";
-            this.ColFechainicio.Name = "ColFechainicio";
-            this.ColFechainicio.ReadOnly = true;
-            this.ColFechainicio.Width = 170;
-            // 
-            // ColFechafinalizacion
-            // 
-            this.ColFechafinalizacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColFechafinalizacion.DataPropertyName = "Fechafinalizacion";
-            this.ColFechafinalizacion.HeaderText = "FECHA DE FINALIZACIÓN";
-            this.ColFechafinalizacion.Name = "ColFechafinalizacion";
-            this.ColFechafinalizacion.ReadOnly = true;
-            this.ColFechafinalizacion.Width = 170;
-            // 
-            // ColDetalle
-            // 
-            this.ColDetalle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDetalle.DataPropertyName = "Detalle";
-            this.ColDetalle.HeaderText = "DESCRIPCION";
-            this.ColDetalle.Name = "ColDetalle";
-            this.ColDetalle.ReadOnly = true;
-            // 
-            // ColProductoID
-            // 
-            this.ColProductoID.DataPropertyName = "ProductoID";
-            this.ColProductoID.HeaderText = "CÓDIGO PRODUCTO";
-            this.ColProductoID.Name = "ColProductoID";
-            this.ColProductoID.ReadOnly = true;
             // 
             // BtnAgregar
             // 
@@ -349,6 +349,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmGarantiaGestion";
             this.Text = "Mantenimiento de Garantía";
+            this.Load += new System.EventHandler(this.FrmGarantiaGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaGarantias)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

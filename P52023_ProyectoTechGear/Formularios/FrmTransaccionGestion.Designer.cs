@@ -44,7 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtTransaccionCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.DgvListaEmpleados = new System.Windows.Forms.DataGridView();
+            this.DgvListaTransaccion = new System.Windows.Forms.DataGridView();
             this.ColTransaccionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaTransaccion)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnLimpiar
@@ -218,27 +218,27 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código de Transaccion:";
             // 
-            // DgvListaEmpleados
+            // DgvListaTransaccion
             // 
-            this.DgvListaEmpleados.AllowUserToAddRows = false;
-            this.DgvListaEmpleados.AllowUserToDeleteRows = false;
-            this.DgvListaEmpleados.AllowUserToOrderColumns = true;
-            this.DgvListaEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvListaEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvListaTransaccion.AllowUserToAddRows = false;
+            this.DgvListaTransaccion.AllowUserToDeleteRows = false;
+            this.DgvListaTransaccion.AllowUserToOrderColumns = true;
+            this.DgvListaTransaccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaTransaccion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColTransaccionID,
             this.ColFecha,
             this.ColCantidad,
             this.ColTipo,
             this.ColFactura});
-            this.DgvListaEmpleados.Location = new System.Drawing.Point(13, 41);
-            this.DgvListaEmpleados.MultiSelect = false;
-            this.DgvListaEmpleados.Name = "DgvListaEmpleados";
-            this.DgvListaEmpleados.ReadOnly = true;
-            this.DgvListaEmpleados.RowHeadersVisible = false;
-            this.DgvListaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListaEmpleados.Size = new System.Drawing.Size(767, 229);
-            this.DgvListaEmpleados.TabIndex = 25;
-            this.DgvListaEmpleados.VirtualMode = true;
+            this.DgvListaTransaccion.Location = new System.Drawing.Point(13, 41);
+            this.DgvListaTransaccion.MultiSelect = false;
+            this.DgvListaTransaccion.Name = "DgvListaTransaccion";
+            this.DgvListaTransaccion.ReadOnly = true;
+            this.DgvListaTransaccion.RowHeadersVisible = false;
+            this.DgvListaTransaccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvListaTransaccion.Size = new System.Drawing.Size(767, 229);
+            this.DgvListaTransaccion.TabIndex = 25;
+            this.DgvListaTransaccion.VirtualMode = true;
             // 
             // ColTransaccionID
             // 
@@ -305,14 +305,15 @@
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.DgvListaEmpleados);
+            this.Controls.Add(this.DgvListaTransaccion);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.Name = "FrmTransaccionGestion";
             this.Text = "Mantenimiento Transaccion";
+            this.Load += new System.EventHandler(this.FrmTransaccionGestion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaTransaccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +336,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtTransaccionCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView DgvListaEmpleados;
+        private System.Windows.Forms.DataGridView DgvListaTransaccion;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker DtTransaccionCodigo;

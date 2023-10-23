@@ -25,8 +25,18 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmCategoriaGestion_Load(object sender, EventArgs e)
         {
-
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaCategorias();
         }
+
+        private void CargarListaCategorias()
+        {
+            Logica.Models.Categorias MiCategoria = new Logica.Models.Categorias();
+            DataTable lista = new DataTable();
+            lista = MiCategoria.Listar();
+            DgvListaCategorias.DataSource = lista;
+        }
+
 
         private bool ValidarValorRequerido()
         {

@@ -12,7 +12,7 @@ namespace Logica.Models
     {
         public DetalleVenta()
         {
-            MiDetalleVenta = new DetalleVenta();
+            MiProducto = new Productos();
         }
         public int DetalleVentaID { get; set; }
         public string Subtotal { get; set; }
@@ -72,13 +72,9 @@ namespace Logica.Models
         {
             DataTable R = new DataTable();
 
-
-
             Conexion MiCnn = new Conexion();
 
-
             R = MiCnn.EjecutarSelect("SPDetalleVentaListar");
-
             return R;
         }
     }

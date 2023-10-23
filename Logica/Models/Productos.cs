@@ -12,8 +12,8 @@ namespace Logica.Models
     {
         public Productos()
         {
-            MiProducto = null;
-
+            MiModeloID = new Modelos();
+            MiMarcaID = new Marcas();
         }
         public int ProductoID { get; set; }
         public string Nombre { get; set; } 
@@ -23,7 +23,7 @@ namespace Logica.Models
         public string Precio { get; set; }//Decimal
         public Modelos MiModeloID { get; set; }
         public Marcas MiMarcaID { get; set; }
-        public Productos MiProducto { get; set; }
+    
 
         public bool Agregar()
         {

@@ -13,6 +13,8 @@ namespace Logica.Models
         public int CategoriaID { get; set; }
         public string Nombre { get; set; }
 
+     
+
         //Listar para Categorias
         public bool Agregar()
         {

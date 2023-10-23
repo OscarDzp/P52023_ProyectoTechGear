@@ -122,6 +122,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmSoporteGestion_Load_1(object sender, EventArgs e)
         {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaSoporteTecnico();
+        }
+
+        private void CargarListaSoporteTecnico() 
+        {
+            Logica.Models.SoporteTecnico MiSoporteTecnico = new Logica.Models.SoporteTecnico();
+            DataTable lista = new DataTable();
+            lista = MiSoporteTecnico.Listar();
+            DgvListaSoporteTecnico.DataSource = lista;
 
         }
     }

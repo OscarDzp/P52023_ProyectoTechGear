@@ -26,5 +26,21 @@ namespace P52023_ProyectoTechGear.Formularios
         {
 
         }
+
+        private void FrmFacturas_Load(object sender, EventArgs e)
+        {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaFacturas();
+        }
+
+        private void CargarListaFacturas() 
+        {
+            Logica.Models.Facturas MiFacturas = new Logica.Models.Facturas();
+            DataTable lista = new DataTable();
+            lista = MiFacturas.Listar();
+            DgvListaFactura.DataSource = lista;
+
+
+        }
     }
 }

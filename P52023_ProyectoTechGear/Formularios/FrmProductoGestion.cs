@@ -22,11 +22,19 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmProductoGestion_Load(object sender, EventArgs e)
         {
-
-            CargarListaMarcas();
-            CargarListaCategorias();
-            CargarListaModelos();
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaProducto();
         }
+
+        private void CargarListaProducto() 
+        {
+            Logica.Models.Productos MiProducto = new Logica.Models.Productos();
+            DataTable lista = new DataTable();
+            lista = MiProducto.Listar();
+            DgvListaModelos.DataSource = lista;
+
+        }
+
 
         private void CargarListaMarcas()
         {

@@ -21,6 +21,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmEmpleadoRol_Load(object sender, EventArgs e)
         {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaEmpleadoRol();
+        }
+
+        private void CargarListaEmpleadoRol() 
+        {
+            Logica.Models.EmpleadoRol MiEmpleadoRol = new Logica.Models.EmpleadoRol();
+            DataTable lista = new DataTable();
+            lista = MiEmpleadoRol.Listar();
+            DgvListaEmpleadoRol.DataSource = lista;
 
         }
 

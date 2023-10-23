@@ -12,7 +12,11 @@ namespace Logica.Models
     {
         public Facturas()
         {
-            MiFactura = new Facturas();
+            MiSucursal = new Sucursales();
+
+            MiEmpleado = new Empleados();
+
+            MiCliente = new Clientes();
         }
         public int FacturaID { get; set; }
         public string TotalFactura { get; set; }
@@ -23,7 +27,7 @@ namespace Logica.Models
         public Empleados MiEmpleado { get; set; }
         public Clientes MiCliente { get; set; }
 
-        public Facturas MiFactura { get; set; }
+
 
         public bool Agregar()
         {

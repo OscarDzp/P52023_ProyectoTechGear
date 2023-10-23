@@ -28,7 +28,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmSucursalGestion_Load(object sender, EventArgs e)
         {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaSucursal();
+        }
 
+        private void CargarListaSucursal() 
+        {
+            Logica.Models.Sucursales MiSucursal = new Logica.Models.Sucursales();
+            DataTable lista = new DataTable();
+            lista = MiSucursal.Listar();
+            DgvListaSucursal.DataSource = lista;
         }
 
         private bool ValidarValorRequerido()

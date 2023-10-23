@@ -315,6 +315,7 @@
             this.Name = "FrmDetalleVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Detalle de ventas";
+            this.Load += new System.EventHandler(this.FrmDetalleVenta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaDetalleVenta)).EndInit();

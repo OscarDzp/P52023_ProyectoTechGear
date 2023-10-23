@@ -10,14 +10,11 @@ namespace Logica.Models
 {
     public class Sucursales
     {
-        public Sucursales()
-        {
-            MiSucursal = null;
-        }
+   
         public int SucursalID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public Sucursales MiSucursal { get; set; }
+
 
         public bool Agregar()
         {
@@ -86,6 +83,11 @@ namespace Logica.Models
         public DataTable Listar()
         {
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SPSucursalListar");
+
             return R;
         }
     }

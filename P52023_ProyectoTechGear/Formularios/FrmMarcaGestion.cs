@@ -22,6 +22,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmMarcaGestion_Load(object sender, EventArgs e)
         {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaMarcas();
+        }
+
+        private void CargarListaMarcas()
+        {
+            Logica.Models.Marcas MiMarcas = new Logica.Models.Marcas();
+            DataTable lista = new DataTable();
+            lista = MiMarcas.Listar();
+            DgvListaMarcas.DataSource = lista;
 
         }
         private bool ValidarValorRequerido()

@@ -22,6 +22,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmProveedorGestion_Load(object sender, EventArgs e)
         {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaProveedor();
+        }
+
+        private void CargarListaProveedor() 
+        {
+            Logica.Models.Proveedores MiProveedor = new Logica.Models.Proveedores();
+            DataTable lista = new DataTable();
+            lista = MiProveedor.Listar();
+            DgvListaProveedores.DataSource = lista;
 
         }
         private bool ValidarValorRequerido()

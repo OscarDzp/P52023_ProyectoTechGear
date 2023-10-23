@@ -45,13 +45,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaClientes = new System.Windows.Forms.DataGridView();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ColClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaClientes)).BeginInit();
             this.SuspendLayout();
@@ -230,7 +231,8 @@
             this.ColNombre,
             this.ColCorreoElectronico,
             this.ColDireccion,
-            this.ColTelefono});
+            this.ColTelefono,
+            this.ColCedula});
             this.DgvListaClientes.Location = new System.Drawing.Point(12, 67);
             this.DgvListaClientes.MultiSelect = false;
             this.DgvListaClientes.Name = "DgvListaClientes";
@@ -240,6 +242,22 @@
             this.DgvListaClientes.Size = new System.Drawing.Size(822, 165);
             this.DgvListaClientes.TabIndex = 21;
             this.DgvListaClientes.VirtualMode = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(184, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // ColClienteID
             // 
@@ -282,21 +300,12 @@
             this.ColTelefono.Name = "ColTelefono";
             this.ColTelefono.ReadOnly = true;
             // 
-            // TxtBuscar
+            // ColCedula
             // 
-            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
+            this.ColCedula.DataPropertyName = "Cedula";
+            this.ColCedula.HeaderText = "Cedula";
+            this.ColCedula.Name = "ColCedula";
+            this.ColCedula.ReadOnly = true;
             // 
             // FrmClienteGestion
             // 
@@ -352,5 +361,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCorreoElectronico;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
     }
 }

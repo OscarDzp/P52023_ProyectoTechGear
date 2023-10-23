@@ -9,16 +9,13 @@ namespace Logica.Models
 {
     public class Transacciones
     {
-        public Transacciones()
-        {
-            MiTransaccion = new Transacciones();
-        }
+      
         public int TransaccionID { get; set; }
         public string FechaTransaccion { get; set; } // pensable
         public string Cantidad { get; set; }
         public string TipoTransaccion { get; set; }
         public int FacturaID { get; set; }
-        public Transacciones MiTransaccion { get; set; }
+   
 
         public bool Agregar()
         {
@@ -50,6 +47,11 @@ namespace Logica.Models
         public DataTable Listar()
         {
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SPTransaccionesListar");
+
             return R;
         }
     }

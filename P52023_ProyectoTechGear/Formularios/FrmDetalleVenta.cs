@@ -16,5 +16,20 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmDetalleVenta_Load(object sender, EventArgs e)
+        {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaDetalleVenta();
+        }
+        private void CargarListaDetalleVenta() {
+            Logica.Models.DetalleVenta MiDetalleVenta = new Logica.Models.DetalleVenta();
+            DataTable lista = new DataTable();
+            lista = MiDetalleVenta.Listar();
+            DgvListaDetalleVenta.DataSource = lista;
+
+        }
+
+
     }
 }

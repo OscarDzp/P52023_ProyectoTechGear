@@ -40,14 +40,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtSucursalCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.DgvListaEmpleados = new System.Windows.Forms.DataGridView();
+            this.DgvListaSucursal = new System.Windows.Forms.DataGridView();
             this.ColSucursalID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaSucursal)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnLimpiar
@@ -178,25 +178,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código Sucursal:";
             // 
-            // DgvListaEmpleados
+            // DgvListaSucursal
             // 
-            this.DgvListaEmpleados.AllowUserToAddRows = false;
-            this.DgvListaEmpleados.AllowUserToDeleteRows = false;
-            this.DgvListaEmpleados.AllowUserToOrderColumns = true;
-            this.DgvListaEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvListaEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvListaSucursal.AllowUserToAddRows = false;
+            this.DgvListaSucursal.AllowUserToDeleteRows = false;
+            this.DgvListaSucursal.AllowUserToOrderColumns = true;
+            this.DgvListaSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaSucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColSucursalID,
             this.ColNombre,
             this.ColDescripcion});
-            this.DgvListaEmpleados.Location = new System.Drawing.Point(13, 41);
-            this.DgvListaEmpleados.MultiSelect = false;
-            this.DgvListaEmpleados.Name = "DgvListaEmpleados";
-            this.DgvListaEmpleados.ReadOnly = true;
-            this.DgvListaEmpleados.RowHeadersVisible = false;
-            this.DgvListaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListaEmpleados.Size = new System.Drawing.Size(767, 229);
-            this.DgvListaEmpleados.TabIndex = 25;
-            this.DgvListaEmpleados.VirtualMode = true;
+            this.DgvListaSucursal.Location = new System.Drawing.Point(13, 41);
+            this.DgvListaSucursal.MultiSelect = false;
+            this.DgvListaSucursal.Name = "DgvListaSucursal";
+            this.DgvListaSucursal.ReadOnly = true;
+            this.DgvListaSucursal.RowHeadersVisible = false;
+            this.DgvListaSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvListaSucursal.Size = new System.Drawing.Size(767, 229);
+            this.DgvListaSucursal.TabIndex = 25;
+            this.DgvListaSucursal.VirtualMode = true;
             // 
             // ColSucursalID
             // 
@@ -250,7 +250,7 @@
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.DgvListaEmpleados);
+            this.Controls.Add(this.DgvListaSucursal);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -260,7 +260,7 @@
             this.Load += new System.EventHandler(this.FrmSucursalGestion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaSucursal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +279,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtSucursalCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView DgvListaEmpleados;
+        private System.Windows.Forms.DataGridView DgvListaSucursal;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtSucursalDescripcion;

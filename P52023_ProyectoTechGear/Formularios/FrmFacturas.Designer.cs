@@ -408,6 +408,7 @@
             this.Name = "FrmFacturas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Facturas";
+            this.Load += new System.EventHandler(this.FrmFacturas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaFactura)).EndInit();

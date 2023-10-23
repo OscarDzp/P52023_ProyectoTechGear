@@ -10,16 +10,12 @@ namespace Logica.Models
 {
     public class Proveedores
     {
-        public Proveedores ()
-        {
-            MiProveedor = null;
-        }
         public int ProveedorID { get; set; }
         public string Nombre { get; set; }
         public string Cedula { get; set; }
         public string Telefono { get; set; }
         public string CorreoElectronico { get; set; }
-        public Proveedores MiProveedor { get; set; }
+ 
 
         public bool Agregar()
         {
@@ -94,6 +90,11 @@ namespace Logica.Models
         public DataTable Listar()
         {
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SPProveedoresListar");
+
             return R;
         }
     }

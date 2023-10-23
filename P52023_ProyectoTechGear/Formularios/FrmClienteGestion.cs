@@ -24,6 +24,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmClienteGestion_Load(object sender, EventArgs e)
         {
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaClientes();
+        }
+
+        private void CargarListaClientes() 
+        {
+            Logica.Models.Clientes MiCliente = new Logica.Models.Clientes();
+            DataTable lista = new DataTable();
+            lista = MiCliente.Listar();
+            DgvListaClientes.DataSource = lista;
 
         }
 

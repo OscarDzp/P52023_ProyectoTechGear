@@ -26,7 +26,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void FrmModeloGestion_Load(object sender, EventArgs e)
         {
-            CargarListaMarcas();
+            MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
+            CargarListaModelos();
+        }
+        private void CargarListaModelos() 
+        {
+            Logica.Models.Modelos MiModelo = new Logica.Models.Modelos();
+            DataTable lista = new DataTable();
+            lista = MiModelo.Listar();
+            DgvListaModelos.DataSource = lista;
+
         }
 
         private void CargarListaMarcas()

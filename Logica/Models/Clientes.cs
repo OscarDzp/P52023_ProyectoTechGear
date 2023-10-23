@@ -10,10 +10,7 @@ namespace Logica.Models
 {
     public class Clientes
     {
-        public Clientes ()
-        {
-            
-        }
+       
         public int ClienteID { get; set; }
         public string Nombre { get; set; }
         public string CorreoElectronico { get; set; }
@@ -92,6 +89,11 @@ namespace Logica.Models
         public DataTable Listar()
         {
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SPClientesListar");
+
             return R;
         }
     }
