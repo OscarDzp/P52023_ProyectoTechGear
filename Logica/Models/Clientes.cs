@@ -16,11 +16,10 @@ namespace Logica.Models
         }
         public int ClienteID { get; set; }
         public string Nombre { get; set; }
-        public string Cedula { get; set; }
         public string CorreoElectronico { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
-       
+        public int Cedula { get; set; }
 
         public bool Agregar()
         {
@@ -32,6 +31,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.CorreoElectronico));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.Direccion));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
 
             int resultado = MiCnn.EjecutarDML("SPClientesAgregar");
 
@@ -51,7 +51,7 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorCedula(string pCedula)
+        public bool ConsultarPorCedula(int pCedula)
         {
             bool R = false;
 

@@ -76,7 +76,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiProveedorLocal.Telefono = TxtProveedorTelefono.Text.Trim();
                 MiProveedorLocal.CorreoElectronico = TxtProveedorCorreoElectronico.Text.Trim();
 
-                bool CedulaValida = MiProveedorLocal.ConsultarPorCedula(MiProveedorLocal.Cedula);
+                bool CedulaValida = MiProveedorLocal.ConsultarPorNombre(MiProveedorLocal.Cedula);
                 bool CorreoValido = MiProveedorLocal.ConsultarPorCorreo(MiProveedorLocal.CorreoElectronico);
 
                 if (CedulaValida == false && CorreoValido ==  false)

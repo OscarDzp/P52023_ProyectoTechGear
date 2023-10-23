@@ -40,7 +40,7 @@ namespace Logica.Models
             //Disponibilidad
             //Garantias
 
-            int resultado = MiCnn.EjecutarDML("SPSoporteAgregar");
+            int resultado = MiCnn.EjecutarDML("SPSoporteTecnicoAgregar");
 
             if (resultado > 0) R = true;
 
@@ -68,7 +68,7 @@ namespace Logica.Models
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPSoporteConsultarPorID");
+            dt = MiCnn.EjecutarSelect("SPSoporteTecnicoConsultarPorID");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
@@ -86,7 +86,7 @@ namespace Logica.Models
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPSoporteConsultarPorCorreo");
+            dt = MiCnn.EjecutarSelect("SPSoporteTecnicoConsultarPorCorreo");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
@@ -99,7 +99,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            R = MiCnn.EjecutarSelect("SPSoporteListar");
+            R = MiCnn.EjecutarSelect("SPSoportetecnicoListar");
 
             return R;
         }
