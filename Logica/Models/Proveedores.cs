@@ -53,17 +53,17 @@ namespace Logica.Models
             return R;
 
         }
-        public bool ConsultarPorCedula(string pCedula)
+        public bool ConsultarPorNombre(string pNombre)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", pCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", pNombre));
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPProveedoresConsultarPorCedula");
+            dt = MiCnn.EjecutarSelect("SPProveedoresConsultarPorNombre");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
