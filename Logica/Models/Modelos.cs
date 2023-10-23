@@ -12,7 +12,7 @@ namespace Logica.Models
     {
         public Modelos()
         {
-            
+       
         }
         public int ModeloID { get; set; }
         public string AnioLanzamiento { get; set; }
@@ -26,6 +26,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@AnioLanzamiento", this.AnioLanzamiento));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@MarcaID", this.MiMarcaID.MarcaID));
             //TODO FECHA CALENDARIO EN VEZ DE CBOX
