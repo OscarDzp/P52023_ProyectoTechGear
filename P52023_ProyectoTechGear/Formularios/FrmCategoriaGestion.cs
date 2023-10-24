@@ -78,38 +78,31 @@ namespace P52023_ProyectoTechGear.Formularios
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
-                    if (respuesta == DialogResult.Yes)
 
+                    if (respuesta == DialogResult.Yes)
                     {
                         bool ok = MiCategoriaLocal.Agregar();
-
                         if (ok)
                         {
-                            MessageBox.Show("Categoría agregada correctamente", "Agregado", MessageBoxButtons.OK);
-                            Limpiarform();
-                            //CargarListaCategorias();
+                            MessageBox.Show("La categoria ingresado correctamente!!", ":)", MessageBoxButtons.OK);
+
                         }
                         else
                         {
-                            MessageBox.Show("La categoría no se ha añadido", "Cancelado", MessageBoxButtons.OK);
+                            MessageBox.Show("La categoria no se pudo agregar", ":(", MessageBoxButtons.OK);
                         }
+
+                        Limpiarform();
+                        CargarListaCategorias();
+
                     }
                 }
             }
         }
 
-
         private void Limpiarform()
         {
             TxtCategoriaNombre.Clear();
         }
-
-
-
-
-
-
-
-
     }
 }

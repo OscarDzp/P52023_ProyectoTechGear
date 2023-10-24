@@ -19,7 +19,6 @@ namespace Logica.Models
         public string PrecioUnitario { get; set; }
         public string Cantidad { get; set; }
         public Productos MiProducto { get; set; }
-        public DetalleVenta MiDetalleVenta { get; set; }
 
         public bool Agregar()
         {

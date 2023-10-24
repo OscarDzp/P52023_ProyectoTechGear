@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.DgvListaModelos = new System.Windows.Forms.DataGridView();
-            this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCategorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStockActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColModeloID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColMarcaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtProductoCodigo = new System.Windows.Forms.TextBox();
@@ -47,6 +39,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtProductoDescripcion = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CboxProductosMarca = new System.Windows.Forms.ComboBox();
+            this.CboxProductosModelo = new System.Windows.Forms.ComboBox();
+            this.CboxProductosCategoria = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtProductoPrecio = new System.Windows.Forms.TextBox();
@@ -58,9 +53,14 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.CboxProductosCategoria = new System.Windows.Forms.ComboBox();
-            this.CboxProductosModelo = new System.Windows.Forms.ComboBox();
-            this.CboxProductosMarca = new System.Windows.Forms.ComboBox();
+            this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColStockActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColModeloID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColMarcaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCategoriaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaModelos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,11 +75,11 @@
             this.ColProductoID,
             this.ColNombre,
             this.ColDescripcion,
-            this.ColCategorias,
             this.ColStockActual,
             this.ColPrecio,
             this.ColModeloID,
-            this.ColMarcaID});
+            this.ColMarcaID,
+            this.ColCategoriaID});
             this.DgvListaModelos.Location = new System.Drawing.Point(13, 36);
             this.DgvListaModelos.MultiSelect = false;
             this.DgvListaModelos.Name = "DgvListaModelos";
@@ -89,74 +89,6 @@
             this.DgvListaModelos.Size = new System.Drawing.Size(1036, 267);
             this.DgvListaModelos.TabIndex = 3;
             this.DgvListaModelos.VirtualMode = true;
-            // 
-            // ColProductoID
-            // 
-            this.ColProductoID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColProductoID.DataPropertyName = "ProductoID";
-            this.ColProductoID.HeaderText = "CÓDIGO";
-            this.ColProductoID.Name = "ColProductoID";
-            this.ColProductoID.ReadOnly = true;
-            this.ColProductoID.Width = 80;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "PRODUCTO";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 120;
-            // 
-            // ColDescripcion
-            // 
-            this.ColDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDescripcion.DataPropertyName = "Descripcion";
-            this.ColDescripcion.HeaderText = "DESCRIPCIÓN";
-            this.ColDescripcion.Name = "ColDescripcion";
-            this.ColDescripcion.ReadOnly = true;
-            // 
-            // ColCategorias
-            // 
-            this.ColCategorias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColCategorias.DataPropertyName = "Categorias";
-            this.ColCategorias.HeaderText = "CATEGORÍA";
-            this.ColCategorias.Name = "ColCategorias";
-            this.ColCategorias.ReadOnly = true;
-            this.ColCategorias.Width = 110;
-            // 
-            // ColStockActual
-            // 
-            this.ColStockActual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColStockActual.DataPropertyName = "StockActual";
-            this.ColStockActual.HeaderText = "STOCK";
-            this.ColStockActual.Name = "ColStockActual";
-            this.ColStockActual.ReadOnly = true;
-            this.ColStockActual.Width = 80;
-            // 
-            // ColPrecio
-            // 
-            this.ColPrecio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColPrecio.DataPropertyName = "ColPrecio";
-            this.ColPrecio.HeaderText = "PRECIO";
-            this.ColPrecio.Name = "ColPrecio";
-            this.ColPrecio.ReadOnly = true;
-            // 
-            // ColModeloID
-            // 
-            this.ColModeloID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColModeloID.DataPropertyName = "ModeloID";
-            this.ColModeloID.HeaderText = "MODELO";
-            this.ColModeloID.Name = "ColModeloID";
-            this.ColModeloID.ReadOnly = true;
-            // 
-            // ColMarcaID
-            // 
-            this.ColMarcaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColMarcaID.DataPropertyName = "MarcaID";
-            this.ColMarcaID.HeaderText = "MARCA";
-            this.ColMarcaID.Name = "ColMarcaID";
-            this.ColMarcaID.ReadOnly = true;
             // 
             // TxtBuscar
             // 
@@ -258,6 +190,30 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle Producto";
+            // 
+            // CboxProductosMarca
+            // 
+            this.CboxProductosMarca.FormattingEnabled = true;
+            this.CboxProductosMarca.Location = new System.Drawing.Point(732, 22);
+            this.CboxProductosMarca.Name = "CboxProductosMarca";
+            this.CboxProductosMarca.Size = new System.Drawing.Size(239, 21);
+            this.CboxProductosMarca.TabIndex = 38;
+            // 
+            // CboxProductosModelo
+            // 
+            this.CboxProductosModelo.FormattingEnabled = true;
+            this.CboxProductosModelo.Location = new System.Drawing.Point(732, 59);
+            this.CboxProductosModelo.Name = "CboxProductosModelo";
+            this.CboxProductosModelo.Size = new System.Drawing.Size(239, 21);
+            this.CboxProductosModelo.TabIndex = 37;
+            // 
+            // CboxProductosCategoria
+            // 
+            this.CboxProductosCategoria.FormattingEnabled = true;
+            this.CboxProductosCategoria.Location = new System.Drawing.Point(123, 95);
+            this.CboxProductosCategoria.Name = "CboxProductosCategoria";
+            this.CboxProductosCategoria.Size = new System.Drawing.Size(239, 21);
+            this.CboxProductosCategoria.TabIndex = 36;
             // 
             // label9
             // 
@@ -370,29 +326,73 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
-            // CboxProductosCategoria
+            // ColProductoID
             // 
-            this.CboxProductosCategoria.FormattingEnabled = true;
-            this.CboxProductosCategoria.Location = new System.Drawing.Point(123, 95);
-            this.CboxProductosCategoria.Name = "CboxProductosCategoria";
-            this.CboxProductosCategoria.Size = new System.Drawing.Size(239, 21);
-            this.CboxProductosCategoria.TabIndex = 36;
+            this.ColProductoID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColProductoID.DataPropertyName = "ProductoID";
+            this.ColProductoID.HeaderText = "CÓDIGO";
+            this.ColProductoID.Name = "ColProductoID";
+            this.ColProductoID.ReadOnly = true;
+            this.ColProductoID.Width = 80;
             // 
-            // CboxProductosModelo
+            // ColNombre
             // 
-            this.CboxProductosModelo.FormattingEnabled = true;
-            this.CboxProductosModelo.Location = new System.Drawing.Point(732, 59);
-            this.CboxProductosModelo.Name = "CboxProductosModelo";
-            this.CboxProductosModelo.Size = new System.Drawing.Size(239, 21);
-            this.CboxProductosModelo.TabIndex = 37;
+            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColNombre.DataPropertyName = "Nombre";
+            this.ColNombre.HeaderText = "PRODUCTO";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 120;
             // 
-            // CboxProductosMarca
+            // ColDescripcion
             // 
-            this.CboxProductosMarca.FormattingEnabled = true;
-            this.CboxProductosMarca.Location = new System.Drawing.Point(732, 22);
-            this.CboxProductosMarca.Name = "CboxProductosMarca";
-            this.CboxProductosMarca.Size = new System.Drawing.Size(239, 21);
-            this.CboxProductosMarca.TabIndex = 38;
+            this.ColDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescripcion.DataPropertyName = "Descripcion";
+            this.ColDescripcion.HeaderText = "DESCRIPCIÓN";
+            this.ColDescripcion.Name = "ColDescripcion";
+            this.ColDescripcion.ReadOnly = true;
+            // 
+            // ColStockActual
+            // 
+            this.ColStockActual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColStockActual.DataPropertyName = "StockActual";
+            this.ColStockActual.HeaderText = "STOCK";
+            this.ColStockActual.Name = "ColStockActual";
+            this.ColStockActual.ReadOnly = true;
+            this.ColStockActual.Width = 80;
+            // 
+            // ColPrecio
+            // 
+            this.ColPrecio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColPrecio.DataPropertyName = "Precio";
+            this.ColPrecio.HeaderText = "PRECIO";
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            // 
+            // ColModeloID
+            // 
+            this.ColModeloID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColModeloID.DataPropertyName = "ModeloID";
+            this.ColModeloID.HeaderText = "MODELO";
+            this.ColModeloID.Name = "ColModeloID";
+            this.ColModeloID.ReadOnly = true;
+            // 
+            // ColMarcaID
+            // 
+            this.ColMarcaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColMarcaID.DataPropertyName = "MarcaID";
+            this.ColMarcaID.HeaderText = "MARCA";
+            this.ColMarcaID.Name = "ColMarcaID";
+            this.ColMarcaID.ReadOnly = true;
+            // 
+            // ColCategoriaID
+            // 
+            this.ColCategoriaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColCategoriaID.DataPropertyName = "CategoriaID";
+            this.ColCategoriaID.HeaderText = "CATEGORÍA";
+            this.ColCategoriaID.Name = "ColCategoriaID";
+            this.ColCategoriaID.ReadOnly = true;
+            this.ColCategoriaID.Width = 110;
             // 
             // FrmProductoGestion
             // 
@@ -445,16 +445,16 @@
         private System.Windows.Forms.Button BtnCerrar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox CboxProductosModelo;
+        private System.Windows.Forms.ComboBox CboxProductosCategoria;
+        private System.Windows.Forms.ComboBox CboxProductosMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProductoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCategorias;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStockActual;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColModeloID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColMarcaID;
-        private System.Windows.Forms.ComboBox CboxProductosModelo;
-        private System.Windows.Forms.ComboBox CboxProductosCategoria;
-        private System.Windows.Forms.ComboBox CboxProductosMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCategoriaID;
     }
 }

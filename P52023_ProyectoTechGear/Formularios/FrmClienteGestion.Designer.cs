@@ -45,14 +45,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaClientes = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtClienteCedula = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaClientes)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +122,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TxtClienteCedula);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtClienteDireccion);
             this.groupBox1.Controls.Add(this.TxtClienteTelefono);
             this.groupBox1.Controls.Add(this.TxtClienteCorreoElectronico);
@@ -243,22 +247,6 @@
             this.DgvListaClientes.TabIndex = 21;
             this.DgvListaClientes.VirtualMode = true;
             // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
-            // 
             // ColClienteID
             // 
             this.ColClienteID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -306,6 +294,39 @@
             this.ColCedula.HeaderText = "Cedula";
             this.ColCedula.Name = "ColCedula";
             this.ColCedula.ReadOnly = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(184, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 168);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Cedula";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // TxtClienteCedula
+            // 
+            this.TxtClienteCedula.Location = new System.Drawing.Point(25, 184);
+            this.TxtClienteCedula.Name = "TxtClienteCedula";
+            this.TxtClienteCedula.Size = new System.Drawing.Size(254, 20);
+            this.TxtClienteCedula.TabIndex = 11;
             // 
             // FrmClienteGestion
             // 
@@ -362,5 +383,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox TxtClienteCedula;
     }
 }

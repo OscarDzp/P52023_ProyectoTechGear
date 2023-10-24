@@ -12,9 +12,11 @@ namespace P52023_ProyectoTechGear.Formularios
 {
     public partial class FrmDetalleVenta : Form
     {
+        private Logica.Models.DetalleVenta MiDetalleVentaLocal { get; set; }
         public FrmDetalleVenta()
         {
             InitializeComponent();
+            MiDetalleVentaLocal = new Logica.Models.DetalleVenta();
         }
 
         private void FrmDetalleVenta_Load(object sender, EventArgs e)

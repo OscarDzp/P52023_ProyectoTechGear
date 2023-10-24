@@ -92,16 +92,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
 
                 MiClienteLocal.Nombre = TxtClienteNombre.Text.Trim();
-                //MiClienteLocal.Nombre = TxtClienteCedula.Text.Trim();
-                MiClienteLocal.Nombre = TxtClienteCorreoElectronico.Text.Trim();
-                MiClienteLocal.Nombre = TxtClienteDireccion.Text.Trim();
-                MiClienteLocal.Nombre = TxtClienteTelefono.Text.Trim();
+                MiClienteLocal.CorreoElectronico = TxtClienteCorreoElectronico.Text.Trim();
+                MiClienteLocal.Direccion = TxtClienteDireccion.Text.Trim();
+                MiClienteLocal.Telefono = TxtClienteTelefono.Text.Trim();
+                MiClienteLocal.Cedula = int.Parse(TxtClienteCedula.Text.Trim());
 
                 bool CedulaValida = MiClienteLocal.ConsultarPorCedula(MiClienteLocal.Cedula);
 
-                bool CorreoValido = MiClienteLocal.ConsultarPorCorreo(MiClienteLocal.CorreoElectronico);
+                bool CorreoElectronicoValido = MiClienteLocal.ConsultarPorCorreo(MiClienteLocal.CorreoElectronico);
 
-                if (CedulaValida == false && CorreoValido == false)
+                if (CedulaValida == false && CorreoElectronicoValido == false)
                 {
                     string Pregunta = string.Format("Esta seguro de agregar la categoría {0}?", MiClienteLocal.Nombre);
 
@@ -114,14 +114,15 @@ namespace P52023_ProyectoTechGear.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Cliente agregado correctamente", "Agregado", MessageBoxButtons.OK);
-                            Limpiarform();
-                            //CargarListaClientes();
+                            MessageBox.Show("El Cliente agregado correctamente", "Agregado", MessageBoxButtons.OK);
+                         
                         }
                         else
                         {
-                            MessageBox.Show("La categoría no se ha añadido", "Cancelado", MessageBoxButtons.OK);
+                            MessageBox.Show("El Cliente no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
+                        Limpiarform();
+                        CargarListaClientes();
                     }
                 }
             }
@@ -135,7 +136,12 @@ namespace P52023_ProyectoTechGear.Formularios
             TxtClienteCorreoElectronico.Clear();
             TxtClienteDireccion.Clear();
             TxtClienteTelefono.Clear();
-            //TxtClienteCedula.Clear();
+            TxtClienteCedula.Clear();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

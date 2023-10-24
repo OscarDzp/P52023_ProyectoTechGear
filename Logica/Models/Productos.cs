@@ -14,16 +14,16 @@ namespace Logica.Models
         {
             MiModeloID = new Modelos();
             MiMarcaID = new Marcas();
+            MiCategoriaID = new Categorias();
         }
         public int ProductoID { get; set; }
         public string Nombre { get; set; } 
         public string Descripcion { get; set; }
-        public Categorias MiCategoriaID { get; set; } 
         public string StockActual { get; set; }//decimal 
         public string Precio { get; set; }//Decimal
         public Modelos MiModeloID { get; set; }
         public Marcas MiMarcaID { get; set; }
-    
+        public Categorias MiCategoriaID { get; set; }
 
         public bool Agregar()
         {
