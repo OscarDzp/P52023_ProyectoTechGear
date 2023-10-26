@@ -26,14 +26,14 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@DetalleVentaID", this.DetalleVentaID));
+     
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Subtotal", this.Subtotal));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@PrecioUnitario", this.PrecioUnitario));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cantidad", this.Cantidad));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiProducto.ProductoID));
            
 
-            int resultado = MiCnn.EjecutarDML("SPFacturasAgregar");
+            int resultado = MiCnn.EjecutarDML("SPDetalleVentasAgregar");
 
             if (resultado > 0) R = true;
 
@@ -49,13 +49,13 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorID(int pID )
+        public bool ConsultarPorID(int pDetalleVentaID )
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@DetalleVentaID", pDetalleVentaID));
 
             DataTable dt = new DataTable();
 
