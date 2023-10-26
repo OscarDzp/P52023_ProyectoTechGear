@@ -46,6 +46,10 @@
             this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaSucursal)).BeginInit();
             this.SuspendLayout();
@@ -113,6 +117,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.TxtSucursalDescripcion);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtSucursalNombre);
@@ -147,7 +155,7 @@
             // 
             // TxtSucursalNombre
             // 
-            this.TxtSucursalNombre.Location = new System.Drawing.Point(438, 58);
+            this.TxtSucursalNombre.Location = new System.Drawing.Point(486, 61);
             this.TxtSucursalNombre.Name = "TxtSucursalNombre";
             this.TxtSucursalNombre.Size = new System.Drawing.Size(238, 20);
             this.TxtSucursalNombre.TabIndex = 5;
@@ -155,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(385, 61);
+            this.label4.Location = new System.Drawing.Point(433, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 4;
@@ -239,6 +247,48 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Buscar";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(655, 290);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 51;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(634, 290);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 50;
+            this.label15.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(149, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 18);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(417, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 18);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "*";
+            // 
             // FrmSucursalGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +336,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSucursalID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripcion;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }

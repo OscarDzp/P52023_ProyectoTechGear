@@ -34,6 +34,15 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.TxtClienteCedula = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.TxtClienteDireccion = new System.Windows.Forms.TextBox();
             this.TxtClienteTelefono = new System.Windows.Forms.TextBox();
             this.TxtClienteCorreoElectronico = new System.Windows.Forms.TextBox();
@@ -53,8 +62,6 @@
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtClienteCedula = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaClientes)).BeginInit();
             this.SuspendLayout();
@@ -122,6 +129,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.TxtClienteCedula);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtClienteDireccion);
@@ -141,9 +155,102 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de Categoria...";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(418, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 18);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(418, 130);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 18);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(59, 168);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(15, 18);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(109, 125);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 18);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(109, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 18);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "*";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(709, 200);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(688, 200);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "*";
+            // 
+            // TxtClienteCedula
+            // 
+            this.TxtClienteCedula.Location = new System.Drawing.Point(22, 189);
+            this.TxtClienteCedula.Name = "TxtClienteCedula";
+            this.TxtClienteCedula.Size = new System.Drawing.Size(254, 20);
+            this.TxtClienteCedula.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 168);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Cedula";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
             // TxtClienteDireccion
             // 
-            this.TxtClienteDireccion.Location = new System.Drawing.Point(377, 40);
+            this.TxtClienteDireccion.Location = new System.Drawing.Point(374, 45);
             this.TxtClienteDireccion.Multiline = true;
             this.TxtClienteDireccion.Name = "TxtClienteDireccion";
             this.TxtClienteDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -152,21 +259,21 @@
             // 
             // TxtClienteTelefono
             // 
-            this.TxtClienteTelefono.Location = new System.Drawing.Point(377, 141);
+            this.TxtClienteTelefono.Location = new System.Drawing.Point(374, 151);
             this.TxtClienteTelefono.Name = "TxtClienteTelefono";
             this.TxtClienteTelefono.Size = new System.Drawing.Size(257, 20);
             this.TxtClienteTelefono.TabIndex = 8;
             // 
             // TxtClienteCorreoElectronico
             // 
-            this.TxtClienteCorreoElectronico.Location = new System.Drawing.Point(22, 141);
+            this.TxtClienteCorreoElectronico.Location = new System.Drawing.Point(22, 145);
             this.TxtClienteCorreoElectronico.Name = "TxtClienteCorreoElectronico";
             this.TxtClienteCorreoElectronico.Size = new System.Drawing.Size(257, 20);
             this.TxtClienteCorreoElectronico.TabIndex = 7;
             // 
             // TxtClienteNombre
             // 
-            this.TxtClienteNombre.Location = new System.Drawing.Point(22, 91);
+            this.TxtClienteNombre.Location = new System.Drawing.Point(22, 96);
             this.TxtClienteNombre.Name = "TxtClienteNombre";
             this.TxtClienteNombre.Size = new System.Drawing.Size(257, 20);
             this.TxtClienteNombre.TabIndex = 6;
@@ -182,7 +289,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(374, 125);
+            this.label6.Location = new System.Drawing.Point(374, 130);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 4;
@@ -311,23 +418,6 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Buscar";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 168);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Cedula";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // TxtClienteCedula
-            // 
-            this.TxtClienteCedula.Location = new System.Drawing.Point(25, 184);
-            this.TxtClienteCedula.Name = "TxtClienteCedula";
-            this.TxtClienteCedula.Size = new System.Drawing.Size(254, 20);
-            this.TxtClienteCedula.TabIndex = 11;
-            // 
             // FrmClienteGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,5 +475,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtClienteCedula;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }

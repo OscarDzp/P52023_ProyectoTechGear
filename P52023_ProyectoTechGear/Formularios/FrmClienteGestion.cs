@@ -143,5 +143,10 @@ namespace P52023_ProyectoTechGear.Formularios
         {
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
