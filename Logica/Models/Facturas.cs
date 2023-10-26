@@ -35,7 +35,7 @@ namespace Logica.Models
 
              Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@FacturaID", this.FacturaID));
+       
             MiCnn.ListaDeParametros.Add(new SqlParameter("@TotalFactura", this.TotalFactura));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Detalledeventa", this.Detalledeventa));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Impuestos", this.Impuestos));
@@ -60,9 +60,20 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorID()
+        public bool ConsultarPorID(string pFacturaID)
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FacturaID", pFacturaID));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPFacturasConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+
             return R;
         }
 
