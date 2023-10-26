@@ -28,6 +28,7 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
             CargarListaModelos();
+            CargarListaMarcas();
         }
         private void CargarListaModelos() 
         {
@@ -40,16 +41,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void CargarListaMarcas()
         {
-            Logica.Models.Marcas MiMarca = new Logica.Models.Marcas();
+            Logica.Models.Marcas MiMarcas = new Logica.Models.Marcas();
 
             DataTable dtMarcas = new DataTable();
 
-            dtMarcas = MiMarca.Listar();
+            dtMarcas = MiMarcas.Listar();
 
             if (dtMarcas != null && dtMarcas.Rows.Count > 0)
             {
                 CboxModelosMarca.ValueMember = "ID";
-                CboxModelosMarca.DisplayMember = "Marca";
+                CboxModelosMarca.DisplayMember = "Nombre";
 
                 CboxModelosMarca.DataSource = dtMarcas;
                 CboxModelosMarca.SelectedIndex = -1;

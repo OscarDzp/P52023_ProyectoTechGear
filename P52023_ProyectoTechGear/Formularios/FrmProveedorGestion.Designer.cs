@@ -31,9 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvListaProveedores = new System.Windows.Forms.DataGridView();
+            this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtProveedorCorreoElectronico = new System.Windows.Forms.TextBox();
-            this.TxtProveedorCedula = new System.Windows.Forms.TextBox();
+            this.TxtProveedorContacto = new System.Windows.Forms.TextBox();
             this.TxtProveedorNombre = new System.Windows.Forms.TextBox();
             this.TxtProveedorTelefono = new System.Windows.Forms.TextBox();
             this.TxtProveedorCodigo = new System.Windows.Forms.TextBox();
@@ -47,11 +52,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -94,10 +94,47 @@
             this.DgvListaProveedores.TabIndex = 2;
             this.DgvListaProveedores.VirtualMode = true;
             // 
+            // ColProveedorID
+            // 
+            this.ColProveedorID.DataPropertyName = "ProveedorID";
+            this.ColProveedorID.HeaderText = "CÓDIGO";
+            this.ColProveedorID.Name = "ColProveedorID";
+            this.ColProveedorID.ReadOnly = true;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.DataPropertyName = "Nombre";
+            this.ColNombre.HeaderText = "NOMBRE";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 79;
+            // 
+            // ColCedula
+            // 
+            this.ColCedula.DataPropertyName = "Cedula";
+            this.ColCedula.HeaderText = "CONTACTO";
+            this.ColCedula.Name = "ColCedula";
+            this.ColCedula.ReadOnly = true;
+            // 
+            // ColTelefono
+            // 
+            this.ColTelefono.DataPropertyName = "Telefono";
+            this.ColTelefono.HeaderText = "TELÉFONO";
+            this.ColTelefono.Name = "ColTelefono";
+            this.ColTelefono.ReadOnly = true;
+            // 
+            // ColCorreo
+            // 
+            this.ColCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColCorreo.DataPropertyName = "Correo";
+            this.ColCorreo.HeaderText = "CORREO ";
+            this.ColCorreo.Name = "ColCorreo";
+            this.ColCorreo.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TxtProveedorCorreoElectronico);
-            this.groupBox1.Controls.Add(this.TxtProveedorCedula);
+            this.groupBox1.Controls.Add(this.TxtProveedorContacto);
             this.groupBox1.Controls.Add(this.TxtProveedorNombre);
             this.groupBox1.Controls.Add(this.TxtProveedorTelefono);
             this.groupBox1.Controls.Add(this.TxtProveedorCodigo);
@@ -120,12 +157,12 @@
             this.TxtProveedorCorreoElectronico.Size = new System.Drawing.Size(152, 20);
             this.TxtProveedorCorreoElectronico.TabIndex = 20;
             // 
-            // TxtProveedorCedula
+            // TxtProveedorContacto
             // 
-            this.TxtProveedorCedula.Location = new System.Drawing.Point(148, 121);
-            this.TxtProveedorCedula.Name = "TxtProveedorCedula";
-            this.TxtProveedorCedula.Size = new System.Drawing.Size(153, 20);
-            this.TxtProveedorCedula.TabIndex = 19;
+            this.TxtProveedorContacto.Location = new System.Drawing.Point(148, 121);
+            this.TxtProveedorContacto.Name = "TxtProveedorContacto";
+            this.TxtProveedorContacto.Size = new System.Drawing.Size(153, 20);
+            this.TxtProveedorContacto.TabIndex = 19;
             // 
             // TxtProveedorNombre
             // 
@@ -171,9 +208,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(94, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Cédula";
+            this.label4.Text = "Contacto";
             // 
             // label3
             // 
@@ -254,43 +291,6 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
-            // ColProveedorID
-            // 
-            this.ColProveedorID.DataPropertyName = "ProveedorID";
-            this.ColProveedorID.HeaderText = "CÓDIGO";
-            this.ColProveedorID.Name = "ColProveedorID";
-            this.ColProveedorID.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "NOMBRE";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 79;
-            // 
-            // ColCedula
-            // 
-            this.ColCedula.DataPropertyName = "Cedula";
-            this.ColCedula.HeaderText = "CONTACTO";
-            this.ColCedula.Name = "ColCedula";
-            this.ColCedula.ReadOnly = true;
-            // 
-            // ColTelefono
-            // 
-            this.ColTelefono.DataPropertyName = "Telefono";
-            this.ColTelefono.HeaderText = "TELÉFONO";
-            this.ColTelefono.Name = "ColTelefono";
-            this.ColTelefono.ReadOnly = true;
-            // 
-            // ColCorreo
-            // 
-            this.ColCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColCorreo.DataPropertyName = "Correo";
-            this.ColCorreo.HeaderText = "CORREO ";
-            this.ColCorreo.Name = "ColCorreo";
-            this.ColCorreo.ReadOnly = true;
-            // 
             // FrmProveedorGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,7 +335,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtProveedorCorreoElectronico;
-        private System.Windows.Forms.TextBox TxtProveedorCedula;
+        private System.Windows.Forms.TextBox TxtProveedorContacto;
         private System.Windows.Forms.TextBox TxtProveedorNombre;
         private System.Windows.Forms.TextBox TxtProveedorTelefono;
         public System.Windows.Forms.TextBox TxtProveedorCodigo;

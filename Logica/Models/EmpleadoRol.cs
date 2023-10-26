@@ -14,7 +14,7 @@ namespace Logica.Models
 
         public int EmpleadoRolID { get; set; }
 
-        public string Nombre { get; set; }
+        public string Rol { get; set; }
 
 
 
@@ -31,13 +31,13 @@ namespace Logica.Models
             return R;
         }
 
-        public bool ConsultarPorNombre(string pNombre)
+        public bool ConsultarPorNombre(string pRol)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", pNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Rol", pRol));
 
             DataTable dt = new DataTable();
 
@@ -57,7 +57,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Rol", this.Rol));
 
             int resultado = MiCnn.EjecutarDML("SPEmpleadoRolesAgregar");
 

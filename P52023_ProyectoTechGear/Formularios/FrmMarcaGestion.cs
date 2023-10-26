@@ -89,13 +89,14 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Marca agregada correctamente", "Agregado", MessageBoxButtons.OK);
-                            LimpiarForm();
-                            //CargarListaMarcas();
+                        
                         }
                         else
                         {
                             MessageBox.Show("La marca no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
+                        LimpiarForm();
+                        CargarListaMarcas();
                     }
                 }
             }

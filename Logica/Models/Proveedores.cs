@@ -12,7 +12,7 @@ namespace Logica.Models
     {
         public int ProveedorID { get; set; }
         public string Nombre { get; set; }
-        public string Cedula { get; set; }
+        public string Contacto { get; set; }
         public string Telefono { get; set; }
         public string CorreoElectronico { get; set; }
  
@@ -24,9 +24,9 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contacto", this.Contacto));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", this.CorreoElectronico));
 
             int resultado = MiCnn.EjecutarDML("SPProveedoresAgregar");
 
@@ -68,13 +68,13 @@ namespace Logica.Models
             return R;
         }
 
-        public bool ConsultarPorCorreo(string pCorreo)
+        public bool ConsultarPorCorreo(string pCorreoElectronico)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", pCorreo));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", pCorreoElectronico));
 
             DataTable dt = new DataTable();
 

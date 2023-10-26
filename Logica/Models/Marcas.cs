@@ -10,10 +10,7 @@ namespace Logica.Models
 {
     public class Marcas
     {
-        public Marcas()
-        {
-            
-        }
+      
         public int MarcaID { get; set; }
         public string PaisOrigen { get; set; }
         public string Nombre { get; set; }

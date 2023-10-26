@@ -20,9 +20,9 @@ namespace Logica.Models
 
         public int TecnicoID { get; set; }
         public string Nombre { get; set; }
-        public string CorreoElectronico { get; set; }
+        public string Correo { get; set; }
         public string Especialidad { get; set; }
-        public int Disponibilidad { get; set; }
+        public string Disponibilidad { get; set; }
         public Garantias MiGarantiaID { get; set; }
 
 
@@ -35,10 +35,10 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.Correo));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Especialidad", this.Especialidad));
-            //Disponibilidad
-            //Garantias
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Disponibilidad", this.Disponibilidad));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@GarantiaID", this.MiGarantiaID.GarantiaID));
 
             int resultado = MiCnn.EjecutarDML("SPSoporteTecnicoAgregar");
 
@@ -58,13 +58,13 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorID(int pID)
+        public bool ConsultarPorID(int pTecnicoID)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@TecnicoID", pTecnicoID));
 
             DataTable dt = new DataTable();
 

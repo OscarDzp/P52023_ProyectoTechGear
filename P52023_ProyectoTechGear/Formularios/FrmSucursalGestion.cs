@@ -103,6 +103,8 @@ namespace P52023_ProyectoTechGear.Formularios
                         {
                             MessageBox.Show("La sucursal no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
+                        LimpiarForm();
+                        CargarListaSucursal();
                     }
                 }
             }

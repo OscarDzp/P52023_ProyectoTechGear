@@ -64,13 +64,13 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiEmpleadoRolLocal = new Logica.Models.EmpleadoRol();
 
 
-                MiEmpleadoRolLocal.Nombre = TxtEmpleadoRolNombre.Text.Trim();
+                MiEmpleadoRolLocal.Rol = TxtEmpleadoRolNombre.Text.Trim();
 
-                bool NombreValido = MiEmpleadoRolLocal.ConsultarPorNombre(MiEmpleadoRolLocal.Nombre);
+                bool NombreValido = MiEmpleadoRolLocal.ConsultarPorNombre(MiEmpleadoRolLocal.Rol);
 
                 if (NombreValido == false)
                 {
-                    string Pregunta = string.Format("Esta seguro de agregar el rol {0}?", MiEmpleadoRolLocal.Nombre);
+                    string Pregunta = string.Format("Esta seguro de agregar el rol {0}?", MiEmpleadoRolLocal.Rol);
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
@@ -82,13 +82,14 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Rol agregado correctamente", "Agregado", MessageBoxButtons.OK);
-                            Limpiarform();
-                            //CargarListaRoles();
+                           
                         }
                         else
                         {
                             MessageBox.Show("El rol no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
+                        Limpiarform();
+                        CargarListaEmpleadoRol();
                     }
                 }
             }

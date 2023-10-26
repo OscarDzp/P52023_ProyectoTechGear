@@ -34,9 +34,11 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CboxSoporteGarantia = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtSoporteDisponibilidad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtSoporteCorreo = new System.Windows.Forms.TextBox();
-            this.CboxSoporteDisponibilidad = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtSoporteNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -115,12 +117,15 @@
             this.BtnAgregar.TabIndex = 18;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click_1);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CboxSoporteGarantia);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.TxtSoporteDisponibilidad);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TxtSoporteCorreo);
-            this.groupBox1.Controls.Add(this.CboxSoporteDisponibilidad);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtSoporteNombre);
             this.groupBox1.Controls.Add(this.label4);
@@ -135,6 +140,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Soporte Tecnico";
             // 
+            // CboxSoporteGarantia
+            // 
+            this.CboxSoporteGarantia.FormattingEnabled = true;
+            this.CboxSoporteGarantia.Location = new System.Drawing.Point(484, 176);
+            this.CboxSoporteGarantia.Name = "CboxSoporteGarantia";
+            this.CboxSoporteGarantia.Size = new System.Drawing.Size(238, 21);
+            this.CboxSoporteGarantia.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(408, 176);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Garantia";
+            // 
+            // TxtSoporteDisponibilidad
+            // 
+            this.TxtSoporteDisponibilidad.Location = new System.Drawing.Point(135, 176);
+            this.TxtSoporteDisponibilidad.Name = "TxtSoporteDisponibilidad";
+            this.TxtSoporteDisponibilidad.Size = new System.Drawing.Size(238, 20);
+            this.TxtSoporteDisponibilidad.TabIndex = 18;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -148,22 +177,13 @@
             // 
             this.TxtSoporteCorreo.Location = new System.Drawing.Point(482, 58);
             this.TxtSoporteCorreo.Name = "TxtSoporteCorreo";
-            this.TxtSoporteCorreo.Size = new System.Drawing.Size(210, 20);
+            this.TxtSoporteCorreo.Size = new System.Drawing.Size(240, 20);
             this.TxtSoporteCorreo.TabIndex = 16;
-            // 
-            // CboxSoporteDisponibilidad
-            // 
-            this.CboxSoporteDisponibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboxSoporteDisponibilidad.FormattingEnabled = true;
-            this.CboxSoporteDisponibilidad.Location = new System.Drawing.Point(287, 187);
-            this.CboxSoporteDisponibilidad.Name = "CboxSoporteDisponibilidad";
-            this.CboxSoporteDisponibilidad.Size = new System.Drawing.Size(237, 21);
-            this.CboxSoporteDisponibilidad.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(206, 195);
+            this.label7.Location = new System.Drawing.Point(57, 176);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 10;
@@ -332,7 +352,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtSoporteCorreo;
-        private System.Windows.Forms.ComboBox CboxSoporteDisponibilidad;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtSoporteNombre;
         private System.Windows.Forms.Label label4;
@@ -348,5 +367,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEspecialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDisponibilidad;
+        private System.Windows.Forms.TextBox TxtSoporteDisponibilidad;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox CboxSoporteGarantia;
     }
 }

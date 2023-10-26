@@ -33,10 +33,10 @@ namespace Logica.Models
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Descripcion", this.Descripcion));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Categorias", this.MiCategoriaID.CategoriaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CategoriaID", this.MiCategoriaID.CategoriaID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@StockActual", this.StockActual));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Precio", this.Precio));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Marca", this.MiMarcaID.MarcaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@MarcaID", this.MiMarcaID.MarcaID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ModeloID", this.MiModeloID.ModeloID));
 
             int resultado = MiCnn.EjecutarDML("SPProductosAgregar");
@@ -56,13 +56,13 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorID(int pID )
+        public bool ConsultarPorID(int pProductoID)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", pProductoID));
 
             DataTable dt = new DataTable();
 
@@ -74,6 +74,26 @@ namespace Logica.Models
             return R;
 
         }
+
+        public bool ConsultarPorNombre(int pNombre)
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", pNombre));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPProductosConsultarPorNombre");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+
+
+            return R;
+
+        }
+
 
         public DataTable Listar()
         {

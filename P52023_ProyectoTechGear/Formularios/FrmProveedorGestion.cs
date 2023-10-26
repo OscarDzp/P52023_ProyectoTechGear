@@ -39,7 +39,7 @@ namespace P52023_ProyectoTechGear.Formularios
             bool R = false;
 
             if (!string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim())&&
-                !string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtProveedorContacto.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorTelefono.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorCorreoElectronico.Text.Trim()))
             {
@@ -52,7 +52,7 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe asignar un nombre al proveedor");
                     return false;
                 }
-                if (string.IsNullOrEmpty(TxtProveedorCedula.Text.Trim()))
+                if (string.IsNullOrEmpty(TxtProveedorContacto.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar un cédula");
                     return false;
@@ -82,11 +82,11 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiProveedorLocal = new Logica.Models.Proveedores();
 
                 MiProveedorLocal.Nombre = TxtProveedorNombre.Text.Trim();
-                MiProveedorLocal.Cedula = TxtProveedorCedula.Text.Trim();
+                MiProveedorLocal.Contacto = TxtProveedorContacto.Text.Trim();
                 MiProveedorLocal.Telefono = TxtProveedorTelefono.Text.Trim();
                 MiProveedorLocal.CorreoElectronico = TxtProveedorCorreoElectronico.Text.Trim();
 
-                bool CedulaValida = MiProveedorLocal.ConsultarPorNombre(MiProveedorLocal.Cedula);
+                bool CedulaValida = MiProveedorLocal.ConsultarPorNombre(MiProveedorLocal.Contacto);
                 bool CorreoValido = MiProveedorLocal.ConsultarPorCorreo(MiProveedorLocal.CorreoElectronico);
 
                 if (CedulaValida == false && CorreoValido ==  false)
@@ -103,13 +103,16 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Proveedor agregadO correctamente", "Agregado", MessageBoxButtons.OK);
-                            LimpiarForm();
+                          
  
                         }
                         else
                         {
                             MessageBox.Show("El proveedor  no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
+
+                        CargarListaProveedor();
+                        LimpiarForm();
                     }
                 }
             }
@@ -120,7 +123,7 @@ namespace P52023_ProyectoTechGear.Formularios
         private void LimpiarForm()
         {
             TxtProveedorNombre.Clear();
-            TxtProveedorCedula.Clear();
+            TxtProveedorContacto.Clear();
             TxtProveedorTelefono.Clear();
             TxtProveedorCorreoElectronico.Clear();
         }

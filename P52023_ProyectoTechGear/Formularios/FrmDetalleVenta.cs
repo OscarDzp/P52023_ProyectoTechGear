@@ -31,7 +31,5 @@ namespace P52023_ProyectoTechGear.Formularios
             DgvListaDetalleVenta.DataSource = lista;
 
         }
-
-
     }
 }

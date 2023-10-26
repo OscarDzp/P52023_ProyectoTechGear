@@ -24,6 +24,9 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
             CargarListaProducto();
+            CargarListaMarcas();
+            CargarListaModelos();
+            CargarListaCategorias();
         }
 
         private void CargarListaProducto() 
@@ -46,8 +49,8 @@ namespace P52023_ProyectoTechGear.Formularios
 
             if (dtMarcas != null && dtMarcas.Rows.Count > 0)
             {
-                CboxProductosMarca.ValueMember = "ID";
-                CboxProductosMarca.DisplayMember = "Marca";
+                CboxProductosMarca.ValueMember = "MarcaID";
+                CboxProductosMarca.DisplayMember = "Nombre";
 
                 CboxProductosMarca.DataSource = dtMarcas;
                 CboxProductosMarca.SelectedIndex = -1;
@@ -64,8 +67,8 @@ namespace P52023_ProyectoTechGear.Formularios
 
             if (dtModelos != null && dtModelos.Rows.Count > 0)
             {
-                CboxProductosModelo.ValueMember = "ID";
-                CboxProductosModelo.DisplayMember = "`Modelo";
+                CboxProductosModelo.ValueMember = "ModeloID";
+                CboxProductosModelo.DisplayMember = "Nombre";
 
                 CboxProductosModelo.DataSource = dtModelos;
                 CboxProductosModelo.SelectedIndex = -1;
@@ -82,8 +85,8 @@ namespace P52023_ProyectoTechGear.Formularios
 
             if (dtCategorias != null && dtCategorias.Rows.Count > 0)
             {
-                CboxProductosCategoria.ValueMember = "ID";
-                CboxProductosCategoria.DisplayMember = "Categoria";
+                CboxProductosCategoria.ValueMember = "CategoriaID";
+                CboxProductosCategoria.DisplayMember = "Nombre";
 
                 CboxProductosCategoria.DataSource = dtCategorias;
                 CboxProductosCategoria.SelectedIndex = -1;
@@ -165,9 +168,9 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiProductoLocal.Descripcion = TxtProductoDescripcion.Text.Trim();
 
                 bool IDValido = MiProductoLocal.ConsultarPorID(MiProductoLocal.ProductoID);
-                //validacion por ID valida?
 
-                if (IDValido == false)
+                bool NombreValido = MiProductoLocal.ConsultarPorID(MiProductoLocal.ProductoID);
+                if (IDValido == false  && NombreValido == false)
                 {
                     string Pregunta = string.Format("Esta seguro de agregar el producto {0}?", MiProductoLocal.Nombre);
 
@@ -181,16 +184,19 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Producto agregada correctamente", "Agregado", MessageBoxButtons.OK);
-                            LimpiarForm();
-                            CargarListaCategorias();
-                            CargarListaMarcas();
-                            CargarListaModelos();
+                          
                         }
                         else
                         {
                             MessageBox.Show("El producto no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
+                
                     }
+                    LimpiarForm();
+                    CargarListaProducto();
+                    CargarListaMarcas();
+                    CargarListaModelos();
+                    CargarListaCategorias();
                 }
             }
 

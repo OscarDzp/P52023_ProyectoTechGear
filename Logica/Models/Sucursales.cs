@@ -43,13 +43,13 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorID(int pID)
+        public bool ConsultarPorID(int pSucursalID)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@SucursalID", pSucursalID));
 
             DataTable dt = new DataTable();
 

@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CboxModelosMarca = new System.Windows.Forms.ComboBox();
             this.DtpModeloAnioLanzamiento = new System.Windows.Forms.DateTimePicker();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.TxtModeloNombre = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.CboxModelosMarca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaModelos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -163,6 +163,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle de Modelo";
             // 
+            // CboxModelosMarca
+            // 
+            this.CboxModelosMarca.FormattingEnabled = true;
+            this.CboxModelosMarca.Location = new System.Drawing.Point(119, 119);
+            this.CboxModelosMarca.Name = "CboxModelosMarca";
+            this.CboxModelosMarca.Size = new System.Drawing.Size(238, 21);
+            this.CboxModelosMarca.TabIndex = 25;
+            // 
             // DtpModeloAnioLanzamiento
             // 
             this.DtpModeloAnioLanzamiento.Location = new System.Drawing.Point(119, 52);
@@ -260,14 +268,6 @@
             this.BtnCerrar.TabIndex = 23;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
-            // 
-            // CboxModelosMarca
-            // 
-            this.CboxModelosMarca.FormattingEnabled = true;
-            this.CboxModelosMarca.Location = new System.Drawing.Point(119, 119);
-            this.CboxModelosMarca.Name = "CboxModelosMarca";
-            this.CboxModelosMarca.Size = new System.Drawing.Size(238, 21);
-            this.CboxModelosMarca.TabIndex = 25;
             // 
             // FrmModeloGestion
             // 
