@@ -73,12 +73,12 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
                 if (string.IsNullOrEmpty(TxtTransaccionTipo.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar un numero de factura");
+                    MessageBox.Show("Se debe asignar el tipo de Transaccion que se va realizar");
                     return false;
                 }
                 if (CboxTransaccionFactura.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Se debe elegir el tipo de transaccion", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe elegir la factura", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
             }

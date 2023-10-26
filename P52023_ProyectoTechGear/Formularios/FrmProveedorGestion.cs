@@ -54,7 +54,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
                 if (string.IsNullOrEmpty(TxtProveedorContacto.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar un cédula");
+                    MessageBox.Show("Se debe asignar un Contacto");
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtProveedorTelefono.Text.Trim()))
@@ -102,7 +102,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Proveedor agregadO correctamente", "Agregado", MessageBoxButtons.OK);
+                            MessageBox.Show("Proveedor agregado correctamente", "Agregado", MessageBoxButtons.OK);
                           
  
                         }

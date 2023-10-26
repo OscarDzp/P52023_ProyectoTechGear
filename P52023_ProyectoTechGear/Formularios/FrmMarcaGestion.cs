@@ -45,16 +45,17 @@ namespace P52023_ProyectoTechGear.Formularios
             }
             else
             {
-                if (string.IsNullOrEmpty(TxtMarcaNombre.Text.Trim()))
-                {
-                    MessageBox.Show("Se debe asignar un nombre");
-                    return false;
-                }
                 if (string.IsNullOrEmpty(TxtMarcaPaisOrigen.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar un país");
+                    MessageBox.Show("Se debe asignar un país de origen");
                     return false;
                 }
+                if (string.IsNullOrEmpty(TxtMarcaNombre.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un nombre de marca");
+                    return false;
+                }
+              
             }
 
             return R;
@@ -77,7 +78,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 if (NombreValido == false)
                 {
-                    string Pregunta = string.Format("Esta seguro de agregar la marca {0}?", MiMarcaLocal.Nombre);
+                    string Pregunta = string.Format("Esta seguro de agregar la Marca {0}?", MiMarcaLocal.Nombre);
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 

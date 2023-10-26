@@ -44,7 +44,7 @@ namespace P52023_ProyectoTechGear.Formularios
             if (!string.IsNullOrEmpty(TxtClienteNombre.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtClienteCorreoElectronico.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtClienteDireccion.Text.Trim()) &&
-                //!string.IsNullOrEmpty(TxtClienteCedula.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtClienteCedula.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtClienteTelefono.Text.Trim()))
             {
                 R = true;
@@ -61,16 +61,16 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe asignar un correo electrónico");
                     return false;
                 }
+                if (string.IsNullOrEmpty(TxtClienteCedula.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un número de cédula");
+                    return false;
+                }
                 if (string.IsNullOrEmpty(TxtClienteDireccion.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar una direción");
                     return false;
                 }
-                //if (string.IsNullOrEmpty(TxtClienteCedula.Text.Trim()))
-               // {
-                 //   MessageBox.Show("Se debe asignar un número de cédula");
-                   // return false;
-                //}
                 if (string.IsNullOrEmpty(TxtClienteTelefono.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar un número telefónico");
@@ -103,7 +103,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 if (CedulaValida == false && CorreoElectronicoValido == false)
                 {
-                    string Pregunta = string.Format("Esta seguro de agregar la categoría {0}?", MiClienteLocal.Nombre);
+                    string Pregunta = string.Format("Esta seguro de agregar el cliente {0}?", MiClienteLocal.Nombre);
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 

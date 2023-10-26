@@ -69,6 +69,7 @@ namespace P52023_ProyectoTechGear.Formularios
             }
             else
             {
+                //Fecha
                 if (string.IsNullOrEmpty(TxtModeloNombre.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar un nombre al modelo");
@@ -79,7 +80,7 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe elegir una marca", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
-                //Fecha
+                
             }
 
             return R;

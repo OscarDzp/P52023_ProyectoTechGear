@@ -121,7 +121,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
                 if (string.IsNullOrEmpty(TxtProductoStockActual.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar uhn stock");
+                    MessageBox.Show("Se debe asignar un stock");
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtProductoPrecio.Text.Trim()))

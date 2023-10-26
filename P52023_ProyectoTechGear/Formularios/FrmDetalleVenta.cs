@@ -70,27 +70,22 @@ namespace P52023_ProyectoTechGear.Formularios
                 //validacion faltante
                 if (string.IsNullOrEmpty(TxtDetalleVentaSutotal.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe digitar el nombre", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe digitar el SubTotal", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtDetalleVentaPrecioUnitario.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe digitar el correo electrónico", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe digitar el Precio Unitario", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtDetalleVentaCantidad.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe digitar la contraseña", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe digitar la Cantidad", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (CboxDetalleVentasProducto.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Se debe elegir un rol de empleado", "Error de validación", MessageBoxButtons.OK);
-                    return false;
-                }
-                if (string.IsNullOrEmpty(CboxDetalleVentasProducto.Text.Trim()))
-                {
-                    MessageBox.Show("Se debe digitar eL cargo del empleado", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe elegir el Producto", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
 
@@ -118,7 +113,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 {
                     //Confirmacion
 
-                    string Pregunta = string.Format("¿Está seguro que queire agregar al empleado {0}?", MiDetalleVentaLocal.Subtotal);
+                    string Pregunta = string.Format("¿Está seguro que quiere agregar el detalle de venta {0}?", MiDetalleVentaLocal.Subtotal);
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
                     if (respuesta == DialogResult.Yes)
@@ -127,14 +122,14 @@ namespace P52023_ProyectoTechGear.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Empleado agregado correctamente!", "Empleado agregado", MessageBoxButtons.OK);
+                            MessageBox.Show("Detalle de venta agregado correctamente!", "Detalle de venta agregado", MessageBoxButtons.OK);
 
                          
 
                         }
                         else
                         {
-                            MessageBox.Show("El empleado no pudo ser agregado...", "Empleado no agregado", MessageBoxButtons.OK);
+                            MessageBox.Show("El detalle de venta no pudo ser agregado...", "Detalle de venta no agregado", MessageBoxButtons.OK);
 
                         }
                     }

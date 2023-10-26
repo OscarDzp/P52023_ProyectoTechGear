@@ -164,7 +164,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
                 if (string.IsNullOrEmpty(TxtEmpleadoNombre.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe digitar el nombre", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe digitar el Nombre", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtEmpleadoCorreoElectronico.Text.Trim()))
@@ -198,10 +198,6 @@ namespace P52023_ProyectoTechGear.Formularios
             return R;
 
         }
-
-
-
-
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
 
@@ -229,7 +225,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 {
                     //Confirmacion
 
-                    string Pregunta = string.Format("¿Está seguro que queire agregar al empleado {0}?", MiEmpleadoLocal.Nombre);
+                    string Pregunta = string.Format("¿Está seguro que quiere agregar al empleado {0}?", MiEmpleadoLocal.Nombre);
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
                     if (respuesta == DialogResult.Yes)

@@ -103,14 +103,14 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe asignar una fecha de finalizacion de garantia");
                     return false;
                 }
+                if (CboxGarantiaProducto.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Se debe ingresar el Producto");
+                    return false;
+                }
                 if (string.IsNullOrEmpty(TxtGarantiaDetalle.Text.Trim()))
                 {
                     MessageBox.Show("Se debe ingresar algun tipo de descripcion");
-                    return false;
-                }
-                if (CboxGarantiaProducto.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Se debe ingresar el codigo del producto");
                     return false;
                 }
             }
@@ -138,7 +138,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 if (IdValido == false)
                 {
-                    string Pregunta = string.Format("Esta seguro de agregar esta transaccion {0}?", MiGarantia.GarantiaID);
+                    string Pregunta = string.Format("Esta seguro de agregar esta Garantia {0}?", MiGarantia.GarantiaID);
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
@@ -149,13 +149,13 @@ namespace P52023_ProyectoTechGear.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Transaccion agregada correctamente", "Agregado", MessageBoxButtons.OK);
+                            MessageBox.Show("Garantia agregada correctamente", "Agregado", MessageBoxButtons.OK);
                             LimpiarForm();
 
                         }
                         else
                         {
-                            MessageBox.Show("La Transaccion no se ha añadido", "Cancelado", MessageBoxButtons.OK);
+                            MessageBox.Show("La Garantia no se ha añadido", "Cancelado", MessageBoxButtons.OK);
                         }
                         LimpiarForm();
                         CargarListaGarantia();

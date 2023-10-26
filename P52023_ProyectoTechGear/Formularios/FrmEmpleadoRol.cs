@@ -46,7 +46,7 @@ namespace P52023_ProyectoTechGear.Formularios
             {
                 if (string.IsNullOrEmpty(TxtEmpleadoRolNombre.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar un nombre la categoría");
+                    MessageBox.Show("Se debe asignar un nuevo Rol");
                     return false;
                 }
             }

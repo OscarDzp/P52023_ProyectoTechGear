@@ -58,7 +58,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
                 if (string.IsNullOrEmpty(TxtSucursalDescripcion.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar una descripcion");
+                    MessageBox.Show("Se debe asignar una descripcion a la sucursal");
                     return false;
                 }
             }

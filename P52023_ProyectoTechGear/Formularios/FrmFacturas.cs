@@ -122,37 +122,37 @@ namespace P52023_ProyectoTechGear.Formularios
              
                 if (string.IsNullOrEmpty(TxtFacturaTotalFactura.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar un correo electrónico");
+                    MessageBox.Show("Se debe asignar Total de la Factura");
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtFacturaDetalleVenta.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar una direción");
+                    MessageBox.Show("Se debe asignar un Detalle de Venta");
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtFacturaImpuesto.Text.Trim()))
                 {
-                MessageBox.Show("Se debe asignar un número de cédula");
+                MessageBox.Show("Se debe asignar el impuesto");
                  return false;
                 }
                 if (string.IsNullOrEmpty(DtFacturaFecha.Text.Trim()))  //fecha
                 {
-                    MessageBox.Show("Se debe asignar un número telefónico");
+                    MessageBox.Show("Se debe asignar una fecha a la factura");
                     return false;
                 }
                 if (CboxFacturaSucursal.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Se debe elegir un modelo", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe elegir una Sucursal", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (CboxFacturaEmpleado.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Se debe elegir un modelo", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe elegir un Empleado", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (CboxFacturaCliente.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Se debe elegir un modelo", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe elegir un Cliente", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
 
@@ -183,7 +183,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 {
                     //Confirmacion
 
-                    string Pregunta = string.Format("¿Está seguro que queire agregar al empleado {0}?", MiFacturaLocal.TotalFactura);
+                    string Pregunta = string.Format("¿Está seguro que quiere agregar la Factura {0}?", MiFacturaLocal.TotalFactura);
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
                     if (respuesta == DialogResult.Yes)
@@ -192,14 +192,14 @@ namespace P52023_ProyectoTechGear.Formularios
 
                         if (ok)
                         {
-                            MessageBox.Show("Empleado agregado correctamente!", "Empleado agregado", MessageBoxButtons.OK);
+                            MessageBox.Show("Factura agregada correctamente!", "Factura agregado", MessageBoxButtons.OK);
 
 
 
                         }
                         else
                         {
-                            MessageBox.Show("El empleado no pudo ser agregado...", "Empleado no agregado", MessageBoxButtons.OK);
+                            MessageBox.Show("La Factura no pudo ser agregado...", "Factura no agregado", MessageBoxButtons.OK);
 
                         }
                     }

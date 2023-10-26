@@ -42,7 +42,12 @@ namespace P52023_ProyectoTechGear.Formularios
             {
                 if (string.IsNullOrEmpty(TxtSoporteNombre.Text.Trim()))
                 {
-                    MessageBox.Show("Se debe asignar un nombre ");
+                    MessageBox.Show("Se debe asignar un nombre al tecnico ");
+                    return false;
+                }
+                if (string.IsNullOrEmpty(TxtSoporteDisponibilidad.Text.Trim()))
+                {
+                    MessageBox.Show("Se debe asignar un horario de disponibilidad", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
                 if (string.IsNullOrEmpty(TxtSoporteCorreo.Text.Trim()))
@@ -55,11 +60,12 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe asignar una especialidad");
                     return false;
                 }
-                if (string.IsNullOrEmpty(TxtSoporteDisponibilidad.Text.Trim()))
+                if (CboxSoporteGarantia.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Se debe asignar un horario de disponibilidad", "Error de validación", MessageBoxButtons.OK);
+                    MessageBox.Show("Se debe elegir una garantia a trabajar", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
+
             }
 
             return R;
