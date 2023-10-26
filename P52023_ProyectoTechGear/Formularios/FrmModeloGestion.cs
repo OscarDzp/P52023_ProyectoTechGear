@@ -49,7 +49,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
             if (dtMarcas != null && dtMarcas.Rows.Count > 0)
             {
-                CboxModelosMarca.ValueMember = "ID";
+                CboxModelosMarca.ValueMember = "MarcaID";
                 CboxModelosMarca.DisplayMember = "Nombre";
 
                 CboxModelosMarca.DataSource = dtMarcas;
@@ -96,8 +96,9 @@ namespace P52023_ProyectoTechGear.Formularios
 
 
                 MiModeloLocal.Nombre = TxtModeloNombre.Text.Trim();
+                MiModeloLocal.AnioLanzamiento = DateTime.Parse(DtpModeloAnioLanzamiento.Text.Trim());
                 MiModeloLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxModelosMarca.SelectedValue);
-                //fecha
+              
 
                 bool NombreValido = MiModeloLocal.ConsultarPorID(MiModeloLocal.ModeloID);
 
@@ -115,14 +116,16 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Modelo agregado correctamente", "Agregado", MessageBoxButtons.OK);
-                            LimpiarForm();
-                            CargarListaMarcas();
+                          
                         }
                         else
                         {
                             MessageBox.Show("El modelo no se ha añadido", "Cancelado", MessageBoxButtons.OK);
-                        }
+                        }                
                     }
+                    LimpiarForm();
+                    CargarListaModelos();
+                    CargarListaMarcas();
                 }
             }
 
@@ -133,7 +136,7 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             TxtModeloNombre.Clear();
             CboxModelosMarca.SelectedIndex = -1;
-            //fecha 
+            //Fecha
         }
 
     }

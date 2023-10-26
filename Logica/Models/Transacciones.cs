@@ -10,9 +10,14 @@ namespace Logica.Models
 {
     public class Transacciones
     {
+        public Transacciones()
+        {
+            MiFactura = new Facturas();
       
+        }
+
         public int TransaccionID { get; set; }
-        public string FechaTransaccion { get; set; } // pensable
+        public DateTime FechaTransaccion { get; set; } 
         public string Cantidad { get; set; }
         public string TipoTransaccion { get; set; }
         public int FacturaID { get; set; }
@@ -25,13 +30,13 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            //MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaTransaccion", this.FechaTransaccion));//
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaTransaccion", this.FechaTransaccion));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cantidad", this.Cantidad));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@TipoTransaccion", this.TipoTransaccion));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FacturaID", this.MiFactura.FacturaID));
 
 
-            int resultado = MiCnn.EjecutarDML("SPClientesAgregar");
+            int resultado = MiCnn.EjecutarDML("SPTransaccionesAgregar");
 
             if (resultado > 0) R = true;
 

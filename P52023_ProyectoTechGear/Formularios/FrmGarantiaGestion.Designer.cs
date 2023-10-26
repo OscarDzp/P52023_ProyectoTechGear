@@ -36,7 +36,6 @@
             this.ColDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProductoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TxtProductoCodigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtGarantiaDetalle = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.CboxGarantiaProducto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaGarantias)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -135,7 +135,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TxtProductoCodigo);
+            this.groupBox1.Controls.Add(this.CboxGarantiaProducto);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.TxtGarantiaDetalle);
@@ -154,13 +154,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Detalle de la Garantía";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // TxtProductoCodigo
-            // 
-            this.TxtProductoCodigo.Location = new System.Drawing.Point(593, 20);
-            this.TxtProductoCodigo.Name = "TxtProductoCodigo";
-            this.TxtProductoCodigo.Size = new System.Drawing.Size(351, 20);
-            this.TxtProductoCodigo.TabIndex = 18;
             // 
             // label6
             // 
@@ -333,6 +326,14 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
+            // CboxGarantiaProducto
+            // 
+            this.CboxGarantiaProducto.FormattingEnabled = true;
+            this.CboxGarantiaProducto.Location = new System.Drawing.Point(592, 23);
+            this.CboxGarantiaProducto.Name = "CboxGarantiaProducto";
+            this.CboxGarantiaProducto.Size = new System.Drawing.Size(352, 21);
+            this.CboxGarantiaProducto.TabIndex = 18;
+            // 
             // FrmGarantiaGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,7 +378,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtBuscar;
-        private System.Windows.Forms.TextBox TxtProductoCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColGarantiaID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTiempogarantia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColFechainicio;
@@ -389,5 +389,6 @@
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnCerrar;
+        private System.Windows.Forms.ComboBox CboxGarantiaProducto;
     }
 }

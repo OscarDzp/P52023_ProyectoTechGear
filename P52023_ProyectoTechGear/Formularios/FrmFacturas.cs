@@ -171,7 +171,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiFacturaLocal.TotalFactura = TxtFacturaTotalFactura.Text.Trim();
                 MiFacturaLocal.Detalledeventa = TxtFacturaDetalleVenta.Text.Trim();
                 MiFacturaLocal.Impuestos = TxtFacturaImpuesto.Text.Trim();
-                MiFacturaLocal.FechaFactura = DtFacturaFecha.Text.Trim(); //fecha
+                MiFacturaLocal.FechaFactura = DateTime.Parse(DtFacturaFecha.Text.Trim());
                 MiFacturaLocal.MiSucursal.SucursalID = Convert.ToInt32(CboxFacturaSucursal.SelectedValue);
                 MiFacturaLocal.MiEmpleado.EmpleadoID = Convert.ToInt32(CboxFacturaEmpleado.SelectedValue);
                 MiFacturaLocal.MiCliente.ClienteID = Convert.ToInt32(CboxFacturaCliente.SelectedValue);

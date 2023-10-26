@@ -13,16 +13,16 @@ namespace Logica.Models
     {
         public Garantias()
         {
-            MiGarantia = null;
+            MiProducto = new Productos();
         }
         public int GarantiaID { get; set; }
         public string Tiempogarantia { get; set; } // Es una fecha
-        public string Fechainicio { get; set; } // Es una fecha
-        public string Fechafinalizacion { get; set; } // Es una fecha
+        public DateTime Fechainicio { get; set; } // Es una fecha
+        public DateTime Fechafinalizacion { get; set; } // Es una fecha
         public string Detalle { get; set; }
         public Productos MiProducto { get; set; }
 
-        public Garantias MiGarantia { get; set; }
+     
 
         public bool Agregar()
         {
@@ -64,7 +64,7 @@ namespace Logica.Models
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPGarantiasConsultarPorID");
+            dt = MiCnn.EjecutarSelect("SPGarantiaConsultarPorID");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 

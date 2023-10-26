@@ -40,6 +40,27 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
             CargarListaGarantia();
+            CargarListaProducto();
+        }
+
+      
+
+            private void CargarListaProducto()
+            {
+            Logica.Models.Productos MiProducto = new Logica.Models.Productos();
+
+            DataTable dtProductos = new DataTable();
+
+            dtProductos = MiProducto.Listar();
+
+            if (dtProductos != null && dtProductos.Rows.Count > 0)
+            {
+                CboxGarantiaProducto.ValueMember = "ProductoID";
+                CboxGarantiaProducto.DisplayMember = "Nombre";
+
+                CboxGarantiaProducto.DataSource = dtProductos;
+                CboxGarantiaProducto.SelectedIndex = -1;
+            }
         }
 
         private void CargarListaGarantia() {
@@ -60,8 +81,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 !string.IsNullOrEmpty(DtpFechaInicio.Text.Trim()) &&
                 !string.IsNullOrEmpty(DtpFechaFinalizacion.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtGarantiaDetalle.Text.Trim())&&
-                !string.IsNullOrEmpty(TxtProductoCodigo.Text.Trim())
-                )              
+               CboxGarantiaProducto.SelectedIndex > -1)
+                              
             {
                 R = true;
             }
@@ -87,7 +108,7 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe ingresar algun tipo de descripcion");
                     return false;
                 }
-                if (string.IsNullOrEmpty(TxtProductoCodigo.Text.Trim()))
+                if (CboxGarantiaProducto.SelectedIndex == -1)
                 {
                     MessageBox.Show("Se debe ingresar el codigo del producto");
                     return false;
@@ -108,11 +129,11 @@ namespace P52023_ProyectoTechGear.Formularios
 
 
                 MiGarantia.Tiempogarantia = TxtGarantiaTiempo.Text.Trim();
-                MiGarantia.Fechainicio = DtpFechaInicio.Text.Trim();
-                MiGarantia.Fechafinalizacion = DtpFechaFinalizacion.Text.Trim();
+                MiGarantia.Fechainicio = DateTime.Parse(DtpFechaInicio.Text.Trim());
+                MiGarantia.Fechafinalizacion = DateTime.Parse(DtpFechaFinalizacion.Text.Trim());
                 MiGarantia.Detalle = TxtGarantiaDetalle.Text.Trim();
-                MiGarantia.MiProducto.ProductoID = Convert.ToInt32(TxtProductoCodigo.Text.Trim());
-
+                MiGarantia.MiProducto.ProductoID = Convert.ToInt32(CboxGarantiaProducto.SelectedValue);
+         
                 bool IdValido = MiGarantia.ConsultarPorID(MiGarantia.GarantiaID);
 
                 if (IdValido == false)
@@ -150,7 +171,7 @@ namespace P52023_ProyectoTechGear.Formularios
             DtpFechaInicio.ResetText();
             DtpFechaFinalizacion.ResetText();
             TxtGarantiaDetalle.Clear();
-            TxtProductoCodigo.Clear();
+            CboxGarantiaProducto.SelectedIndex = -1;
         }
     }
 }

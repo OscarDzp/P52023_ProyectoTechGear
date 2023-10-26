@@ -23,8 +23,26 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
             CargarListaTransaccion();
+            CargarListaFactura();
         }
 
+        private void CargarListaFactura()
+        {
+            Logica.Models.Facturas MiFactura = new Logica.Models.Facturas();
+
+            DataTable dtFacturas = new DataTable();
+
+            dtFacturas = MiFactura.Listar();
+
+            if (dtFacturas != null && dtFacturas.Rows.Count > 0)
+            {
+                CboxTransaccionFactura.ValueMember = "FacturaID";
+                CboxTransaccionFactura.DisplayMember = "Detalledeventa";
+
+                CboxTransaccionFactura.DataSource = dtFacturas;
+                CboxTransaccionFactura.SelectedIndex = -1;
+            }
+        }
 
         private void CargarListaTransaccion()
         {
@@ -39,9 +57,9 @@ namespace P52023_ProyectoTechGear.Formularios
             bool R = false;
 
             if (
-                !string.IsNullOrEmpty(TxtTransaccionCodigoFactura.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtTransaccionTipo.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtTransaccionCantidad.Text.Trim()) &&
-                CboxTransaccionTipo.SelectedIndex > -1
+                CboxTransaccionFactura.SelectedIndex > -1
                 )
             {
                 R = true;
@@ -53,12 +71,12 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe ingresar la cantidad");
                     return false;
                 }
-                if (string.IsNullOrEmpty(TxtTransaccionCodigoFactura.Text.Trim()))
+                if (string.IsNullOrEmpty(TxtTransaccionTipo.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar un numero de factura");
                     return false;
                 }
-                if (CboxTransaccionTipo.SelectedIndex == -1)
+                if (CboxTransaccionFactura.SelectedIndex == -1)
                 {
                     MessageBox.Show("Se debe elegir el tipo de transaccion", "Error de validación", MessageBoxButtons.OK);
                     return false;
@@ -77,10 +95,11 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiTransaccionLocal = new Logica.Models.Transacciones();
 
 
-                //MiTransaccionLocal.FechaTransaccion = DtTransaccionCodigo.Text.Trim();//
+                MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionCodigo.Text.Trim());
                 MiTransaccionLocal.Cantidad = TxtTransaccionCantidad.Text.Trim();
-                MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(CboxTransaccionTipo.SelectedValue);
-                MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(TxtTransaccionCodigoFactura.Text.Trim());
+                MiTransaccionLocal.TipoTransaccion = TxtTransaccionTipo.Text.Trim();
+                MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(CboxTransaccionFactura.SelectedValue);
+           
 
                 bool IdValido = MiTransaccionLocal.ConsultarPorID(MiTransaccionLocal.TransaccionID);
 
@@ -116,8 +135,8 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             //DtTransaccionCodigo.SelectedIndex = -1;//
             TxtTransaccionCantidad.Clear();
-            CboxTransaccionTipo.SelectedIndex = -1;
-            TxtTransaccionCodigoFactura.Clear();
+            CboxTransaccionFactura.SelectedIndex = -1;
+            TxtTransaccionTipo.Clear();
         }
     }
 }

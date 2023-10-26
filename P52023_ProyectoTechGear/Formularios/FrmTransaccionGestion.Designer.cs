@@ -37,10 +37,10 @@
             this.DtTransaccionCodigo = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtTransaccionCantidad = new System.Windows.Forms.TextBox();
-            this.CboxTransaccionTipo = new System.Windows.Forms.ComboBox();
+            this.CboxTransaccionFactura = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.TxtTransaccionCodigoFactura = new System.Windows.Forms.TextBox();
+            this.TxtTransaccionTipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtTransaccionCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -122,10 +122,10 @@
             this.groupBox1.Controls.Add(this.DtTransaccionCodigo);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TxtTransaccionCantidad);
-            this.groupBox1.Controls.Add(this.CboxTransaccionTipo);
+            this.groupBox1.Controls.Add(this.CboxTransaccionFactura);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.TxtTransaccionCodigoFactura);
+            this.groupBox1.Controls.Add(this.TxtTransaccionTipo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TxtTransaccionCodigo);
             this.groupBox1.Controls.Add(this.label2);
@@ -159,14 +159,14 @@
             this.TxtTransaccionCantidad.Size = new System.Drawing.Size(240, 20);
             this.TxtTransaccionCantidad.TabIndex = 16;
             // 
-            // CboxTransaccionTipo
+            // CboxTransaccionFactura
             // 
-            this.CboxTransaccionTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboxTransaccionTipo.FormattingEnabled = true;
-            this.CboxTransaccionTipo.Location = new System.Drawing.Point(482, 108);
-            this.CboxTransaccionTipo.Name = "CboxTransaccionTipo";
-            this.CboxTransaccionTipo.Size = new System.Drawing.Size(237, 21);
-            this.CboxTransaccionTipo.TabIndex = 12;
+            this.CboxTransaccionFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboxTransaccionFactura.FormattingEnabled = true;
+            this.CboxTransaccionFactura.Location = new System.Drawing.Point(317, 190);
+            this.CboxTransaccionFactura.Name = "CboxTransaccionFactura";
+            this.CboxTransaccionFactura.Size = new System.Drawing.Size(237, 21);
+            this.CboxTransaccionFactura.TabIndex = 12;
             // 
             // label7
             // 
@@ -186,12 +186,12 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "FechaTransaccion:";
             // 
-            // TxtTransaccionCodigoFactura
+            // TxtTransaccionTipo
             // 
-            this.TxtTransaccionCodigoFactura.Location = new System.Drawing.Point(330, 185);
-            this.TxtTransaccionCodigoFactura.Name = "TxtTransaccionCodigoFactura";
-            this.TxtTransaccionCodigoFactura.Size = new System.Drawing.Size(238, 20);
-            this.TxtTransaccionCodigoFactura.TabIndex = 3;
+            this.TxtTransaccionTipo.Location = new System.Drawing.Point(484, 116);
+            this.TxtTransaccionTipo.Name = "TxtTransaccionTipo";
+            this.TxtTransaccionTipo.Size = new System.Drawing.Size(238, 20);
+            this.TxtTransaccionTipo.TabIndex = 3;
             // 
             // label3
             // 
@@ -330,10 +330,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtTransaccionCantidad;
-        private System.Windows.Forms.ComboBox CboxTransaccionTipo;
+        private System.Windows.Forms.ComboBox CboxTransaccionFactura;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxtTransaccionCodigoFactura;
+        private System.Windows.Forms.TextBox TxtTransaccionTipo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtTransaccionCodigo;
         private System.Windows.Forms.Label label2;

@@ -22,7 +22,7 @@ namespace Logica.Models
         public string TotalFactura { get; set; }
         public string Detalledeventa { get; set; }
         public string Impuestos { get; set; }
-        public string FechaFactura { get; set; } // fecha
+        public DateTime FechaFactura { get; set; } // fecha
         public Sucursales MiSucursal { get; set; }
         public Empleados MiEmpleado { get; set; }
         public Clientes MiCliente { get; set; }

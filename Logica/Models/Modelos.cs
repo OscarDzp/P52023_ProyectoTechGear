@@ -12,10 +12,10 @@ namespace Logica.Models
     {
         public Modelos()
         {
-       
+            MiMarcaID = new Marcas();
         }
         public int ModeloID { get; set; }
-        public string AnioLanzamiento { get; set; }
+        public DateTime AnioLanzamiento { get; set; }
         public string Nombre { get; set; }
         public Marcas MiMarcaID { get; set; }
         
