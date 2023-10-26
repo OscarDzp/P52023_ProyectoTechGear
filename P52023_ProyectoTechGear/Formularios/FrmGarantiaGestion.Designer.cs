@@ -39,7 +39,7 @@
             this.TxtProductoCodigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.TxtUsuarioDireccion = new System.Windows.Forms.TextBox();
+            this.TxtGarantiaDetalle = new System.Windows.Forms.TextBox();
             this.DtpFechaFinalizacion = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.DtpFechaInicio = new System.Windows.Forms.DateTimePicker();
@@ -138,7 +138,7 @@
             this.groupBox1.Controls.Add(this.TxtProductoCodigo);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.TxtUsuarioDireccion);
+            this.groupBox1.Controls.Add(this.TxtGarantiaDetalle);
             this.groupBox1.Controls.Add(this.DtpFechaFinalizacion);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.DtpFechaInicio);
@@ -181,14 +181,14 @@
             this.label5.Text = "Detalle";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // TxtUsuarioDireccion
+            // TxtGarantiaDetalle
             // 
-            this.TxtUsuarioDireccion.Location = new System.Drawing.Point(592, 46);
-            this.TxtUsuarioDireccion.Multiline = true;
-            this.TxtUsuarioDireccion.Name = "TxtUsuarioDireccion";
-            this.TxtUsuarioDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtUsuarioDireccion.Size = new System.Drawing.Size(352, 82);
-            this.TxtUsuarioDireccion.TabIndex = 15;
+            this.TxtGarantiaDetalle.Location = new System.Drawing.Point(592, 46);
+            this.TxtGarantiaDetalle.Multiline = true;
+            this.TxtGarantiaDetalle.Name = "TxtGarantiaDetalle";
+            this.TxtGarantiaDetalle.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TxtGarantiaDetalle.Size = new System.Drawing.Size(352, 82);
+            this.TxtGarantiaDetalle.TabIndex = 15;
             // 
             // DtpFechaFinalizacion
             // 
@@ -241,6 +241,7 @@
             // 
             // TxtGarantiaCodigo
             // 
+            this.TxtGarantiaCodigo.Enabled = false;
             this.TxtGarantiaCodigo.Location = new System.Drawing.Point(123, 16);
             this.TxtGarantiaCodigo.Name = "TxtGarantiaCodigo";
             this.TxtGarantiaCodigo.Size = new System.Drawing.Size(238, 20);
@@ -282,6 +283,7 @@
             this.BtnAgregar.TabIndex = 5;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnModificar
             // 
@@ -371,7 +373,7 @@
         private System.Windows.Forms.DateTimePicker DtpFechaFinalizacion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TxtUsuarioDireccion;
+        private System.Windows.Forms.TextBox TxtGarantiaDetalle;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtBuscar;

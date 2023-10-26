@@ -20,7 +20,8 @@ namespace Logica.Models
         public string Fechainicio { get; set; } // Es una fecha
         public string Fechafinalizacion { get; set; } // Es una fecha
         public string Detalle { get; set; }
-        public int ProductoID { get; set; }
+        public Productos MiProducto { get; set; }
+
         public Garantias MiGarantia { get; set; }
 
         public bool Agregar()
@@ -33,8 +34,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaInicio", this.Fechainicio));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaFinalizacion", this.Fechafinalizacion));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Detalle", this.Detalle));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Producto", this.ProductoID));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Garantia", this.MiGarantia.GarantiaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiProducto.ProductoID));
 
             int resultado = MiCnn.EjecutarDML("SPGarantiasAgregar");
 
@@ -51,6 +51,24 @@ namespace Logica.Models
         public bool Actualizar()//Todavia no
         {
             bool R = false;
+            return R;
+        }
+
+        public bool ConsultarPorID(int pGarantiaID)
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@GarantiaID", pGarantiaID));
+
+            DataTable dt = new DataTable();
+
+            dt = MiCnn.EjecutarSelect("SPGarantiasConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0) R = true;
+
+
             return R;
         }
 
