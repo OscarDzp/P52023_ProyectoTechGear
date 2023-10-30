@@ -69,15 +69,5 @@ namespace P52023_ProyectoTechGear.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Raphtalia_1 {
-            get {
-                object obj = ResourceManager.GetObject("Raphtalia-1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

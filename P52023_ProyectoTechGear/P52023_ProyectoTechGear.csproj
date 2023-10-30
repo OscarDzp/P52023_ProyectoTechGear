@@ -190,6 +190,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmProveedorGestion.resx">
       <DependentUpon>FrmProveedorGestion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmSoporteGestion.resx">
       <DependentUpon>FrmSoporteGestion.cs</DependentUpon>

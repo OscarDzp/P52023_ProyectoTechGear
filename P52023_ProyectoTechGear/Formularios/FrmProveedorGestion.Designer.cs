@@ -31,12 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvListaProveedores = new System.Windows.Forms.DataGridView();
-            this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.TxtProveedorCorreoElectronico = new System.Windows.Forms.TextBox();
             this.TxtProveedorContacto = new System.Windows.Forms.TextBox();
             this.TxtProveedorNombre = new System.Windows.Forms.TextBox();
@@ -52,12 +53,11 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -87,9 +87,9 @@
             this.DgvListaProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColProveedorID,
             this.ColNombre,
-            this.ColCedula,
+            this.ColContacto,
             this.ColTelefono,
-            this.ColCorreo});
+            this.ColCorreoElectronico});
             this.DgvListaProveedores.Location = new System.Drawing.Point(12, 51);
             this.DgvListaProveedores.MultiSelect = false;
             this.DgvListaProveedores.Name = "DgvListaProveedores";
@@ -99,43 +99,6 @@
             this.DgvListaProveedores.Size = new System.Drawing.Size(775, 244);
             this.DgvListaProveedores.TabIndex = 2;
             this.DgvListaProveedores.VirtualMode = true;
-            // 
-            // ColProveedorID
-            // 
-            this.ColProveedorID.DataPropertyName = "ProveedorID";
-            this.ColProveedorID.HeaderText = "CÓDIGO";
-            this.ColProveedorID.Name = "ColProveedorID";
-            this.ColProveedorID.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "NOMBRE";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 79;
-            // 
-            // ColCedula
-            // 
-            this.ColCedula.DataPropertyName = "Cedula";
-            this.ColCedula.HeaderText = "CONTACTO";
-            this.ColCedula.Name = "ColCedula";
-            this.ColCedula.ReadOnly = true;
-            // 
-            // ColTelefono
-            // 
-            this.ColTelefono.DataPropertyName = "Telefono";
-            this.ColTelefono.HeaderText = "TELÉFONO";
-            this.ColTelefono.Name = "ColTelefono";
-            this.ColTelefono.ReadOnly = true;
-            // 
-            // ColCorreo
-            // 
-            this.ColCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColCorreo.DataPropertyName = "Correo";
-            this.ColCorreo.HeaderText = "CORREO ";
-            this.ColCorreo.Name = "ColCorreo";
-            this.ColCorreo.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -161,6 +124,70 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Proveedor";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(73, 85);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(15, 18);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(73, 124);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 18);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(420, 37);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 18);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(375, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(15, 18);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(662, 259);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(641, 259);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "*";
             // 
             // TxtProveedorCorreoElectronico
             // 
@@ -303,69 +330,42 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
-            // label16
+            // ColProveedorID
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(662, 259);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 13);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Datos Requeridos.....";
+            this.ColProveedorID.DataPropertyName = "ProveedorID";
+            this.ColProveedorID.HeaderText = "CÓDIGO";
+            this.ColProveedorID.Name = "ColProveedorID";
+            this.ColProveedorID.ReadOnly = true;
             // 
-            // label15
+            // ColNombre
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(641, 259);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 18);
-            this.label15.TabIndex = 42;
-            this.label15.Text = "*";
+            this.ColNombre.DataPropertyName = "Nombre";
+            this.ColNombre.HeaderText = "NOMBRE";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 79;
             // 
-            // label7
+            // ColContacto
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(375, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 18);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "*";
+            this.ColContacto.DataPropertyName = "Contacto";
+            this.ColContacto.HeaderText = "CONTACTO";
+            this.ColContacto.Name = "ColContacto";
+            this.ColContacto.ReadOnly = true;
             // 
-            // label8
+            // ColTelefono
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(420, 37);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 18);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "*";
+            this.ColTelefono.DataPropertyName = "Telefono";
+            this.ColTelefono.HeaderText = "TELÉFONO";
+            this.ColTelefono.Name = "ColTelefono";
+            this.ColTelefono.ReadOnly = true;
             // 
-            // label9
+            // ColCorreoElectronico
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(73, 124);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 18);
-            this.label9.TabIndex = 46;
-            this.label9.Text = "*";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(73, 85);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(15, 18);
-            this.label10.TabIndex = 47;
-            this.label10.Text = "*";
+            this.ColCorreoElectronico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColCorreoElectronico.DataPropertyName = "CorreoElectronico";
+            this.ColCorreoElectronico.HeaderText = "CORREO ";
+            this.ColCorreoElectronico.Name = "ColCorreoElectronico";
+            this.ColCorreoElectronico.ReadOnly = true;
             // 
             // FrmProveedorGestion
             // 
@@ -415,16 +415,16 @@
         private System.Windows.Forms.TextBox TxtProveedorNombre;
         private System.Windows.Forms.TextBox TxtProveedorTelefono;
         public System.Windows.Forms.TextBox TxtProveedorCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColProveedorID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCorreo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColProveedorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColContacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCorreoElectronico;
     }
 }
