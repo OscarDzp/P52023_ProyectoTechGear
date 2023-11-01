@@ -101,7 +101,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiModeloLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxModelosMarca.SelectedValue);
               
 
-                bool NombreValido = MiModeloLocal.ConsultarPorID(MiModeloLocal.ModeloID);
+                bool NombreValido = MiModeloLocal.ConsultarPorNombre(MiModeloLocal.Nombre);
 
                 if (NombreValido == false)
                 {
@@ -140,5 +140,88 @@ namespace P52023_ProyectoTechGear.Formularios
             //Fecha
         }
 
+        private void DgvListaModelos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaModelos.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaModelos.SelectedRows[0];
+                int IdModelos = Convert.ToInt32(MiDgvFila.Cells["ColModeloID"].Value);
+                MiModeloLocal = new Logica.Models.Modelos();
+                MiModeloLocal = MiModeloLocal.ConsultarPorID(IdModelos);
+                if (MiModeloLocal != null && MiModeloLocal.ModeloID > 0)
+                {
+                    TxtModeloCodigo.Text = MiModeloLocal.ModeloID.ToString();
+                    DtpModeloAnioLanzamiento.Value = MiModeloLocal.AnioLanzamiento;
+                    TxtModeloNombre.Text = MiModeloLocal.Nombre;
+        
+                    CboxModelosMarca.SelectedValue = MiModeloLocal.MiMarcaID.MarcaID;
+
+
+                 ActivarBotonesModificarYEliminar();
+                }
+
+
+            }
+        }
+     
+
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();  
+        }
+
+
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarValorRequerido())
+            {
+                MiModeloLocal.AnioLanzamiento = DateTime.Parse(DtpModeloAnioLanzamiento.Text.Trim());
+                MiModeloLocal.Nombre = TxtModeloNombre.Text.Trim();
+                MiModeloLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxModelosMarca.SelectedValue);
+
+             
+
+                if (MiModeloLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar el modelo?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiModeloLocal.Actualizar())
+                        {
+                            MessageBox.Show("Modelos modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaModelos();
+                            ActivarBotonAgregar();
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        private void DgvListaModelos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaModelos.ClearSelection();
+
+        }
     }
 }

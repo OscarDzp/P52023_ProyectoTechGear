@@ -58,23 +58,83 @@ namespace Logica.Models
         public bool Actualizar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@TotalFactura", this.TotalFactura));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Detalledeventa", this.Detalledeventa));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Impuestos", this.Impuestos));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FechaFactura", this.FechaFactura));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@SucursalID", this.MiSucursal.SucursalID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoID", this.MiEmpleado.EmpleadoID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ClienteID", this.MiCliente.ClienteID));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.FacturaID));
+            int resultado = MiCnn.EjecutarDML("SPFacturasActualizar");
+
+            if (resultado > 0) R = true;
             return R;
         }
-        public bool ConsultarPorID(string pFacturaID)
+        public bool ConsultarPorTotalFactura(string pTotalFactura)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@FacturaID", pFacturaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@TotalFactura", pTotalFactura));
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPFacturasConsultarPorID");
+            dt = MiCnn.EjecutarSelect("SPFacturasConsultarPorTotalFactura");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
             return R;
+        }
+
+        public bool ConsultarPorID() 
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.FacturaID));
+            DataTable DatosFactura = new DataTable();
+            DatosFactura = MyCnn.EjecutarSelect("SPFacturasConsultarPorID");
+            if (DatosFactura != null && DatosFactura.Rows.Count > 0)
+            {
+             
+                R = true;
+            }
+
+            return R;
+
+        }
+
+        public Facturas ConsultarPorID(int IdFactura)
+        {
+            Facturas R = new Facturas();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID",IdFactura));
+            DataTable DatosFactura = new DataTable();
+            DatosFactura = MyCnn.EjecutarSelect("SPFacturasConsultarPorID");
+            if (DatosFactura != null && DatosFactura.Rows.Count > 0)
+            {
+
+                DataRow MiFila = DatosFactura.Rows[0];
+                R.FacturaID = Convert.ToInt32(MiFila["FacturaID"]);
+                R.TotalFactura = Convert.ToString(MiFila["TotalFactura"]);
+                R.Detalledeventa = Convert.ToString(MiFila["Detalledeventa"]);
+                R.Impuestos = Convert.ToString(MiFila["Impuestos"]);
+                R.FechaFactura = Convert.ToDateTime(MiFila["FechaFactura"]);
+                R.MiSucursal.SucursalID = Convert.ToInt32(MiFila["SucursalID"]);
+                R.MiSucursal.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.MiEmpleado.EmpleadoID = Convert.ToInt32(MiFila["EmpleadoID"]);
+                R.MiEmpleado.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.MiCliente.ClienteID = Convert.ToInt32(MiFila["ClienteID"]);
+                R.MiCliente.Nombre = Convert.ToString(MiFila["Nombre"]);
+            }
+
+                return R;
         }
 
         public DataTable Listar()

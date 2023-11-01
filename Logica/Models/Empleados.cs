@@ -57,8 +57,13 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", this.CorreoElectronico));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cargo", this.Cargo));    
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", this.Contrasennia));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cargo", this.Cargo));
+
+            Tools.Crypto MiEncriptador = new Tools.Crypto();
+            string ConstrasenniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", ConstrasenniaEncriptada));
+
+
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoRolID", this.MiEmpleadoRol.EmpleadoRolID));
 
@@ -80,10 +85,71 @@ namespace Logica.Models
         public bool Actualizar()
         {
             bool R = false;
+       
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cargo", this.Cargo));
+
+            Tools.Crypto MiEncriptador = new Tools.Crypto();
+            string ConstrasenniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", ConstrasenniaEncriptada));
+
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoRolID", this.MiEmpleadoRol.EmpleadoRolID));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoID));
+            int resultado = MiCnn.EjecutarDML("SPEmpleadosActualizar");
+
+            if (resultado > 0) R = true;   
+            return R;
+        }
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoID));
+            DataTable DatosEmpleado = new DataTable();
+            DatosEmpleado = MyCnn.EjecutarSelect("SPEmpleadosConsultarPorID");
+            if (DatosEmpleado != null && DatosEmpleado.Rows.Count > 0)
+            {
+                //el usuario existe
+                R = true;
+            }
 
             return R;
         }
 
+        public Empleados ConsultarPorID(int IDEmpleado)
+        {
+            Empleados R = new Empleados();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", IDEmpleado));
+            DataTable DatosEmpleado = new DataTable();
+            DatosEmpleado = MyCnn.EjecutarSelect("SPEmpleadosConsultarPorID");
+            if (DatosEmpleado != null && DatosEmpleado.Rows.Count > 0)
+            {
+                DataRow MiFila = DatosEmpleado.Rows[0];
+
+                R.EmpleadoID = Convert.ToInt32(MiFila["EmpleadoID"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.Telefono = Convert.ToString(MiFila["Telefono"]);
+                R.CorreoElectronico = Convert.ToString(MiFila["CorreoElectronico"]);
+                R.Cargo = Convert.ToString(MiFila["Cargo"]);
+                R.Cedula = Convert.ToString(MiFila["Cedula"]);
+                R.Contrasennia = Convert.ToString(MiFila["Contrasennia"]);
+                R.MiEmpleadoRol.EmpleadoRolID = Convert.ToInt32(MiFila["EmpleadoRolID"]);
+                R.MiEmpleadoRol.Rol = Convert.ToString(MiFila["Rol"]);
+
+
+            }
+            return R;
+
+        }
         public bool ConsultarPorCedula(string pCedula)
         {
             bool R = false;

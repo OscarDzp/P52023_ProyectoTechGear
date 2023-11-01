@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace P52023_ProyectoTechGear.Formularios
 {
     public partial class FrmGarantiaGestion : Form
     {
-        private Logica.Models.Garantias MiGarantia { get; set; }
+        private Logica.Models.Garantias MiGarantiaLocal { get; set; }
 
         public FrmGarantiaGestion()
         {
@@ -124,28 +125,28 @@ namespace P52023_ProyectoTechGear.Formularios
             if (ValidarValorRequerido())
             {
 
-                MiGarantia = new Logica.Models.Garantias();
+                MiGarantiaLocal = new Logica.Models.Garantias();
 
 
 
-                MiGarantia.Tiempogarantia = TxtGarantiaTiempo.Text.Trim();
-                MiGarantia.Fechainicio = DateTime.Parse(DtpFechaInicio.Text.Trim());
-                MiGarantia.Fechafinalizacion = DateTime.Parse(DtpFechaFinalizacion.Text.Trim());
-                MiGarantia.Detalle = TxtGarantiaDetalle.Text.Trim();
-                MiGarantia.MiProducto.ProductoID = Convert.ToInt32(CboxGarantiaProducto.SelectedValue);
+                MiGarantiaLocal.Tiempogarantia = TxtGarantiaTiempo.Text.Trim();
+                MiGarantiaLocal.Fechainicio = DateTime.Parse(DtpFechaInicio.Text.Trim());
+                MiGarantiaLocal.Fechafinalizacion = DateTime.Parse(DtpFechaFinalizacion.Text.Trim());
+                MiGarantiaLocal.Detalle = TxtGarantiaDetalle.Text.Trim();
+                MiGarantiaLocal.MiProducto.ProductoID = Convert.ToInt32(CboxGarantiaProducto.SelectedValue);
          
-                bool IdValido = MiGarantia.ConsultarPorID(MiGarantia.GarantiaID);
+                bool IdValido = MiGarantiaLocal.ConsultarPorTiempoGarantia(MiGarantiaLocal.Tiempogarantia);
 
                 if (IdValido == false)
                 {
-                    string Pregunta = string.Format("Esta seguro de agregar esta Garantia {0}?", MiGarantia.GarantiaID);
+                    string Pregunta = string.Format("Esta seguro de agregar esta Garantia {0}?", MiGarantiaLocal.GarantiaID);
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
                     if (respuesta == DialogResult.Yes)
 
                     {
-                        bool ok = MiGarantia.Agregar();
+                        bool ok = MiGarantiaLocal.Agregar();
 
                         if (ok)
                         {
@@ -172,6 +173,87 @@ namespace P52023_ProyectoTechGear.Formularios
             DtpFechaFinalizacion.ResetText();
             TxtGarantiaDetalle.Clear();
             CboxGarantiaProducto.SelectedIndex = -1;
+        }
+
+        private void DgvListaGarantias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaGarantias.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaGarantias.SelectedRows[0];
+                int IdGarantia = Convert.ToInt32(MiDgvFila.Cells["ColGarantiaID"].Value);
+                MiGarantiaLocal = new Logica.Models.Garantias();
+                MiGarantiaLocal = MiGarantiaLocal.ConsultarPorID(IdGarantia);
+                if (MiGarantiaLocal != null && MiGarantiaLocal.GarantiaID > 0)
+                {
+                    TxtGarantiaCodigo.Text = MiGarantiaLocal.GarantiaID.ToString();
+                    TxtGarantiaTiempo.Text = MiGarantiaLocal.Tiempogarantia;
+                    DtpFechaInicio.Value = MiGarantiaLocal.Fechainicio;
+                    DtpFechaFinalizacion.Value = MiGarantiaLocal.Fechafinalizacion;
+                    CboxGarantiaProducto.SelectedValue = MiGarantiaLocal.MiProducto.ProductoID;
+                    TxtGarantiaDetalle.Text = MiGarantiaLocal.Detalle;
+ 
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+        }
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaGarantias_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaGarantias.ClearSelection();
+
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarValorRequerido())
+            {
+                MiGarantiaLocal.Tiempogarantia = TxtGarantiaTiempo.Text.Trim();
+                MiGarantiaLocal.Fechainicio = DateTime.Parse(DtpFechaInicio.Text.Trim());
+                MiGarantiaLocal.Fechafinalizacion = DateTime.Parse(DtpFechaFinalizacion.Text.Trim());
+   
+                MiGarantiaLocal.MiProducto.ProductoID = Convert.ToInt32(CboxGarantiaProducto.SelectedValue);
+                MiGarantiaLocal.Detalle = TxtGarantiaDetalle.Text.Trim();
+
+                if (MiGarantiaLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar la Garantia?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiGarantiaLocal.Actualizar())
+                        {
+                            MessageBox.Show("Garantia modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaGarantia();
+                            ActivarBotonAgregar();
+                        }
+
+                    }
+
+                }
+            }
         }
     }
 }

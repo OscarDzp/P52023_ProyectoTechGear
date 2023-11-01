@@ -136,7 +136,7 @@ namespace P52023_ProyectoTechGear.Formularios
             DgvListaEmpleados.DataSource = lista;
         }
 
-        private bool ValidarDatos()
+        private bool ValidarDatos(bool OmitirContrasenia = false)
 
         //validation of minimun values required
         {
@@ -145,14 +145,33 @@ namespace P52023_ProyectoTechGear.Formularios
             if (!string.IsNullOrEmpty(TxtEmpleadoCedula.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtEmpleadoNombre.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtEmpleadoCorreoElectronico.Text.Trim()) &&
-                !string.IsNullOrEmpty(TxtEmpleadoContrasennia.Text.Trim()) &&
+         
                 !string.IsNullOrEmpty(TxtEmpleadoTelefono.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtEmpleadoCargo.Text.Trim()) &&
                 CboxEmpleadoRol.SelectedIndex > -1
                 )
             {
-                R = true;
+                if (OmitirContrasenia)
+                {
+                    R = true;
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(TxtEmpleadoContrasennia.Text.Trim()))
+                    {
+                        R = true;
 
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(TxtEmpleadoContrasennia.Text.Trim()))
+                        {
+
+                            MessageBox.Show("Debe digitar la contraseña", "Error de validacion", MessageBoxButtons.OK);
+                            return false;
+                        }
+                    }
+                }
             }
             else
             {
@@ -265,9 +284,90 @@ namespace P52023_ProyectoTechGear.Formularios
             CboxEmpleadoRol.SelectedIndex = -1;
         }
 
-        private void DgvListaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvListaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (DgvListaEmpleados.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaEmpleados.SelectedRows[0];
+                int IDEmpleado = Convert.ToInt32(MiDgvFila.Cells["ColEmpleadoID"].Value);
+                MiEmpleadoLocal = new Logica.Models.Empleados();
+                MiEmpleadoLocal = MiEmpleadoLocal.ConsultarPorID(IDEmpleado);
+                if (MiEmpleadoLocal != null && MiEmpleadoLocal.EmpleadoID > 0)
+                {
+                TxtEmpleadoCodigo.Text = MiEmpleadoLocal.EmpleadoID.ToString();
+                    TxtEmpleadoCedula.Text = MiEmpleadoLocal.Cedula;
+                    TxtEmpleadoNombre.Text = MiEmpleadoLocal.Nombre;
+                    TxtEmpleadoCorreoElectronico.Text = MiEmpleadoLocal.CorreoElectronico;
+                    TxtEmpleadoTelefono.Text = MiEmpleadoLocal.Telefono;
+                    CboxEmpleadoRol.SelectedValue = MiEmpleadoLocal.MiEmpleadoRol.EmpleadoRolID;
+                    TxtEmpleadoCargo.Text = MiEmpleadoLocal.Cargo;
 
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+
+        }
+
+        private void ActivarBotonAgregar() 
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar() 
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaEmpleados_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaEmpleados.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if(ValidarDatos(true))
+            {
+                MiEmpleadoLocal.Cedula = TxtEmpleadoCedula.Text.Trim();
+                MiEmpleadoLocal.Nombre = TxtEmpleadoNombre.Text.Trim();
+                MiEmpleadoLocal.CorreoElectronico = TxtEmpleadoCorreoElectronico.Text.Trim();
+                MiEmpleadoLocal.Telefono = TxtEmpleadoTelefono.Text.Trim();
+                MiEmpleadoLocal.MiEmpleadoRol.EmpleadoRolID = Convert.ToInt32(CboxEmpleadoRol.SelectedValue);
+                MiEmpleadoLocal.Cargo = TxtEmpleadoCargo.Text.Trim();
+
+                MiEmpleadoLocal.Contrasennia = TxtEmpleadoContrasennia.Text.Trim();
+
+                if (MiEmpleadoLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar el Empleado?", "???", MessageBoxButtons.YesNo);
+                    if(Resp == DialogResult.Yes) 
+                    {
+                    if(MiEmpleadoLocal.Actualizar())
+                        {
+                            MessageBox.Show("Empleado modificado correctamenete!!" , ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaEmpleados();
+                            ActivarBotonAgregar();
+                        }
+                    
+                    }
+
+                }
+            }
         }
     }
 }

@@ -95,17 +95,17 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiTransaccionLocal = new Logica.Models.Transacciones();
 
 
-                MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionCodigo.Text.Trim());
+                MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionFecha.Text.Trim());
                 MiTransaccionLocal.Cantidad = TxtTransaccionCantidad.Text.Trim();
                 MiTransaccionLocal.TipoTransaccion = TxtTransaccionTipo.Text.Trim();
                 MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(CboxTransaccionFactura.SelectedValue);
            
 
-                bool IdValido = MiTransaccionLocal.ConsultarPorID(MiTransaccionLocal.TransaccionID);
+                bool IdValido = MiTransaccionLocal.ConsultarPorTipoTransaccion(MiTransaccionLocal.TipoTransaccion);
 
                 if (IdValido == false)
                 {
-                    string Pregunta = string.Format("Esta seguro de agregar esta transaccion {0}?", MiTransaccionLocal.TransaccionID);
+                    string Pregunta = string.Format("Esta seguro de agregar esta transaccion {0}?", MiTransaccionLocal.TipoTransaccion);
 
                     DialogResult respuesta = MessageBox.Show(Pregunta, "Confirmación", MessageBoxButtons.YesNo);
 
@@ -138,6 +138,81 @@ namespace P52023_ProyectoTechGear.Formularios
             CboxTransaccionFactura.SelectedIndex = -1;
             TxtTransaccionTipo.Clear();
         }
+
+        private void DgvListaTransaccion_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaTransaccion.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaTransaccion.SelectedRows[0];
+                int IdTransaccion = Convert.ToInt32(MiDgvFila.Cells["ColTransaccionID"].Value);
+                MiTransaccionLocal = new Logica.Models.Transacciones();
+                MiTransaccionLocal = MiTransaccionLocal.ConsultarPorID(IdTransaccion);
+                if (MiTransaccionLocal != null && MiTransaccionLocal.TransaccionID > 0)
+                {
+                    TxtTransaccionCodigo.Text = MiTransaccionLocal.TransaccionID.ToString();
+                    DtTransaccionFecha.Value = MiTransaccionLocal.FechaTransaccion;
+                    TxtTransaccionCantidad.Text = MiTransaccionLocal.Cantidad;
+                    TxtTransaccionTipo.Text = MiTransaccionLocal.TipoTransaccion;
+                    CboxTransaccionFactura.SelectedValue = MiTransaccionLocal.MiFactura.FacturaID;
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+        }
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaTransaccion_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaTransaccion.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionFecha.Text.Trim());
+            MiTransaccionLocal.Cantidad = TxtTransaccionCantidad.Text.Trim();
+            MiTransaccionLocal.TipoTransaccion = TxtTransaccionTipo.Text.Trim();
+
+            MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(CboxTransaccionFactura.SelectedValue);
+
+            if (MiTransaccionLocal.ConsultarPorID())
+            {
+                DialogResult Resp = MessageBox.Show("Desea modificar la transaccion?", "???", MessageBoxButtons.YesNo);
+                if (Resp == DialogResult.Yes)
+                {
+                    if (MiTransaccionLocal.Actualizar())
+                    {
+                        MessageBox.Show("Transaccion modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                        LimpiarForm();
+                        CargarListaTransaccion();
+                        ActivarBotonAgregar();
+                    }
+
+                }
+
+            }
+        }
     }
-}
+    }
+
 

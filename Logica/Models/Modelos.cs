@@ -47,19 +47,68 @@ namespace Logica.Models
         public bool Actualizar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@AnioLanzamiento", this.AnioLanzamiento));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@MarcaID", this.MiMarcaID.MarcaID));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ModeloID));
+            int resultado = MiCnn.EjecutarDML("SPModelosActualizar");
+
+            if (resultado > 0) R = true;
             return R;
         }
-        public bool ConsultarPorID(int pModeloID)
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ModeloID));
+            DataTable DatosModelo = new DataTable();
+            DatosModelo = MyCnn.EjecutarSelect("SPModelosConsultarPorID");
+            if (DatosModelo != null && DatosModelo.Rows.Count > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
+        public Modelos ConsultarPorID(int IdModelos) 
+        {
+            Modelos R = new Modelos();
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID",IdModelos));
+            DataTable DatosModelo = new DataTable();
+            DatosModelo = MyCnn.EjecutarSelect("SPModelosConsultarPorID");
+            if (DatosModelo != null && DatosModelo.Rows.Count > 0)
+            {
+                DataRow MiFila = DatosModelo.Rows[0];
+
+                R.ModeloID = Convert.ToInt32(MiFila["ModeloID"]);
+                R.AnioLanzamiento = Convert.ToDateTime(MiFila["AnioLanzamiento"]);
+                R.Nombre = Convert.ToString(MiFila["MNombre"]);
+                R.MiMarcaID.MarcaID = Convert.ToInt32(MiFila["MarcaID"]);
+                R.MiMarcaID.Nombre = Convert.ToString(MiFila["Nombre"]);
+            }
+
+            return R;
+
+        }
+
+            public bool ConsultarPorNombre(String pNombre)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ModeloID", pModeloID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", pNombre));
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPModelosConsultarPorID");
+            dt = MiCnn.EjecutarSelect("SPModelosConsultarPorNombre");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 

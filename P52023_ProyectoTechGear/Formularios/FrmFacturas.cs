@@ -35,10 +35,10 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaFacturas();
             CargarListaSucursal();
             CargarListaEmpleado();
-            CargarListaCliente ();
+            CargarListaCliente();
         }
 
-        private void CargarListaFacturas() 
+        private void CargarListaFacturas()
         {
             Logica.Models.Facturas MiFacturas = new Logica.Models.Facturas();
             DataTable lista = new DataTable();
@@ -46,7 +46,7 @@ namespace P52023_ProyectoTechGear.Formularios
             DgvListaFactura.DataSource = lista;
 
         }
-        
+
         private void CargarListaSucursal()
         {
             Logica.Models.Sucursales MiSucursal = new Logica.Models.Sucursales();
@@ -119,7 +119,7 @@ namespace P52023_ProyectoTechGear.Formularios
             }
             else
             {
-             
+
                 if (string.IsNullOrEmpty(TxtFacturaTotalFactura.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar Total de la Factura");
@@ -132,8 +132,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
                 if (string.IsNullOrEmpty(TxtFacturaImpuesto.Text.Trim()))
                 {
-                MessageBox.Show("Se debe asignar el impuesto");
-                 return false;
+                    MessageBox.Show("Se debe asignar el impuesto");
+                    return false;
                 }
                 if (string.IsNullOrEmpty(DtFacturaFecha.Text.Trim()))  //fecha
                 {
@@ -176,7 +176,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiFacturaLocal.MiEmpleado.EmpleadoID = Convert.ToInt32(CboxFacturaEmpleado.SelectedValue);
                 MiFacturaLocal.MiCliente.ClienteID = Convert.ToInt32(CboxFacturaCliente.SelectedValue);
 
-                bool IDValida = MiFacturaLocal.ConsultarPorID(MiFacturaLocal.FacturaID.ToString()); // linea de dudosa procedencia 
+                bool IDValida = MiFacturaLocal.ConsultarPorTotalFactura(MiFacturaLocal.TotalFactura.ToString()); // linea de dudosa procedencia 
 
 
                 if (IDValida == false)
@@ -221,5 +221,89 @@ namespace P52023_ProyectoTechGear.Formularios
             CboxFacturaCliente.SelectedIndex = -1;
         }
 
+        private void DgvListaFactura_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaFactura.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaFactura.SelectedRows[0];
+                int IDEmpleado = Convert.ToInt32(MiDgvFila.Cells["ColFacturaID"].Value);
+                MiFacturaLocal = new Logica.Models.Facturas();
+                MiFacturaLocal = MiFacturaLocal.ConsultarPorID(IDEmpleado);
+                if (MiFacturaLocal != null && MiFacturaLocal.FacturaID > 0)
+                {
+                    TxtFacturaID.Text = MiFacturaLocal.FacturaID.ToString();
+                    TxtFacturaTotalFactura.Text = MiFacturaLocal.TotalFactura;
+                    TxtFacturaDetalleVenta.Text = MiFacturaLocal.Detalledeventa;
+                    TxtFacturaImpuesto.Text = MiFacturaLocal.Impuestos;
+                    DtFacturaFecha.Value = MiFacturaLocal.FechaFactura;
+                    CboxFacturaSucursal.SelectedValue = MiFacturaLocal.MiSucursal.SucursalID;
+                    CboxFacturaEmpleado.SelectedValue = MiFacturaLocal.MiEmpleado.EmpleadoID;
+                    CboxFacturaCliente.SelectedValue = MiFacturaLocal.MiCliente.ClienteID;
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+
+        }
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaFactura_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaFactura.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarValorRequerido())
+            {
+                MiFacturaLocal.TotalFactura = TxtFacturaTotalFactura.Text.Trim();
+                MiFacturaLocal.Detalledeventa = TxtFacturaDetalleVenta.Text.Trim();
+                MiFacturaLocal.Impuestos = TxtFacturaImpuesto.Text.Trim();
+                MiFacturaLocal.FechaFactura = DateTime.Parse(DtFacturaFecha.Text.Trim());
+                MiFacturaLocal.MiSucursal.SucursalID = Convert.ToInt32(CboxFacturaSucursal.SelectedValue);
+                MiFacturaLocal.MiEmpleado.EmpleadoID = Convert.ToInt32(CboxFacturaEmpleado.SelectedValue);
+                MiFacturaLocal.MiCliente.ClienteID = Convert.ToInt32(CboxFacturaCliente.SelectedValue);
+
+                if (MiFacturaLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar la factura?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiFacturaLocal.Actualizar())
+                        {
+                            MessageBox.Show("Factura modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaFacturas();
+                            ActivarBotonAgregar();
+                        }
+
+                    }
+
+                }
+            }
+        }
     }
 }
+
+
