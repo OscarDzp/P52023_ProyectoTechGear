@@ -18,7 +18,7 @@ namespace Logica.Models
 
         public int TransaccionID { get; set; }
         public DateTime FechaTransaccion { get; set; } 
-        public string Cantidad { get; set; }
+        public decimal Cantidad { get; set; }
         public string TipoTransaccion { get; set; }
         public Facturas MiFactura { get; set; }
 
@@ -94,7 +94,7 @@ namespace Logica.Models
                 DataRow MiFila = DatosTransacciones.Rows[0];
                 R.TransaccionID = Convert.ToInt32(MiFila["TransaccionID"]);
                 R.FechaTransaccion = Convert.ToDateTime(MiFila["FechaTransaccion"]);
-                R.Cantidad = Convert.ToString(MiFila["Cantidad"]);
+                R.Cantidad = Convert.ToInt32(MiFila["Cantidad"]);
                 R.TipoTransaccion = Convert.ToString(MiFila["TipoTransaccion"]);
                 R.MiFactura.FacturaID = Convert.ToInt32(MiFila["FacturaID"]);
 
