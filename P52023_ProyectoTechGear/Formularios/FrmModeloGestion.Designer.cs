@@ -262,6 +262,7 @@
             this.TxtModeloNombre.Name = "TxtModeloNombre";
             this.TxtModeloNombre.Size = new System.Drawing.Size(238, 20);
             this.TxtModeloNombre.TabIndex = 9;
+            this.TxtModeloNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtModeloNombre_KeyPress);
             // 
             // TxtModeloCodigo
             // 
@@ -285,6 +286,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(180, 20);
             this.TxtBuscar.TabIndex = 18;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // BtnAgregar
             // 
@@ -323,6 +325,7 @@
             this.BtnEliminar.TabIndex = 21;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnCerrar
             // 
@@ -335,6 +338,7 @@
             this.BtnCerrar.TabIndex = 23;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // FrmModeloGestion
             // 

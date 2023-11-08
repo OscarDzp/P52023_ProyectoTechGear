@@ -60,6 +60,8 @@
             this.TxtFacturaID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaFactura = new System.Windows.Forms.DataGridView();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ColFacturaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTotalFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDetalledeventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,8 +70,9 @@
             this.ColNombreS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ColNombreSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaFactura)).BeginInit();
             this.SuspendLayout();
@@ -98,6 +101,7 @@
             this.BtnCerrar.TabIndex = 27;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // BtnEliminar
             // 
@@ -110,6 +114,7 @@
             this.BtnEliminar.TabIndex = 25;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
@@ -274,6 +279,7 @@
             this.TxtFacturaDetalleVenta.Name = "TxtFacturaDetalleVenta";
             this.TxtFacturaDetalleVenta.Size = new System.Drawing.Size(208, 20);
             this.TxtFacturaDetalleVenta.TabIndex = 19;
+            this.TxtFacturaDetalleVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFacturaDetalleVenta_KeyPress);
             // 
             // label9
             // 
@@ -358,6 +364,7 @@
             this.TxtFacturaImpuesto.Name = "TxtFacturaImpuesto";
             this.TxtFacturaImpuesto.Size = new System.Drawing.Size(208, 20);
             this.TxtFacturaImpuesto.TabIndex = 9;
+            this.TxtFacturaImpuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFacturaImpuesto_KeyPress);
             // 
             // label4
             // 
@@ -374,6 +381,7 @@
             this.TxtFacturaTotalFactura.Name = "TxtFacturaTotalFactura";
             this.TxtFacturaTotalFactura.Size = new System.Drawing.Size(208, 20);
             this.TxtFacturaTotalFactura.TabIndex = 7;
+            this.TxtFacturaTotalFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFacturaTotalFactura_KeyPress);
             // 
             // label3
             // 
@@ -415,7 +423,10 @@
             this.ColFechaFactura,
             this.ColNombreS,
             this.ColNombreE,
-            this.ColNombreC});
+            this.ColNombreC,
+            this.ColNombreSucursal,
+            this.ColNombreEmpleado,
+            this.ColNombreCliente});
             this.DgvListaFactura.Location = new System.Drawing.Point(23, 62);
             this.DgvListaFactura.MultiSelect = false;
             this.DgvListaFactura.Name = "DgvListaFactura";
@@ -427,6 +438,23 @@
             this.DgvListaFactura.VirtualMode = true;
             this.DgvListaFactura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaFactura_CellClick);
             this.DgvListaFactura.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaFactura_DataBindingComplete);
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(300, 12);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // ColFacturaID
             // 
@@ -472,7 +500,7 @@
             // ColNombreS
             // 
             this.ColNombreS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColNombreS.DataPropertyName = "Nombre";
+            this.ColNombreS.DataPropertyName = "SucursalID";
             this.ColNombreS.HeaderText = "SUCURSAL";
             this.ColNombreS.Name = "ColNombreS";
             this.ColNombreS.ReadOnly = true;
@@ -480,7 +508,7 @@
             // ColNombreE
             // 
             this.ColNombreE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColNombreE.DataPropertyName = "Nombre";
+            this.ColNombreE.DataPropertyName = "EmpleadoID";
             this.ColNombreE.HeaderText = "EMPLEADO";
             this.ColNombreE.Name = "ColNombreE";
             this.ColNombreE.ReadOnly = true;
@@ -488,26 +516,31 @@
             // ColNombreC
             // 
             this.ColNombreC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColNombreC.DataPropertyName = "Nombre";
+            this.ColNombreC.DataPropertyName = "ClienteID";
             this.ColNombreC.HeaderText = "CLIENTE";
             this.ColNombreC.Name = "ColNombreC";
             this.ColNombreC.ReadOnly = true;
             // 
-            // TxtBuscar
+            // ColNombreSucursal
             // 
-            this.TxtBuscar.Location = new System.Drawing.Point(300, 12);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
+            this.ColNombreSucursal.DataPropertyName = "NombreSucursal";
+            this.ColNombreSucursal.HeaderText = "NOMBRE SUCURSAL";
+            this.ColNombreSucursal.Name = "ColNombreSucursal";
+            this.ColNombreSucursal.ReadOnly = true;
             // 
-            // label1
+            // ColNombreEmpleado
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(242, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
+            this.ColNombreEmpleado.DataPropertyName = "NombreEmpleado";
+            this.ColNombreEmpleado.HeaderText = "NOMBRE EMPLEADO";
+            this.ColNombreEmpleado.Name = "ColNombreEmpleado";
+            this.ColNombreEmpleado.ReadOnly = true;
+            // 
+            // ColNombreCliente
+            // 
+            this.ColNombreCliente.DataPropertyName = "NombreCliente";
+            this.ColNombreCliente.HeaderText = "NOMBRE CLIENTE";
+            this.ColNombreCliente.Name = "ColNombreCliente";
+            this.ColNombreCliente.ReadOnly = true;
             // 
             // FrmFacturas
             // 
@@ -564,14 +597,6 @@
         private System.Windows.Forms.ComboBox CboxFacturaSucursal;
         private System.Windows.Forms.TextBox TxtFacturaDetalleVenta;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFacturaID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotalFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDetalledeventa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColImpuestos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFechaFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreC;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label14;
@@ -581,5 +606,16 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFacturaID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotalFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDetalledeventa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColImpuestos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFechaFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreSucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreCliente;
     }
 }

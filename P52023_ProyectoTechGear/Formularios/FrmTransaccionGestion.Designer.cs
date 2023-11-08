@@ -51,13 +51,13 @@
             this.TxtTransaccionCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaTransaccion = new System.Windows.Forms.DataGridView();
-            this.ColTransaccionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ColTransaccionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFechaTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFacturaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaTransaccion)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,7 @@
             this.BtnCerrar.TabIndex = 31;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // BtnEliminar
             // 
@@ -98,6 +99,7 @@
             this.BtnEliminar.TabIndex = 29;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
@@ -270,6 +272,7 @@
             this.TxtTransaccionTipo.Name = "TxtTransaccionTipo";
             this.TxtTransaccionTipo.Size = new System.Drawing.Size(238, 20);
             this.TxtTransaccionTipo.TabIndex = 3;
+            this.TxtTransaccionTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTransaccionTipo_KeyPress);
             // 
             // label3
             // 
@@ -305,10 +308,10 @@
             this.DgvListaTransaccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvListaTransaccion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColTransaccionID,
-            this.ColFecha,
+            this.ColFechaTransaccion,
             this.ColCantidad,
-            this.ColTipo,
-            this.ColFactura});
+            this.ColTipoTransaccion,
+            this.ColFacturaID});
             this.DgvListaTransaccion.Location = new System.Drawing.Point(13, 41);
             this.DgvListaTransaccion.MultiSelect = false;
             this.DgvListaTransaccion.Name = "DgvListaTransaccion";
@@ -321,50 +324,13 @@
             this.DgvListaTransaccion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaTransaccion_CellClick);
             this.DgvListaTransaccion.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaTransaccion_DataBindingComplete);
             // 
-            // ColTransaccionID
-            // 
-            this.ColTransaccionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColTransaccionID.DataPropertyName = "TransaccionID";
-            this.ColTransaccionID.HeaderText = "CÓDIGO";
-            this.ColTransaccionID.Name = "ColTransaccionID";
-            this.ColTransaccionID.ReadOnly = true;
-            this.ColTransaccionID.Width = 80;
-            // 
-            // ColFecha
-            // 
-            this.ColFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColFecha.DataPropertyName = "Fecha";
-            this.ColFecha.HeaderText = "FECHA";
-            this.ColFecha.Name = "ColFecha";
-            this.ColFecha.ReadOnly = true;
-            // 
-            // ColCantidad
-            // 
-            this.ColCantidad.DataPropertyName = "Cantidad";
-            this.ColCantidad.HeaderText = "CANTIDAD";
-            this.ColCantidad.Name = "ColCantidad";
-            this.ColCantidad.ReadOnly = true;
-            // 
-            // ColTipo
-            // 
-            this.ColTipo.DataPropertyName = "Tipo";
-            this.ColTipo.HeaderText = "TIPO ";
-            this.ColTipo.Name = "ColTipo";
-            this.ColTipo.ReadOnly = true;
-            // 
-            // ColFactura
-            // 
-            this.ColFactura.DataPropertyName = "Factura";
-            this.ColFactura.HeaderText = "FACTURA";
-            this.ColFactura.Name = "ColFactura";
-            this.ColFactura.ReadOnly = true;
-            // 
             // TxtBuscar
             // 
             this.TxtBuscar.Location = new System.Drawing.Point(264, 9);
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
             this.TxtBuscar.TabIndex = 24;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // label1
             // 
@@ -374,6 +340,44 @@
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 23;
             this.label1.Text = "Buscar";
+            // 
+            // ColTransaccionID
+            // 
+            this.ColTransaccionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColTransaccionID.DataPropertyName = "TransaccionID";
+            this.ColTransaccionID.HeaderText = "CÓDIGO";
+            this.ColTransaccionID.Name = "ColTransaccionID";
+            this.ColTransaccionID.ReadOnly = true;
+            this.ColTransaccionID.Width = 80;
+            // 
+            // ColFechaTransaccion
+            // 
+            this.ColFechaTransaccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColFechaTransaccion.DataPropertyName = "FechaTransaccion";
+            this.ColFechaTransaccion.HeaderText = "FECHA";
+            this.ColFechaTransaccion.Name = "ColFechaTransaccion";
+            this.ColFechaTransaccion.ReadOnly = true;
+            // 
+            // ColCantidad
+            // 
+            this.ColCantidad.DataPropertyName = "Cantidad";
+            this.ColCantidad.HeaderText = "CANTIDAD";
+            this.ColCantidad.Name = "ColCantidad";
+            this.ColCantidad.ReadOnly = true;
+            // 
+            // ColTipoTransaccion
+            // 
+            this.ColTipoTransaccion.DataPropertyName = "TipoTransaccion";
+            this.ColTipoTransaccion.HeaderText = "TIPO ";
+            this.ColTipoTransaccion.Name = "ColTipoTransaccion";
+            this.ColTipoTransaccion.ReadOnly = true;
+            // 
+            // ColFacturaID
+            // 
+            this.ColFacturaID.DataPropertyName = "FacturaID";
+            this.ColFacturaID.HeaderText = "FACTURA";
+            this.ColFacturaID.Name = "ColFacturaID";
+            this.ColFacturaID.ReadOnly = true;
             // 
             // FrmTransaccionGestion
             // 
@@ -421,16 +425,16 @@
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker DtTransaccionFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTransaccionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFactura;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTransaccionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFechaTransaccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTipoTransaccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFacturaID;
     }
 }

@@ -43,6 +43,11 @@ namespace Logica.Models
         public bool Eliminar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.TransaccionID));
+
+            int resultado = MiCnn.EjecutarDML("SPTransaccionEliminar");
+            if (resultado > 0) R = true;
             return R;
         }
         public bool Actualizar()
@@ -121,11 +126,13 @@ namespace Logica.Models
             return R;
         }
 
-        public DataTable Listar()
+        public DataTable Listar(string pFiltro = "")
         {
             DataTable R = new DataTable();
 
             Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPTransaccionesListar");
 

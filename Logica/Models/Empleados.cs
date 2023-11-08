@@ -35,7 +35,7 @@ namespace Logica.Models
 
         //comportamientos ,operaciones , funciones, metodos
 
-        public DataTable Listar()
+        public DataTable Listar(string pFiltro = "")
         {
 
             DataTable R = new DataTable();
@@ -43,6 +43,7 @@ namespace Logica.Models
             //hay que hacer instancia de la clase conexion
 
             Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPEmpleadosListar");
 
@@ -78,7 +79,11 @@ namespace Logica.Models
         public bool Eliminar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoID));
 
+            int resultado = MiCnn.EjecutarDML("SPEmpleadosEliminar");
+            if (resultado > 0) R = true;
             return R;
         }
 

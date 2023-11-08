@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvListaEmpleados = new System.Windows.Forms.DataGridView();
             this.ColEmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,13 +82,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar";
             // 
-            // textBox1
+            // TxtBuscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(264, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(316, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TxtBuscar.Location = new System.Drawing.Point(264, 11);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 1;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // DgvListaEmpleados
             // 
@@ -317,6 +317,7 @@
             this.TxtEmpleadoCargo.Name = "TxtEmpleadoCargo";
             this.TxtEmpleadoCargo.Size = new System.Drawing.Size(237, 20);
             this.TxtEmpleadoCargo.TabIndex = 16;
+            this.TxtEmpleadoCargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoCargo_KeyPress);
             // 
             // label9
             // 
@@ -333,6 +334,7 @@
             this.TxtEmpleadoTelefono.Name = "TxtEmpleadoTelefono";
             this.TxtEmpleadoTelefono.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoTelefono.TabIndex = 13;
+            this.TxtEmpleadoTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoTelefono_KeyPress);
             // 
             // CboxEmpleadoRol
             // 
@@ -359,7 +361,7 @@
             this.TxtEmpleadoContrasennia.Name = "TxtEmpleadoContrasennia";
             this.TxtEmpleadoContrasennia.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoContrasennia.TabIndex = 9;
-            this.TxtEmpleadoContrasennia.TextChanged += new System.EventHandler(this.TxtEmpleadoContrasennia_TextChanged);
+            this.TxtEmpleadoContrasennia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoContrasennia_KeyPress);
             // 
             // label6
             // 
@@ -377,7 +379,7 @@
             this.TxtEmpleadoCorreoElectronico.Name = "TxtEmpleadoCorreoElectronico";
             this.TxtEmpleadoCorreoElectronico.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoCorreoElectronico.TabIndex = 7;
-            this.TxtEmpleadoCorreoElectronico.TextChanged += new System.EventHandler(this.TxtEmpleadoCorreoElectronico_TextChanged);
+            this.TxtEmpleadoCorreoElectronico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoCorreoElectronico_KeyPress);
             // 
             // label5
             // 
@@ -395,7 +397,7 @@
             this.TxtEmpleadoNombre.Name = "TxtEmpleadoNombre";
             this.TxtEmpleadoNombre.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoNombre.TabIndex = 5;
-            this.TxtEmpleadoNombre.TextChanged += new System.EventHandler(this.TxtEmpleadoNombre_TextChanged);
+            this.TxtEmpleadoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoNombre_KeyPress);
             // 
             // label4
             // 
@@ -413,7 +415,7 @@
             this.TxtEmpleadoCedula.Name = "TxtEmpleadoCedula";
             this.TxtEmpleadoCedula.Size = new System.Drawing.Size(238, 20);
             this.TxtEmpleadoCedula.TabIndex = 3;
-            this.TxtEmpleadoCedula.TextChanged += new System.EventHandler(this.TxtEmpleadoCedula_TextChanged);
+            this.TxtEmpleadoCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoCedula_KeyPress);
             // 
             // label3
             // 
@@ -481,6 +483,7 @@
             this.BtnEliminar.TabIndex = 6;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnLimpiar
             // 
@@ -506,6 +509,7 @@
             this.BtnCerrar.TabIndex = 13;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // FrmEmpleadoGestion
             // 
@@ -519,7 +523,7 @@
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvListaEmpleados);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
@@ -538,7 +542,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.DataGridView DgvListaEmpleados;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;

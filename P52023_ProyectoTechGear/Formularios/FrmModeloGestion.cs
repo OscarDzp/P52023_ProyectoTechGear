@@ -30,11 +30,11 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaModelos();
             CargarListaMarcas();
         }
-        private void CargarListaModelos() 
+        private void CargarListaModelos(string FiltroBusqueda = "") 
         {
             Logica.Models.Modelos MiModelo = new Logica.Models.Modelos();
             DataTable lista = new DataTable();
-            lista = MiModelo.Listar();
+            lista = MiModelo.Listar(FiltroBusqueda);
             DgvListaModelos.DataSource = lista;
 
         }
@@ -222,6 +222,42 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             DgvListaModelos.ClearSelection();
 
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiModeloLocal.ModeloID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar el Modelo {0}?", MiModeloLocal.Nombre);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiModeloLocal.Eliminar())
+                {
+                    MessageBox.Show("El Modelo ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaModelos();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaModelos(TxtBuscar.Text.Trim());
+            }
+        }
+
+        private void TxtModeloNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
         }
     }
 }

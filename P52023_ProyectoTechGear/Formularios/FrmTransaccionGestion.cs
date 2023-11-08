@@ -44,11 +44,11 @@ namespace P52023_ProyectoTechGear.Formularios
             }
         }
 
-        private void CargarListaTransaccion()
+        private void CargarListaTransaccion(string FiltroBusqueda = "")
         {
             Logica.Models.Transacciones MiTransaccion = new Logica.Models.Transacciones();
             DataTable lista = new DataTable();
-            lista = MiTransaccion.Listar();
+            lista = MiTransaccion.Listar(FiltroBusqueda);
             DgvListaTransaccion.DataSource = lista;
         }
 
@@ -211,6 +211,44 @@ namespace P52023_ProyectoTechGear.Formularios
                 }
 
             }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiTransaccionLocal.TransaccionID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar la transaccion {0}?", MiTransaccionLocal.TipoTransaccion);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiTransaccionLocal.Eliminar())
+                {
+                    MessageBox.Show("La transaccion ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaTransaccion();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaTransaccion(TxtBuscar.Text.Trim());
+            }
+            CargarListaTransaccion(TxtBuscar.Text.Trim());
+        }
+
+        private void TxtTransaccionTipo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+
         }
     }
     }

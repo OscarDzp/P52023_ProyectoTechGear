@@ -152,6 +152,7 @@
     <Compile Include="Globales\ObjectosGlobales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\Validaciones.cs" />
     <EmbeddedResource Include="Formularios\FrmCategoriaGestion.resx">
       <DependentUpon>FrmCategoriaGestion.cs</DependentUpon>
     </EmbeddedResource>

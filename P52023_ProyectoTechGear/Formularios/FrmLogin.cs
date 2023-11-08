@@ -40,8 +40,34 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(TxtUsuario.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtContrasennia.Text.Trim()))
+            {
+                // si hay valores en los cuadros de teto se procede a validarlos
+                string usuario = TxtUsuario.Text.Trim();
+                string contrasennia = TxtContrasennia.Text.Trim();
+
+              //  int idUsuario = Globales.ObjectosGlobales.MiEmpleadoGlobal.Validar
+            }
+
+
+
             Globales.ObjectosGlobales.MiFormularioPrincipal.Show();
             this.Hide();
+        }
+
+        private void BtnIngresoDirecto_Click(object sender, EventArgs e)
+        {
+            Globales.ObjectosGlobales.MiFormularioPrincipal.Show();
+            this.Hide();
+        }
+
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Shift & e.Control & e.KeyCode == Keys.A)
+            {
+                BtnIngresoDirecto.Visible = true;
+            }
         }
     }
 }

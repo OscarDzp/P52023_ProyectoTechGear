@@ -281,6 +281,7 @@
             this.TxtGarantiaDetalle.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TxtGarantiaDetalle.Size = new System.Drawing.Size(352, 82);
             this.TxtGarantiaDetalle.TabIndex = 15;
+            this.TxtGarantiaDetalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtGarantiaDetalle_KeyPress);
             // 
             // DtpFechaFinalizacion
             // 
@@ -363,6 +364,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(223, 20);
             this.TxtBuscar.TabIndex = 3;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // BtnAgregar
             // 
@@ -401,6 +403,7 @@
             this.BtnEliminar.TabIndex = 7;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnLimpiar
             // 
@@ -426,6 +429,7 @@
             this.BtnCerrar.TabIndex = 14;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // FrmGarantiaGestion
             // 

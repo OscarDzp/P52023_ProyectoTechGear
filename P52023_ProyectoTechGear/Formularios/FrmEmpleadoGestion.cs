@@ -27,11 +27,6 @@ namespace P52023_ProyectoTechGear.Formularios
             MiEmpleadoLocal = new Logica.Models.Empleados();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -52,17 +47,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         }
 
-        private void TxtEmpleadoCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtEmpleadoNombre_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -72,17 +57,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         }
 
-        private void TxtEmpleadoCorreoElectronico_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtEmpleadoContrasennia_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -124,14 +99,14 @@ namespace P52023_ProyectoTechGear.Formularios
         }
 
 
-        private void CargarListaEmpleados()
+        private void CargarListaEmpleados(string FiltroBusqueda = "")
 
         {
             Logica.Models.Empleados MiEmpleado = new Logica.Models.Empleados();
 
             DataTable lista = new DataTable();
 
-            lista = MiEmpleado.Listar();
+            lista = MiEmpleado.Listar(FiltroBusqueda);
 
             DgvListaEmpleados.DataSource = lista;
         }
@@ -368,6 +343,68 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 }
             }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiEmpleadoLocal.EmpleadoID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar al Empleado {0}?", MiEmpleadoLocal.Nombre);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiEmpleadoLocal.Eliminar())
+                {
+                    MessageBox.Show("El Empleado ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaEmpleados();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaEmpleados(TxtBuscar.Text.Trim());
+            }
+            CargarListaEmpleados(TxtBuscar.Text.Trim());
+        }
+
+        private void TxtEmpleadoCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+        }
+
+        private void TxtEmpleadoNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void TxtEmpleadoCorreoElectronico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e, false, true);
+        }
+
+        private void TxtEmpleadoContrasennia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void TxtEmpleadoTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+        }
+
+        private void TxtEmpleadoCargo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
         }
     }
 }

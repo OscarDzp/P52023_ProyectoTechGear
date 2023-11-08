@@ -38,11 +38,11 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaCliente();
         }
 
-        private void CargarListaFacturas()
+        private void CargarListaFacturas(string FiltroBusqueda = "")
         {
             Logica.Models.Facturas MiFacturas = new Logica.Models.Facturas();
             DataTable lista = new DataTable();
-            lista = MiFacturas.Listar();
+            lista = MiFacturas.Listar(FiltroBusqueda);
             DgvListaFactura.DataSource = lista;
 
         }
@@ -302,6 +302,53 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 }
             }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiFacturaLocal.FacturaID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar la Factura {0}?", MiFacturaLocal.TotalFactura);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiFacturaLocal.Eliminar())
+                {
+                    MessageBox.Show("La Factura ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaFacturas();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e) /// CONSULTAR LA OTRA CLASE
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaFacturas(TxtBuscar.Text.Trim());
+            }
+
+        }
+
+        private void TxtFacturaTotalFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           // e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+        }
+
+        private void TxtFacturaDetalleVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void TxtFacturaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+         //   e.Handled = Tools.Validaciones.CaracteresNumeros(e);
         }
     }
 }

@@ -64,11 +64,12 @@ namespace P52023_ProyectoTechGear.Formularios
             }
         }
 
-        private void CargarListaGarantia() {
+        private void CargarListaGarantia(string FiltroBusqueda = "")
+            {
 
             Logica.Models.Garantias MiGarantia = new Logica.Models.Garantias();
             DataTable lista = new DataTable();
-            lista = MiGarantia.Listar();
+            lista = MiGarantia.Listar(FiltroBusqueda);
             DgvListaGarantias.DataSource = lista;
 
 
@@ -254,6 +255,43 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 }
             }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiGarantiaLocal.GarantiaID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar la Garantia {0}?", MiGarantiaLocal.Detalle);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiGarantiaLocal.Eliminar())
+                {
+                    MessageBox.Show("La Garantia ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaGarantia();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaGarantia(TxtBuscar.Text.Trim());
+            }
+            
+        }
+
+        private void TxtGarantiaDetalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
         }
     }
 }
