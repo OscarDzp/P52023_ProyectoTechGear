@@ -96,7 +96,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
 
                 MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionFecha.Text.Trim());
-                MiTransaccionLocal.Cantidad = TxtTransaccionCantidad.Text.Trim();
+                MiTransaccionLocal.Cantidad = int.Parse(TxtTransaccionCantidad.Text.Trim());
                 MiTransaccionLocal.TipoTransaccion = TxtTransaccionTipo.Text.Trim();
                 MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(CboxTransaccionFactura.SelectedValue);
            
@@ -152,7 +152,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 {
                     TxtTransaccionCodigo.Text = MiTransaccionLocal.TransaccionID.ToString();
                     DtTransaccionFecha.Value = MiTransaccionLocal.FechaTransaccion;
-                    TxtTransaccionCantidad.Text = MiTransaccionLocal.Cantidad;
+                    TxtTransaccionCantidad.Text = MiTransaccionLocal.Cantidad.ToString();
                     TxtTransaccionTipo.Text = MiTransaccionLocal.TipoTransaccion;
                     CboxTransaccionFactura.SelectedValue = MiTransaccionLocal.MiFactura.FacturaID;
                     ActivarBotonesModificarYEliminar();
@@ -189,10 +189,10 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionFecha.Text.Trim());
-            MiTransaccionLocal.Cantidad = TxtTransaccionCantidad.Text.Trim();
-            MiTransaccionLocal.TipoTransaccion = TxtTransaccionTipo.Text.Trim();
 
+            MiTransaccionLocal.FechaTransaccion = DateTime.Parse(DtTransaccionFecha.Text.Trim());
+            MiTransaccionLocal.Cantidad = Convert.ToInt32(TxtTransaccionCantidad.Text.Trim());
+            MiTransaccionLocal.TipoTransaccion = TxtTransaccionTipo.Text.Trim();
             MiTransaccionLocal.MiFactura.FacturaID = Convert.ToInt32(CboxTransaccionFactura.SelectedValue);
 
             if (MiTransaccionLocal.ConsultarPorID())
