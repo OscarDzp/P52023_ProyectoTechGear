@@ -31,6 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvListaProveedores = new System.Windows.Forms.DataGridView();
+            this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,11 +58,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.ColProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,45 @@
             this.DgvListaProveedores.Size = new System.Drawing.Size(775, 244);
             this.DgvListaProveedores.TabIndex = 2;
             this.DgvListaProveedores.VirtualMode = true;
+            this.DgvListaProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaProveedores_CellClick);
+            this.DgvListaProveedores.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaProveedores_DataBindingComplete);
+            // 
+            // ColProveedorID
+            // 
+            this.ColProveedorID.DataPropertyName = "ProveedorID";
+            this.ColProveedorID.HeaderText = "CÓDIGO";
+            this.ColProveedorID.Name = "ColProveedorID";
+            this.ColProveedorID.ReadOnly = true;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.DataPropertyName = "Nombre";
+            this.ColNombre.HeaderText = "NOMBRE";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Width = 79;
+            // 
+            // ColContacto
+            // 
+            this.ColContacto.DataPropertyName = "Contacto";
+            this.ColContacto.HeaderText = "CONTACTO";
+            this.ColContacto.Name = "ColContacto";
+            this.ColContacto.ReadOnly = true;
+            // 
+            // ColTelefono
+            // 
+            this.ColTelefono.DataPropertyName = "Telefono";
+            this.ColTelefono.HeaderText = "TELÉFONO";
+            this.ColTelefono.Name = "ColTelefono";
+            this.ColTelefono.ReadOnly = true;
+            // 
+            // ColCorreoElectronico
+            // 
+            this.ColCorreoElectronico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColCorreoElectronico.DataPropertyName = "CorreoElectronico";
+            this.ColCorreoElectronico.HeaderText = "CORREO ";
+            this.ColCorreoElectronico.Name = "ColCorreoElectronico";
+            this.ColCorreoElectronico.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -293,6 +332,7 @@
             this.BtnModificar.TabIndex = 6;
             this.BtnModificar.Text = "MODIFICAR";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnEliminar
             // 
@@ -317,6 +357,7 @@
             this.BtnLimpiar.TabIndex = 8;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnCerrar
             // 
@@ -329,43 +370,6 @@
             this.BtnCerrar.TabIndex = 14;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
-            // 
-            // ColProveedorID
-            // 
-            this.ColProveedorID.DataPropertyName = "ProveedorID";
-            this.ColProveedorID.HeaderText = "CÓDIGO";
-            this.ColProveedorID.Name = "ColProveedorID";
-            this.ColProveedorID.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "NOMBRE";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Width = 79;
-            // 
-            // ColContacto
-            // 
-            this.ColContacto.DataPropertyName = "Contacto";
-            this.ColContacto.HeaderText = "CONTACTO";
-            this.ColContacto.Name = "ColContacto";
-            this.ColContacto.ReadOnly = true;
-            // 
-            // ColTelefono
-            // 
-            this.ColTelefono.DataPropertyName = "Telefono";
-            this.ColTelefono.HeaderText = "TELÉFONO";
-            this.ColTelefono.Name = "ColTelefono";
-            this.ColTelefono.ReadOnly = true;
-            // 
-            // ColCorreoElectronico
-            // 
-            this.ColCorreoElectronico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColCorreoElectronico.DataPropertyName = "CorreoElectronico";
-            this.ColCorreoElectronico.HeaderText = "CORREO ";
-            this.ColCorreoElectronico.Name = "ColCorreoElectronico";
-            this.ColCorreoElectronico.ReadOnly = true;
             // 
             // FrmProveedorGestion
             // 

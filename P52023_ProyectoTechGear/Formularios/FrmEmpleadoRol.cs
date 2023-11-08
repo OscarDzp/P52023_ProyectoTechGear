@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,7 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaEmpleadoRol();
         }
 
-        private void CargarListaEmpleadoRol() 
+        private void CargarListaEmpleadoRol()
         {
             Logica.Models.EmpleadoRol MiEmpleadoRol = new Logica.Models.EmpleadoRol();
             DataTable lista = new DataTable();
@@ -63,10 +64,9 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 MiEmpleadoRolLocal = new Logica.Models.EmpleadoRol();
 
-
                 MiEmpleadoRolLocal.Rol = TxtEmpleadoRolNombre.Text.Trim();
 
-                bool NombreValido = MiEmpleadoRolLocal.ConsultarPorNombre(MiEmpleadoRolLocal.Rol);
+                bool NombreValido = MiEmpleadoRolLocal.ConsultarPorRol(MiEmpleadoRolLocal.Rol);
 
                 if (NombreValido == false)
                 {
@@ -82,7 +82,7 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Rol agregado correctamente", "Agregado", MessageBoxButtons.OK);
-                           
+
                         }
                         else
                         {
@@ -101,6 +101,71 @@ namespace P52023_ProyectoTechGear.Formularios
             TxtEmpleadoRolNombre.Clear();
         }
 
+        private void DgvListaEmpleadoRol_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaEmpleadoRol.SelectedRows.Count == 1)
+            {
+                Limpiarform();
+                DataGridViewRow MiDgvFila = DgvListaEmpleadoRol.SelectedRows[0];
+                int IdEmpleadoRol = Convert.ToInt32(MiDgvFila.Cells["ColEmpleadoRolID"].Value);
+                MiEmpleadoRolLocal = new Logica.Models.EmpleadoRol();
+                MiEmpleadoRolLocal = MiEmpleadoRolLocal.ConsultarPorID(IdEmpleadoRol);
+                if (MiEmpleadoRolLocal != null && MiEmpleadoRolLocal.EmpleadoRolID > 0)
+                {
+                    TxtEmpleadoRolCodigo.Text = MiEmpleadoRolLocal.EmpleadoRolID.ToString();
+                    TxtEmpleadoRolNombre.Text = MiEmpleadoRolLocal.Rol;
 
+                    ActivarBotonesModificarYEliminar();
+                }
+
+            }
+        }
+
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiarform();
+            ActivarBotonAgregar();
+        }
+
+        private void DgvListaEmpleadoRol_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaEmpleadoRol.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+                     
+                MiEmpleadoRolLocal.Rol = TxtEmpleadoRolNombre.Text.Trim();
+
+                if (MiEmpleadoRolLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar el rol?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiEmpleadoRolLocal.Actualizar())
+                        {
+                            MessageBox.Show("Rol modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                            Limpiarform();
+                            CargarListaEmpleadoRol();
+                            ActivarBotonAgregar();
+                        }
+                    }
+                }
+            }
+        }
     }
-}

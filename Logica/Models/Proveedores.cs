@@ -43,11 +43,17 @@ namespace Logica.Models
         {
             bool R = false;
 
-            
+            Conexion MiCnn = new Conexion();
 
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contacto", this.Contacto));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
+            int resultado = MiCnn.EjecutarDML("[SPProveedorActualizar]");
 
+            if (resultado > 0) R = true;
             return R;
-
         }
         public bool ConsultarPorNombre(string pNombre)
         {
@@ -86,6 +92,48 @@ namespace Logica.Models
 
             return R;
         }
+        //Esto es obligatorio
+
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
+            DataTable DatosProveedor = new DataTable();
+            DatosProveedor = MyCnn.EjecutarSelect("SPProveedoresConsultarPorID");
+            if (DatosProveedor != null && DatosProveedor.Rows.Count > 0)
+            {
+                //el usuario existe
+                R = true;
+            }
+
+            return R;
+        }
+
+        public Proveedores ConsultarPorID(int ProveedorID)
+        {
+            Proveedores R = new Proveedores();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", ProveedorID));
+            DataTable DatosProveedor = new DataTable();
+            DatosProveedor = MyCnn.EjecutarSelect("SPProveedoresConsultarPorID");
+            if (DatosProveedor != null && DatosProveedor.Rows.Count > 0)
+            {
+                DataRow MiFila = DatosProveedor.Rows[0];
+
+                R.ProveedorID = Convert.ToInt32(MiFila["ProveedorID"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);            
+                R.Contacto = Convert.ToString(MiFila["Contacto"]);
+                R.Telefono = Convert.ToString(MiFila["Telefono"]);
+                R.CorreoElectronico = Convert.ToString(MiFila["CorreoElectronico"]);
+          
+            }
+            return R;
+
+        }
+
+
 
         public DataTable Listar()
         {

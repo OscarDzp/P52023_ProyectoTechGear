@@ -148,5 +148,88 @@ namespace P52023_ProyectoTechGear.Formularios
         {
 
         }
-    }
-}
+
+        private void DgvListaClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaClientes.SelectedRows.Count == 1)
+            {
+                Limpiarform();
+                DataGridViewRow MiDgvFila = DgvListaClientes.SelectedRows[0];
+                int IDCliente = Convert.ToInt32(MiDgvFila.Cells["ColClienteID"].Value);
+                MiClienteLocal = new Logica.Models.Clientes();
+                MiClienteLocal = MiClienteLocal.ConsultarPorID(IDCliente);
+                if (MiClienteLocal != null && MiClienteLocal.ClienteID > 0)
+                {
+                  
+                    TxtClienteNombre.Text = MiClienteLocal.Nombre;
+                    TxtClienteCorreoElectronico.Text = MiClienteLocal.CorreoElectronico;
+                    TxtClienteDireccion.Text = MiClienteLocal.Direccion;
+                    TxtClienteTelefono.Text = MiClienteLocal.Telefono;
+                    TxtClienteCedula.Text = MiClienteLocal.Cedula.ToString();
+
+
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiarform();
+            ActivarBotonAgregar();
+
+        }
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaClientes_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaClientes.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)        
+            {
+               
+                    MiClienteLocal.Nombre = TxtClienteNombre.Text.Trim();
+                    MiClienteLocal.CorreoElectronico = TxtClienteCorreoElectronico.Text.Trim();                
+                    MiClienteLocal.Direccion = TxtClienteDireccion.Text.Trim();
+                    MiClienteLocal.Telefono = TxtClienteTelefono.Text.Trim();
+                    MiClienteLocal.Cedula = Convert.ToInt32(TxtClienteCedula.Text.Trim());
+
+
+                    if (MiClienteLocal.ConsultarPorID())
+                    {
+                        DialogResult Resp = MessageBox.Show("Desea modificar el Empleado?", "???", MessageBoxButtons.YesNo);
+                        if (Resp == DialogResult.Yes)
+                        {
+                            if (MiClienteLocal.Actualizar())
+                            {
+                                MessageBox.Show("Cliente modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                                Limpiarform();
+                                CargarListaClientes();
+                                ActivarBotonAgregar();
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+    
+

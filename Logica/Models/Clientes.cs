@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace Logica.Models
 {
     public class Clientes
-    {
-       
+    {      
         public int ClienteID { get; set; }
         public string Nombre { get; set; }
         public string CorreoElectronico { get; set; }
@@ -34,10 +33,20 @@ namespace Logica.Models
 
             if (resultado > 0) R = true;
 
-
             return R;
 
         }
+        public DataTable Listar()
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SPClientesListar");
+
+            return R;
+        }
+
         public bool Eliminar()
         {
             bool R = false;
@@ -46,6 +55,19 @@ namespace Logica.Models
         public bool Actualizar()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@CorreoElectronico", this.CorreoElectronico));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.Direccion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+          
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ClienteID));
+            int resultado = MiCnn.EjecutarDML("SPClientesActualizar");
+
+            if (resultado > 0) R = true;
             return R;
         }
         public bool ConsultarPorCedula(int pCedula)
@@ -81,20 +103,50 @@ namespace Logica.Models
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
-
             return R;
 
         }
+        //Esto es obligatorio
 
-        public DataTable Listar()
+        public bool ConsultarPorID()
         {
-            DataTable R = new DataTable();
+            bool R = false;
+            Conexion MyCnn = new Conexion();
 
-            Conexion MiCnn = new Conexion();
-
-            R = MiCnn.EjecutarSelect("SPClientesListar");
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ClienteID));
+            DataTable DatosCliente = new DataTable();
+            DatosCliente = MyCnn.EjecutarSelect("SPClientesConsultarPorID");
+            if (DatosCliente != null && DatosCliente.Rows.Count > 0)
+            {           
+                R = true;
+            }
 
             return R;
         }
+
+        public Clientes ConsultarPorID(int ClienteID)
+        {
+            Clientes R = new Clientes();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", ClienteID));
+            DataTable DatosCliente = new DataTable();
+            DatosCliente = MyCnn.EjecutarSelect("SPClientesConsultarPorID");
+            if (DatosCliente != null && DatosCliente.Rows.Count > 0)
+            {
+                DataRow MiFila = DatosCliente.Rows[0];
+
+                R.ClienteID = Convert.ToInt32(MiFila["ClienteID"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.CorreoElectronico = Convert.ToString(MiFila["CorreoElectronico"]);
+                R.Direccion = Convert.ToString(MiFila["Direccion"]);
+                R.Telefono = Convert.ToString(MiFila["Telefono"]);
+                R.Cedula = Convert.ToInt32(MiFila["Cedula"]);            
+
+            }
+            return R;
+
+        }
+
+       
     }
 }

@@ -26,7 +26,7 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaProveedor();
         }
 
-        private void CargarListaProveedor() 
+        private void CargarListaProveedor()
         {
             Logica.Models.Proveedores MiProveedor = new Logica.Models.Proveedores();
             DataTable lista = new DataTable();
@@ -38,7 +38,7 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             bool R = false;
 
-            if (!string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim())&&
+            if (!string.IsNullOrEmpty(TxtProveedorNombre.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorContacto.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorTelefono.Text.Trim()) &&
                 !string.IsNullOrEmpty(TxtProveedorCorreoElectronico.Text.Trim()))
@@ -89,7 +89,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 bool CedulaValida = MiProveedorLocal.ConsultarPorNombre(MiProveedorLocal.Contacto);
                 bool CorreoValido = MiProveedorLocal.ConsultarPorCorreo(MiProveedorLocal.CorreoElectronico);
 
-                if (CedulaValida == false && CorreoValido ==  false)
+                if (CedulaValida == false && CorreoValido == false)
                 {
                     string Pregunta = string.Format("Esta seguro de agregar el proveedor {0}?", MiProveedorLocal.Nombre);
 
@@ -103,8 +103,8 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("Proveedor agregado correctamente", "Agregado", MessageBoxButtons.OK);
-                          
- 
+
+
                         }
                         else
                         {
@@ -128,5 +128,84 @@ namespace P52023_ProyectoTechGear.Formularios
             TxtProveedorCorreoElectronico.Clear();
         }
 
-    }
+        private void DgvListaProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaProveedores.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaProveedores.SelectedRows[0];
+                int IDProveedor = Convert.ToInt32(MiDgvFila.Cells["ColProveedorID"].Value);
+                MiProveedorLocal = new Logica.Models.Proveedores();
+                MiProveedorLocal = MiProveedorLocal.ConsultarPorID(IDProveedor);
+                if (MiProveedorLocal != null && MiProveedorLocal.ProveedorID > 0)
+                {
+                    TxtProveedorCodigo.Text = MiProveedorLocal.ProveedorID.ToString();
+                    TxtProveedorNombre.Text = MiProveedorLocal.Nombre;
+                    TxtProveedorContacto.Text = MiProveedorLocal.Contacto;
+                    TxtProveedorTelefono.Text = MiProveedorLocal.Telefono;
+                    TxtProveedorCorreoElectronico.Text = MiProveedorLocal.CorreoElectronico;
+
+
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+
+        }
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaProveedores_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaProveedores.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+         
+                MiProveedorLocal.Nombre = TxtProveedorNombre.Text.Trim();
+                MiProveedorLocal.Contacto = TxtProveedorContacto.Text.Trim();
+                MiProveedorLocal.Telefono = TxtProveedorTelefono.Text.Trim();
+                MiProveedorLocal.CorreoElectronico = TxtProveedorCorreoElectronico.Text.Trim();
+              
+             
+                if (MiProveedorLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar el Proveedor?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiProveedorLocal.Actualizar())
+                        {
+                            MessageBox.Show("Empleado modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaProveedor();
+                            ActivarBotonAgregar();
+                        }
+
+                    }
+
+                }
+            }
+        
+    } 
 }

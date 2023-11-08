@@ -31,7 +31,46 @@ namespace Logica.Models
             return R;
         }
 
-        public bool ConsultarPorNombre(string pRol)
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoRolID));
+            DataTable DatosEmpleadoRol = new DataTable();
+            DatosEmpleadoRol = MyCnn.EjecutarSelect("SPEmpleadoRolesConsultarPorID");
+            if (DatosEmpleadoRol != null && DatosEmpleadoRol.Rows.Count > 0)
+            {
+                //el usuario existe
+                R = true;
+            }
+
+            return R;
+        }
+
+        public EmpleadoRol ConsultarPorID(int IdEmpleadoRol)
+        {
+            EmpleadoRol R = new EmpleadoRol();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", IdEmpleadoRol));
+            DataTable DatosEmpleadoRol = new DataTable();
+            DatosEmpleadoRol = MyCnn.EjecutarSelect("SPEmpleadoRolesConsultarPorID");
+
+            if (DatosEmpleadoRol != null && DatosEmpleadoRol.Rows.Count > 0)
+            {
+                DataRow MiFila = DatosEmpleadoRol.Rows[0];
+
+                R.EmpleadoRolID = Convert.ToInt32(MiFila["EmpleadoRolID"]);
+                R.Rol = Convert.ToString(MiFila["Rol"]);
+
+            }
+            return R;
+
+        }
+
+        //Esto es obligatorio
+
+        public bool ConsultarPorRol(string pRol)
         {
             bool R = false;
 
@@ -45,14 +84,26 @@ namespace Logica.Models
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
-
             return R;
         }
 
-        
-
-            public bool Agregar()
+        public bool Actualizar()
         {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Rol", this.Rol));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoRolID));
+            int resultado = MiCnn.EjecutarDML("SPEmpleadoRolesActualizar");
+
+            if (resultado > 0) R = true;
+            return R;
+        }
+
+    public bool Agregar()
+       {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
@@ -63,12 +114,9 @@ namespace Logica.Models
 
             if (resultado > 0) R = true;
 
-
             return R;
         }
 
     }
-
-
 
 }

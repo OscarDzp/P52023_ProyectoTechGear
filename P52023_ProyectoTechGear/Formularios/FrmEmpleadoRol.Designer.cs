@@ -34,18 +34,18 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.TxtEmpleadoRolNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtEmpleadoRolCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaEmpleadoRol = new System.Windows.Forms.DataGridView();
-            this.ColEmpleadoRolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ColEmpleadoRolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleadoRol)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             this.BtnLimpiar.TabIndex = 26;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnCerrar
             // 
@@ -97,6 +98,7 @@
             this.BtnModificar.TabIndex = 24;
             this.BtnModificar.Text = "MODIFICAR";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnAgregar
             // 
@@ -126,6 +128,37 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de Empleado Rol...";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(484, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 18);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(686, 106);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(665, 106);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "*";
             // 
             // TxtEmpleadoRolNombre
             // 
@@ -169,32 +202,17 @@
             this.DgvListaEmpleadoRol.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColEmpleadoRolID,
             this.ColRol});
-            this.DgvListaEmpleadoRol.Location = new System.Drawing.Point(-8, 67);
+            this.DgvListaEmpleadoRol.Location = new System.Drawing.Point(12, 67);
             this.DgvListaEmpleadoRol.MultiSelect = false;
             this.DgvListaEmpleadoRol.Name = "DgvListaEmpleadoRol";
             this.DgvListaEmpleadoRol.ReadOnly = true;
             this.DgvListaEmpleadoRol.RowHeadersVisible = false;
             this.DgvListaEmpleadoRol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListaEmpleadoRol.Size = new System.Drawing.Size(816, 165);
+            this.DgvListaEmpleadoRol.Size = new System.Drawing.Size(796, 165);
             this.DgvListaEmpleadoRol.TabIndex = 21;
             this.DgvListaEmpleadoRol.VirtualMode = true;
-            // 
-            // ColEmpleadoRolID
-            // 
-            this.ColEmpleadoRolID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColEmpleadoRolID.DataPropertyName = "EmpleadoRolID";
-            this.ColEmpleadoRolID.HeaderText = "EMPLEADO ROL CODIGO";
-            this.ColEmpleadoRolID.Name = "ColEmpleadoRolID";
-            this.ColEmpleadoRolID.ReadOnly = true;
-            this.ColEmpleadoRolID.Width = 80;
-            // 
-            // ColRol
-            // 
-            this.ColRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColRol.DataPropertyName = "Rol";
-            this.ColRol.HeaderText = "ROL";
-            this.ColRol.Name = "ColRol";
-            this.ColRol.ReadOnly = true;
+            this.DgvListaEmpleadoRol.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleadoRol_CellClick);
+            this.DgvListaEmpleadoRol.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaEmpleadoRol_DataBindingComplete);
             // 
             // TxtBuscar
             // 
@@ -212,36 +230,22 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Buscar";
             // 
-            // label16
+            // ColEmpleadoRolID
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(686, 106);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 13);
-            this.label16.TabIndex = 33;
-            this.label16.Text = "Datos Requeridos.....";
+            this.ColEmpleadoRolID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColEmpleadoRolID.DataPropertyName = "ID";
+            this.ColEmpleadoRolID.HeaderText = "EMPLEADO ROL CODIGO";
+            this.ColEmpleadoRolID.Name = "ColEmpleadoRolID";
+            this.ColEmpleadoRolID.ReadOnly = true;
+            this.ColEmpleadoRolID.Width = 80;
             // 
-            // label15
+            // ColRol
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(665, 106);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 18);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "*";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(484, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 18);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "*";
+            this.ColRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColRol.DataPropertyName = "Rol";
+            this.ColRol.HeaderText = "ROL";
+            this.ColRol.Name = "ColRol";
+            this.ColRol.ReadOnly = true;
             // 
             // FrmEmpleadoRol
             // 
@@ -286,10 +290,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtEmpleadoRolCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleadoRolID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColRol;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleadoRolID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColRol;
     }
 }
