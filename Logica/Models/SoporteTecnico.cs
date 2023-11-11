@@ -14,7 +14,7 @@ namespace Logica.Models
     {
         public SoporteTecnico()
         {
-             MiGarantiaID = new Garantias();
+             MiGarantia = new Garantias();
             
         }
 
@@ -23,7 +23,7 @@ namespace Logica.Models
         public string Correo { get; set; }
         public string Especialidad { get; set; }
         public string Disponibilidad { get; set; }
-        public Garantias MiGarantiaID { get; set; }
+        public Garantias MiGarantia { get; set; }
 
 
         //Metodods 
@@ -38,7 +38,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.Correo));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Especialidad", this.Especialidad));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Disponibilidad", this.Disponibilidad));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@GarantiaID", this.MiGarantiaID.GarantiaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@GarantiaID", this.MiGarantia.GarantiaID));
 
             int resultado = MiCnn.EjecutarDML("SPSoporteTecnicoAgregar");
 
@@ -56,25 +56,59 @@ namespace Logica.Models
         public bool Actualizar()
         {
             bool R = false;
-            return R;
-        }
-        public bool ConsultarPorID(int pTecnicoID)
-        {
-            bool R = false;
-
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@TecnicoID", pTecnicoID));
 
-            DataTable dt = new DataTable();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.Correo));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Especialidad", this.Especialidad));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Disponibilidad", this.Disponibilidad));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@GarantiaID", this.MiGarantia.GarantiaID));
 
-            dt = MiCnn.EjecutarSelect("SPSoporteTecnicoConsultarPorID");
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.TecnicoID));
+            int resultado = MiCnn.EjecutarDML("SPSoporteTecnicoActualizar");
 
-            if (dt != null && dt.Rows.Count > 0) R = true;
+            if (resultado > 0) R = true;
+            return R;
+        }
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
 
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.TecnicoID));
+            DataTable DatosTecnico = new DataTable();
+            DatosTecnico = MyCnn.EjecutarSelect("SPSoporteTecnicoConsultarPorID");
+            if (DatosTecnico != null && DatosTecnico.Rows.Count > 0)
+            {
+
+                R = true;
+            }
 
             return R;
 
+        }
+
+        public SoporteTecnico ConsultarPorID(int IdTecnico)
+        {
+            SoporteTecnico R = new SoporteTecnico();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", IdTecnico));
+            DataTable DatosTecnico = new DataTable();
+            DatosTecnico = MyCnn.EjecutarSelect("SPSoporteTecnicoConsultarPorID");
+            if (DatosTecnico != null && DatosTecnico.Rows.Count > 0)
+            {
+
+                DataRow MiFila = DatosTecnico.Rows[0];
+                R.TecnicoID = Convert.ToInt32(MiFila["TecnicoID"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.Correo = Convert.ToString(MiFila["Correo"]);
+                R.Especialidad = Convert.ToString(MiFila["Especialidad"]);
+                R.Disponibilidad = Convert.ToString(MiFila["Disponibilidad"]);
+                R.MiGarantia.GarantiaID = Convert.ToInt32(MiFila["GarantiaID"]);
+            }
+
+            return R;
         }
 
         public bool ConsultarPorCorreo(string pCorreo)

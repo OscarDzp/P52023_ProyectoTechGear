@@ -102,14 +102,15 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 MiDetalleVentaLocal = new Logica.Models.DetalleVenta();
 
-                MiDetalleVentaLocal.Subtotal = TxtDetalleVentaSutotal.Text.Trim();
-                MiDetalleVentaLocal.PrecioUnitario = TxtDetalleVentaPrecioUnitario.Text.Trim();
-                MiDetalleVentaLocal.Cantidad = TxtDetalleVentaCantidad.Text.Trim();
+
+                MiDetalleVentaLocal.Subtotal = Convert.ToInt32(TxtDetalleVentaSutotal.Text.Trim());
+                MiDetalleVentaLocal.PrecioUnitario = Convert.ToInt32(TxtDetalleVentaPrecioUnitario.Text.Trim());
+                MiDetalleVentaLocal.Cantidad = Convert.ToInt32(TxtDetalleVentaCantidad.Text.Trim());
                 MiDetalleVentaLocal.MiProducto.ProductoID = Convert.ToInt32(CboxDetalleVentasProducto.SelectedValue);
 
-                bool IDValida = MiDetalleVentaLocal.ConsultarPorID(MiDetalleVentaLocal.DetalleVentaID);
+                bool CantidadValida = MiDetalleVentaLocal.ConsultarPorCantidad(MiDetalleVentaLocal.Cantidad.ToString());
 
-                if (IDValida == false)
+                if (CantidadValida == false)
                 {
                     //Confirmacion
 
@@ -145,6 +146,87 @@ namespace P52023_ProyectoTechGear.Formularios
             TxtDetalleVentaPrecioUnitario.Clear();
             TxtDetalleVentaCantidad.Clear();
             CboxDetalleVentasProducto.SelectedIndex = -1;
+        }
+
+        private void DgvListaDetalleVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaDetalleVenta.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+                DataGridViewRow MiDgvFila = DgvListaDetalleVenta.SelectedRows[0];
+                int IDDetalleVenta = Convert.ToInt32(MiDgvFila.Cells["ColDetalleVentaID"].Value);
+                MiDetalleVentaLocal = new Logica.Models.DetalleVenta();
+                MiDetalleVentaLocal = MiDetalleVentaLocal.ConsultarPorID(IDDetalleVenta);
+                if (MiDetalleVentaLocal != null && MiDetalleVentaLocal.DetalleVentaID > 0)
+                {
+                    TxtCodigoDetalleVenta.Text = MiDetalleVentaLocal.DetalleVentaID.ToString();
+                    TxtDetalleVentaSutotal.Text = MiDetalleVentaLocal.Subtotal.ToString();
+                    TxtDetalleVentaPrecioUnitario.Text = MiDetalleVentaLocal.PrecioUnitario.ToString();
+                    TxtDetalleVentaCantidad.Text = MiDetalleVentaLocal.Cantidad.ToString();
+                    CboxDetalleVentasProducto.SelectedValue = MiDetalleVentaLocal.MiProducto.ProductoID;
+                    ActivarBotonesModificarYEliminar();
+                }
+
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+
+        }
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaDetalleVenta_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaDetalleVenta.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            MiDetalleVentaLocal.Subtotal = Convert.ToInt32(TxtDetalleVentaSutotal.Text.Trim());
+            MiDetalleVentaLocal.PrecioUnitario = Convert.ToInt32(TxtDetalleVentaPrecioUnitario.Text.Trim());
+            MiDetalleVentaLocal.Cantidad = Convert.ToInt32(TxtDetalleVentaCantidad.Text.Trim());
+            MiDetalleVentaLocal.MiProducto.ProductoID = Convert.ToInt32(CboxDetalleVentasProducto.SelectedValue);
+
+
+                if (MiDetalleVentaLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar el detalle de venta?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiDetalleVentaLocal.Actualizar())
+                        {
+                            MessageBox.Show("Detalle de Venta modificado correctamente!!", ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaDetalleVenta();
+                            ActivarBotonAgregar();
+                        }
+
+                    }
+
+                }
+            
+        }
+
+        private void BtnLimpiar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

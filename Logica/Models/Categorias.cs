@@ -38,8 +38,20 @@ namespace Logica.Models
         }
         public bool Actualizar()
         {
+
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CategoriaID));
+            int resultado = MiCnn.EjecutarDML("SPCategoriasActualizar");
+
+            if (resultado > 0) R = true;
+
             return R;
+
         }
         public bool ConsultarPorNombre(string pNombre)
         {
@@ -57,6 +69,42 @@ namespace Logica.Models
 
 
             return R;
+        }
+
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.CategoriaID));
+            DataTable DatosCategoria = new DataTable();
+            DatosCategoria = MyCnn.EjecutarSelect("SPCategoriasConsultarPorID");
+            if (DatosCategoria != null && DatosCategoria.Rows.Count > 0)
+            {
+                
+                R = true;
+            }
+
+            return R;
+        }
+
+        public Categorias ConsultarPorID(int IdCategoria)
+        {
+            Categorias R = new Categorias();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", IdCategoria));
+            DataTable DatosCategoria = new DataTable();
+            DatosCategoria = MyCnn.EjecutarSelect("SPCategoriasConsultarPorID");
+            if (DatosCategoria != null && DatosCategoria.Rows.Count > 0)
+            {
+                DataRow MiFila = DatosCategoria.Rows[0];
+
+                R.CategoriaID = Convert.ToInt32(MiFila["CategoriaID"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
+             
+            }
+            return R;
+
         }
 
         public DataTable Listar()

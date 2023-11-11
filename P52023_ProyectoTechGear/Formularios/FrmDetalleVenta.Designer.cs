@@ -73,6 +73,7 @@
             this.BtnLimpiar.TabIndex = 26;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click_1);
             // 
             // BtnCerrar
             // 
@@ -109,6 +110,7 @@
             this.BtnModificar.TabIndex = 24;
             this.BtnModificar.Text = "MODIFICAR";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnAgregar
             // 
@@ -315,6 +317,8 @@
             this.DgvListaDetalleVenta.Size = new System.Drawing.Size(816, 165);
             this.DgvListaDetalleVenta.TabIndex = 21;
             this.DgvListaDetalleVenta.VirtualMode = true;
+            this.DgvListaDetalleVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaDetalleVenta_CellClick);
+            this.DgvListaDetalleVenta.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaDetalleVenta_DataBindingComplete);
             // 
             // ColDetalleVentaID
             // 

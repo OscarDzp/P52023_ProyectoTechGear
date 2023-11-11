@@ -15,9 +15,9 @@ namespace Logica.Models
             MiProducto = new Productos();
         }
         public int DetalleVentaID { get; set; }
-        public string Subtotal { get; set; }
-        public string PrecioUnitario { get; set; }
-        public string Cantidad { get; set; }
+        public int Subtotal { get; set; }
+        public int PrecioUnitario { get; set; }
+        public decimal Cantidad { get; set; }
         public Productos MiProducto { get; set; }
 
         public bool Agregar()
@@ -47,33 +47,87 @@ namespace Logica.Models
         public bool Actualizar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Subtotal", this.Subtotal));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@PrecioUnitario", this.PrecioUnitario));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cantidad", this.Cantidad));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiProducto.ProductoID));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.DetalleVentaID));
+            int resultado = MiCnn.EjecutarDML("SPDetalleVentaActualizar");
+
+            if (resultado > 0) R = true;
             return R;
         }
-        public bool ConsultarPorID(int pDetalleVentaID )
+
+        public bool ConsultarPorCantidad(string pCantidad)
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@DetalleVentaID", pDetalleVentaID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cantidad", pCantidad));
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPDetalleVentasConsultarPorID");
+            dt = MiCnn.EjecutarSelect("SPDetalleVentaPorCantidad");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
+            return R;
+        }
+
+        public bool ConsultarPorID()
+        {
+            bool R = false;
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.DetalleVentaID));
+            DataTable DatosDetalleVenta = new DataTable();
+            DatosDetalleVenta = MyCnn.EjecutarSelect("SPDetalleVentasConsultarPorID");
+            if (DatosDetalleVenta != null && DatosDetalleVenta.Rows.Count > 0)
+            {
+
+                R = true;
+            }
 
             return R;
 
         }
+
+        public DetalleVenta ConsultarPorID(int IdDetalleVenta)
+        {
+            DetalleVenta R = new DetalleVenta();
+            Conexion MyCnn = new Conexion();
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", IdDetalleVenta));
+            DataTable DatosDetalleVenta = new DataTable();
+            DatosDetalleVenta = MyCnn.EjecutarSelect("SPDetalleVentasConsultarPorID");
+            if (DatosDetalleVenta != null && DatosDetalleVenta.Rows.Count > 0)
+            {
+
+                DataRow MiFila = DatosDetalleVenta.Rows[0];
+                R.DetalleVentaID = Convert.ToInt32(MiFila["DetalleVentaID"]);
+                R.Subtotal = Convert.ToInt32(MiFila["Subtotal"]);
+                R.PrecioUnitario = Convert.ToInt32(MiFila["PrecioUnitario"]);
+                R.Cantidad = Convert.ToInt32(MiFila["Cantidad"]);
+                R.MiProducto.ProductoID = Convert.ToInt32(MiFila["ProductoID"]);
+
+            }
+
+            return R;
+        }
+
         public DataTable Listar()
         {
             DataTable R = new DataTable();
 
             Conexion MiCnn = new Conexion();
 
+
             R = MiCnn.EjecutarSelect("SPDetalleVentaListar");
+
             return R;
         }
     }

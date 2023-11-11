@@ -31,11 +31,16 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void CargarListaCategorias()
         {
-            Logica.Models.Categorias MiCategoria = new Logica.Models.Categorias();
+            Logica.Models.Categorias MiEmpleado = new Logica.Models.Categorias();
+
             DataTable lista = new DataTable();
-            lista = MiCategoria.Listar();
+
+            lista = MiCategoriaLocal.Listar();
+
             DgvListaCategorias.DataSource = lista;
         }
+
+      
 
 
         private bool ValidarValorRequerido()
@@ -102,7 +107,75 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void Limpiarform()
         {
+            TxtCategoriaCodigo.Clear();
             TxtCategoriaNombre.Clear();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+                MiCategoriaLocal.Nombre = TxtCategoriaNombre.Text.Trim();
+                
+                if (MiCategoriaLocal.ConsultarPorID())
+                {
+                    DialogResult Resp = MessageBox.Show("Desea modificar la Categoria?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
+                    {
+                        if (MiCategoriaLocal.Actualizar())
+                        {
+                            MessageBox.Show("Categoria modificada correctamenete!!", ":)", MessageBoxButtons.OK);
+                            Limpiarform();
+                            CargarListaCategorias();
+                            ActivarBotonAgregar();
+                        }
+
+                    }
+
+                }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiarform();
+            ActivarBotonAgregar();
+        }
+
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonesModificarYEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+
+        }
+
+        private void DgvListaCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (DgvListaCategorias.SelectedRows.Count == 1)
+            {
+                Limpiarform();
+                DataGridViewRow MiDgvFila = DgvListaCategorias.SelectedRows[0];
+                int IdCategoria = Convert.ToInt32(MiDgvFila.Cells["ColCategoriaID"].Value);
+                MiCategoriaLocal = new Logica.Models.Categorias();
+                MiCategoriaLocal = MiCategoriaLocal.ConsultarPorID(IdCategoria);
+                if (MiCategoriaLocal != null && MiCategoriaLocal.CategoriaID > 0)
+                {
+                    TxtCategoriaCodigo.Text = MiCategoriaLocal.CategoriaID.ToString();
+                    TxtCategoriaNombre.Text = MiCategoriaLocal.Nombre;
+                    ActivarBotonesModificarYEliminar();
+                }
+            }
+        }
+
+        private void DgvListaCategorias_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaCategorias.ClearSelection();
         }
     }
 }
