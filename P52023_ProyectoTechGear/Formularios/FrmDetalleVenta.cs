@@ -26,10 +26,10 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaDetalleVenta();
             CargarListaProducto();
         }
-        private void CargarListaDetalleVenta() {
+        private void CargarListaDetalleVenta(string FiltroBusqueda = "") {
             Logica.Models.DetalleVenta MiDetalleVenta = new Logica.Models.DetalleVenta();
             DataTable lista = new DataTable();
-            lista = MiDetalleVenta.Listar();
+            lista = MiDetalleVenta.Listar(FiltroBusqueda);
             DgvListaDetalleVenta.DataSource = lista;
         }
         private void CargarListaProducto()
@@ -226,7 +226,39 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void BtnLimpiar_Click_1(object sender, EventArgs e)
         {
+            LimpiarForm();
+            ActivarBotonAgregar();
+        }
 
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaDetalleVenta(TxtBuscar.Text.Trim());
+            }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiDetalleVentaLocal.DetalleVentaID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar el detalle venta {0}?", MiDetalleVentaLocal.Subtotal);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiDetalleVentaLocal.Eliminar())
+                {
+                    MessageBox.Show("El detalle de la venta ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaDetalleVenta();
+                    ActivarBotonAgregar();
+                }
+            }
         }
     }
 }

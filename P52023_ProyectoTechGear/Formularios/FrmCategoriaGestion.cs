@@ -29,14 +29,11 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaCategorias();
         }
 
-        private void CargarListaCategorias()
+        private void CargarListaCategorias(string FiltroBusqueda = "")
         {
-            Logica.Models.Categorias MiEmpleado = new Logica.Models.Categorias();
-
+            Logica.Models.Categorias MiCategoria = new Logica.Models.Categorias();
             DataTable lista = new DataTable();
-
-            lista = MiCategoriaLocal.Listar();
-
+            lista = MiCategoria.Listar(FiltroBusqueda);
             DgvListaCategorias.DataSource = lista;
         }
 
@@ -176,6 +173,37 @@ namespace P52023_ProyectoTechGear.Formularios
         private void DgvListaCategorias_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DgvListaCategorias.ClearSelection();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiCategoriaLocal.CategoriaID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar la categoria {0}?", MiCategoriaLocal.Nombre);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiCategoriaLocal.Eliminar())
+                {
+                    MessageBox.Show("La Categoria ha sido eliminada", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Limpiarform();
+                    CargarListaCategorias();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaCategorias(TxtBuscar.Text.Trim());
+            }
         }
     }
 }

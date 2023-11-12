@@ -203,11 +203,11 @@ namespace P52023_ProyectoTechGear.Formularios
 
         
 
-        private void CargarListaSoporteTecnico() 
+        private void CargarListaSoporteTecnico(string FiltroBusqueda = "") 
         {
-            Logica.Models.SoporteTecnico MiSoporteTecnico = new Logica.Models.SoporteTecnico();
+            Logica.Models.SoporteTecnico MiTecnico = new Logica.Models.SoporteTecnico();
             DataTable lista = new DataTable();
-            lista = MiSoporteTecnico.Listar();
+            lista = MiTecnico.Listar(FiltroBusqueda);
             DgvListaSoporteTecnico.DataSource = lista;
 
         }
@@ -331,6 +331,37 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             LimpiarForm();
             ActivarBotonAgregar();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiSoporteLocal.TecnicoID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar la Factura {0}?", MiSoporteLocal.Nombre);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiSoporteLocal.Eliminar())
+                {
+                    MessageBox.Show("La Factura ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaSoporteTecnico();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaSoporteTecnico(TxtBuscar.Text.Trim());
+            }
         }
     }
 }
