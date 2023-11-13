@@ -60,8 +60,6 @@
             this.TxtFacturaID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaFactura = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColFacturaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTotalFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDetalledeventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +71,11 @@
             this.ColNombreSucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CboxFacturaProducto = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaFactura)).BeginInit();
             this.SuspendLayout();
@@ -144,6 +147,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.CboxFacturaProducto);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label14);
@@ -439,23 +445,6 @@
             this.DgvListaFactura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaFactura_CellClick);
             this.DgvListaFactura.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaFactura_DataBindingComplete);
             // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(300, 12);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(242, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
-            // 
             // ColFacturaID
             // 
             this.ColFacturaID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -542,6 +531,51 @@
             this.ColNombreCliente.Name = "ColNombreCliente";
             this.ColNombreCliente.ReadOnly = true;
             // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(300, 12);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
+            // 
+            // CboxFacturaProducto
+            // 
+            this.CboxFacturaProducto.FormattingEnabled = true;
+            this.CboxFacturaProducto.Location = new System.Drawing.Point(598, 58);
+            this.CboxFacturaProducto.Name = "CboxFacturaProducto";
+            this.CboxFacturaProducto.Size = new System.Drawing.Size(200, 21);
+            this.CboxFacturaProducto.TabIndex = 43;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(595, 35);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "Producto";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(649, 34);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(15, 18);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "*";
+            // 
             // FrmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,5 +651,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreSucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreCliente;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox CboxFacturaProducto;
     }
 }

@@ -27,6 +27,7 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaMarcas();
             CargarListaModelos();
             CargarListaCategorias();
+            CargarListaProveedor();
         }
 
         private void CargarListaProducto() 
@@ -92,6 +93,25 @@ namespace P52023_ProyectoTechGear.Formularios
                 CboxProductosCategoria.SelectedIndex = -1;
             }
         }
+
+
+        private void CargarListaProveedor()
+        {
+            Logica.Models.Proveedores MiProveedor = new Logica.Models.Proveedores();
+
+            DataTable dtProveedor = new DataTable();
+
+            dtProveedor = MiProveedor.Listar();
+
+            if (dtProveedor != null && dtProveedor.Rows.Count > 0)
+            {
+                CboxProductosProveedor.ValueMember = "ProveedorID";
+                CboxProductosProveedor.DisplayMember = "Nombre";
+
+                CboxProductosProveedor.DataSource = dtProveedor;
+                CboxProductosProveedor.SelectedIndex = -1;
+            }
+        }
         private bool ValidarValorRequerido()
         {
             bool R = false;
@@ -102,7 +122,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 !string.IsNullOrEmpty(TxtProductoStockActual.Text.Trim()) &&
                 CboxProductosCategoria.SelectedIndex > -1 &&
                 CboxProductosMarca.SelectedIndex > -1 &&
-                CboxProductosModelo.SelectedIndex > -1
+                CboxProductosModelo.SelectedIndex > -1 &&
+                 CboxProductosProveedor.SelectedIndex > -1
                 )
             {
                 R = true;
@@ -139,6 +160,11 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe elegir un modelo", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
+                if (CboxProductosProveedor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Se debe elegir un proveedor", "Error de validación", MessageBoxButtons.OK);
+                    return false;
+                }
                 if (string.IsNullOrEmpty(TxtProductoDescripcion.Text.Trim()))
                 {
                     MessageBox.Show("Se debe asignar una descripcion");
@@ -165,6 +191,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiProductoLocal.Precio = TxtProductoPrecio.Text.Trim();
                 MiProductoLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxProductosMarca.SelectedValue);
                 MiProductoLocal.MiModeloID.ModeloID = Convert.ToInt32(CboxProductosModelo.SelectedValue);
+                MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
                 MiProductoLocal.Descripcion = TxtProductoDescripcion.Text.Trim();
 
                 bool IDValido = MiProductoLocal.ConsultarPorID(MiProductoLocal.ProductoID);
@@ -212,7 +239,12 @@ namespace P52023_ProyectoTechGear.Formularios
             CboxProductosCategoria.SelectedIndex = -1;
             CboxProductosMarca.SelectedIndex = -1;
             CboxProductosModelo.SelectedIndex = -1;
+            CboxProductosProveedor.SelectedIndex = -1;
         }
 
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

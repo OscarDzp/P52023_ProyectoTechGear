@@ -17,6 +17,8 @@ namespace Logica.Models
             MiEmpleado = new Empleados();
 
             MiCliente = new Clientes();
+
+            MiProducto = new Productos();   
         }
         public int FacturaID { get; set; }
         public string TotalFactura { get; set; }
@@ -26,8 +28,7 @@ namespace Logica.Models
         public Sucursales MiSucursal { get; set; }
         public Empleados MiEmpleado { get; set; }
         public Clientes MiCliente { get; set; }
-
-
+        public Productos MiProducto { get; set; }
 
         public bool Agregar()
         {
@@ -43,6 +44,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@SucursalID", this.MiSucursal.SucursalID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoID", this.MiEmpleado.EmpleadoID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ClienteID", this.MiCliente.ClienteID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiProducto.ProductoID));
 
             int resultado = MiCnn.EjecutarDML("SPFacturasAgregar");
 
@@ -73,6 +75,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@SucursalID", this.MiSucursal.SucursalID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@EmpleadoID", this.MiEmpleado.EmpleadoID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ClienteID", this.MiCliente.ClienteID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.MiProducto.ProductoID));
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.FacturaID));
             int resultado = MiCnn.EjecutarDML("SPFacturasActualizar");
@@ -137,6 +140,8 @@ namespace Logica.Models
                 R.MiEmpleado.Nombre = Convert.ToString(MiFila["Nombre"]);
                 R.MiCliente.ClienteID = Convert.ToInt32(MiFila["ClienteID"]);
                 R.MiCliente.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.MiProducto.ProductoID = Convert.ToInt32(MiFila["ProductoID"]);
+                R.MiProducto.Nombre = Convert.ToString(MiFila["Nombre"]);
             }
 
                 return R;
@@ -145,8 +150,6 @@ namespace Logica.Models
         public DataTable Listar(string pFiltro = "")
         {
             DataTable R = new DataTable();
-
-
 
             Conexion MiCnn = new Conexion();
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));

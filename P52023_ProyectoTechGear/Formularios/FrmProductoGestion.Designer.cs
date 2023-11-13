@@ -47,6 +47,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtProductoDescripcion = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.CboxProductosMarca = new System.Windows.Forms.ComboBox();
             this.CboxProductosModelo = new System.Windows.Forms.ComboBox();
             this.CboxProductosCategoria = new System.Windows.Forms.ComboBox();
@@ -61,15 +70,9 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.CboxProductosProveedor = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaModelos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -228,7 +231,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(655, 98);
+            this.label4.Location = new System.Drawing.Point(655, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 28;
@@ -236,15 +239,18 @@
             // 
             // TxtProductoDescripcion
             // 
-            this.TxtProductoDescripcion.Location = new System.Drawing.Point(658, 116);
+            this.TxtProductoDescripcion.Location = new System.Drawing.Point(658, 142);
             this.TxtProductoDescripcion.Multiline = true;
             this.TxtProductoDescripcion.Name = "TxtProductoDescripcion";
             this.TxtProductoDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtProductoDescripcion.Size = new System.Drawing.Size(352, 131);
+            this.TxtProductoDescripcion.Size = new System.Drawing.Size(352, 105);
             this.TxtProductoDescripcion.TabIndex = 29;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.CboxProductosProveedor);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label14);
@@ -276,6 +282,103 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle Producto";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(57, 59);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(15, 18);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(36, 98);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 18);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(27, 142);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(15, 18);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(58, 190);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 18);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(634, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 18);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(634, 98);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 18);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(634, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(15, 18);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(34, 234);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 41;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(13, 234);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "*";
             // 
             // CboxProductosMarca
             // 
@@ -412,102 +515,34 @@
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
-            // label16
+            // CboxProductosProveedor
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(34, 234);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 13);
-            this.label16.TabIndex = 41;
-            this.label16.Text = "Datos Requeridos.....";
+            this.CboxProductosProveedor.FormattingEnabled = true;
+            this.CboxProductosProveedor.Location = new System.Drawing.Point(747, 98);
+            this.CboxProductosProveedor.Name = "CboxProductosProveedor";
+            this.CboxProductosProveedor.Size = new System.Drawing.Size(239, 21);
+            this.CboxProductosProveedor.TabIndex = 49;
             // 
-            // label15
+            // label19
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(13, 234);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 18);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "*";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(649, 98);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(92, 13);
+            this.label19.TabIndex = 50;
+            this.label19.Text = "Código Proveedor";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
-            // label10
+            // label20
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(634, 95);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(15, 18);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "*";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(632, 62);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 18);
-            this.label11.TabIndex = 43;
-            this.label11.Text = "*";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(634, 23);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(15, 18);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "*";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(58, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(15, 18);
-            this.label13.TabIndex = 45;
-            this.label13.Text = "*";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(27, 142);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(15, 18);
-            this.label14.TabIndex = 46;
-            this.label14.Text = "*";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(36, 98);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 18);
-            this.label17.TabIndex = 47;
-            this.label17.Text = "*";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(57, 59);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 18);
-            this.label18.TabIndex = 48;
-            this.label18.Text = "*";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(627, 62);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(15, 18);
+            this.label20.TabIndex = 51;
+            this.label20.Text = "*";
             // 
             // FrmProductoGestion
             // 
@@ -580,5 +615,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox CboxProductosProveedor;
+        private System.Windows.Forms.Label label20;
     }
 }

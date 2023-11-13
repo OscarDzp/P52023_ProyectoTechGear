@@ -15,6 +15,7 @@ namespace Logica.Models
             MiModeloID = new Modelos();
             MiMarcaID = new Marcas();
             MiCategoriaID = new Categorias();
+            MiProveedorID = new Proveedores();
         }
         public int ProductoID { get; set; }
         public string Nombre { get; set; } 
@@ -24,6 +25,8 @@ namespace Logica.Models
         public Modelos MiModeloID { get; set; }
         public Marcas MiMarcaID { get; set; }
         public Categorias MiCategoriaID { get; set; }
+
+        public Proveedores MiProveedorID { get; set; }
 
         public bool Agregar()
         {
@@ -38,7 +41,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Precio", this.Precio));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@MarcaID", this.MiMarcaID.MarcaID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ModeloID", this.MiModeloID.ModeloID));
-
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProveedorID", this.MiProveedorID.ProveedorID));
             int resultado = MiCnn.EjecutarDML("SPProductosAgregar");
 
             if (resultado > 0) R = true;
