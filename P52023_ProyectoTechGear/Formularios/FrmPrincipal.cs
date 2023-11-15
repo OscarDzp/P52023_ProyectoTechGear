@@ -167,5 +167,31 @@ namespace P52023_ProyectoTechGear.Formularios
                 Globales.ObjectosGlobales.MiFormularioDeGestionDeSoporte.Show();
             }
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            LblEmpleado.Text = Globales.ObjectosGlobales.MiEmpleadoGlobal.Nombre + "(" +
+                Globales.ObjectosGlobales.MiEmpleadoGlobal.MiEmpleadoRol.Rol + ")";
+            //ahora se debe ajustar los permisos de menus para que se muestren o no, dependiendo
+            //del tipo de rol
+            switch (Globales.ObjectosGlobales.MiEmpleadoGlobal.MiEmpleadoRol.EmpleadoRolID)
+            {
+                //ADMIN
+                case 1005:
+                    //Como admin tiene acceso a todo, no es necesario ocultar opciones
+                    break;
+
+                //Usuario
+                case 1006: // ese 1006 es el id de mi base de datos cada uno posiblemente le varie
+                    //ocultan los menus correspodientes
+                    MnuGestionEmpleados.Enabled = false;
+                    MnuGestionEmpleadosRol.Enabled = false;
+
+                    break;
+                default:
+                    break;
+
+            }
+        }
     }
 }

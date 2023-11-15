@@ -31,7 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mANTENIMIENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.eMPLEADOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuGestionEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -43,7 +43,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.pRODUCTOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.eMPLEADOROLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuGestionEmpleadosRol = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.cATEGORIASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +65,10 @@
             this.sOBRENOSOTROSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LblEmpleado = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,7 +89,7 @@
             // 
             this.mANTENIMIENTOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator2,
-            this.eMPLEADOToolStripMenuItem,
+            this.MnuGestionEmpleados,
             this.toolStripSeparator1,
             this.cLIENTEToolStripMenuItem,
             this.toolStripSeparator3,
@@ -98,7 +101,7 @@
             this.toolStripSeparator6,
             this.pRODUCTOSToolStripMenuItem1,
             this.toolStripSeparator16,
-            this.eMPLEADOROLToolStripMenuItem});
+            this.MnuGestionEmpleadosRol});
             this.mANTENIMIENTOSToolStripMenuItem.Name = "mANTENIMIENTOSToolStripMenuItem";
             this.mANTENIMIENTOSToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.mANTENIMIENTOSToolStripMenuItem.Text = "MANTENIMIENTOS";
@@ -106,86 +109,86 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
-            // eMPLEADOToolStripMenuItem
+            // MnuGestionEmpleados
             // 
-            this.eMPLEADOToolStripMenuItem.Name = "eMPLEADOToolStripMenuItem";
-            this.eMPLEADOToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.eMPLEADOToolStripMenuItem.Text = "EMPLEADO";
-            this.eMPLEADOToolStripMenuItem.Click += new System.EventHandler(this.eMPLEADOToolStripMenuItem_Click);
+            this.MnuGestionEmpleados.Name = "MnuGestionEmpleados";
+            this.MnuGestionEmpleados.Size = new System.Drawing.Size(180, 22);
+            this.MnuGestionEmpleados.Text = "EMPLEADO";
+            this.MnuGestionEmpleados.Click += new System.EventHandler(this.eMPLEADOToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // cLIENTEToolStripMenuItem
             // 
             this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cLIENTEToolStripMenuItem.Text = "CLIENTE";
             this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // tRANSACCIONESToolStripMenuItem
             // 
             this.tRANSACCIONESToolStripMenuItem.Name = "tRANSACCIONESToolStripMenuItem";
-            this.tRANSACCIONESToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.tRANSACCIONESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tRANSACCIONESToolStripMenuItem.Text = "TRANSACCIONES";
             this.tRANSACCIONESToolStripMenuItem.Click += new System.EventHandler(this.tRANSACCIONESToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // dETALLEDEVENTAToolStripMenuItem
             // 
             this.dETALLEDEVENTAToolStripMenuItem.Name = "dETALLEDEVENTAToolStripMenuItem";
-            this.dETALLEDEVENTAToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.dETALLEDEVENTAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dETALLEDEVENTAToolStripMenuItem.Text = "DETALLE DE VENTA";
             this.dETALLEDEVENTAToolStripMenuItem.Click += new System.EventHandler(this.dETALLEDEVENTAToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // fACTURASToolStripMenuItem
             // 
             this.fACTURASToolStripMenuItem.Name = "fACTURASToolStripMenuItem";
-            this.fACTURASToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.fACTURASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fACTURASToolStripMenuItem.Text = "FACTURAS";
             this.fACTURASToolStripMenuItem.Click += new System.EventHandler(this.fACTURASToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // pRODUCTOSToolStripMenuItem1
             // 
             this.pRODUCTOSToolStripMenuItem1.Name = "pRODUCTOSToolStripMenuItem1";
-            this.pRODUCTOSToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.pRODUCTOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.pRODUCTOSToolStripMenuItem1.Text = "PRODUCTOS";
             this.pRODUCTOSToolStripMenuItem1.Click += new System.EventHandler(this.pRODUCTOSToolStripMenuItem1_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(177, 6);
             // 
-            // eMPLEADOROLToolStripMenuItem
+            // MnuGestionEmpleadosRol
             // 
-            this.eMPLEADOROLToolStripMenuItem.Name = "eMPLEADOROLToolStripMenuItem";
-            this.eMPLEADOROLToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.eMPLEADOROLToolStripMenuItem.Text = "EMPLEADO ROL";
-            this.eMPLEADOROLToolStripMenuItem.Click += new System.EventHandler(this.eMPLEADOROLToolStripMenuItem_Click);
+            this.MnuGestionEmpleadosRol.Name = "MnuGestionEmpleadosRol";
+            this.MnuGestionEmpleadosRol.Size = new System.Drawing.Size(180, 22);
+            this.MnuGestionEmpleadosRol.Text = "EMPLEADO ROL";
+            this.MnuGestionEmpleadosRol.Click += new System.EventHandler(this.eMPLEADOROLToolStripMenuItem_Click);
             // 
             // pRODUCTOSToolStripMenuItem
             // 
@@ -327,11 +330,27 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 389);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.LblEmpleado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 386);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(800, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(50, 20);
+            this.toolStripStatusLabel1.Text = "Usuario:";
+            // 
+            // LblEmpleado
+            // 
+            this.LblEmpleado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmpleado.Name = "LblEmpleado";
+            this.LblEmpleado.Size = new System.Drawing.Size(20, 20);
+            this.LblEmpleado.Text = "U";
             // 
             // FrmPrincipal
             // 
@@ -346,8 +365,11 @@
             this.Text = "SISTEMA DE CONTROL DE INVENTARIO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipal_FormClosed);
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,7 +401,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripMenuItem mANTENIMIENTOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem eMPLEADOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuGestionEmpleados;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -390,7 +412,9 @@
         private System.Windows.Forms.ToolStripMenuItem fACTURASToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem pRODUCTOSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem eMPLEADOROLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuGestionEmpleadosRol;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel LblEmpleado;
     }
 }

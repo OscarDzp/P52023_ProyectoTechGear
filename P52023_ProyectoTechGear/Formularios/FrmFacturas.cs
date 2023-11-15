@@ -368,7 +368,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void TxtFacturaTotalFactura_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+            // e.Handled = Tools.Validaciones.CaracteresNumeros(e);
         }
 
         private void TxtFacturaDetalleVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -378,7 +378,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void TxtFacturaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-         //   e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+            //   e.Handled = Tools.Validaciones.CaracteresNumeros(e);
         }
     }
 }

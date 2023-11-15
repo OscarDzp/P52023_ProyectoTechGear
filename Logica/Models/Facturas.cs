@@ -18,7 +18,7 @@ namespace Logica.Models
 
             MiCliente = new Clientes();
 
-            MiProducto = new Productos();   
+            MiProducto = new Productos();
         }
         public int FacturaID { get; set; }
         public string TotalFactura { get; set; }
@@ -34,9 +34,9 @@ namespace Logica.Models
         {
             bool R = false;
 
-             Conexion MiCnn = new Conexion();
+            Conexion MiCnn = new Conexion();
 
-       
+
             MiCnn.ListaDeParametros.Add(new SqlParameter("@TotalFactura", this.TotalFactura));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Detalledeventa", this.Detalledeventa));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Impuestos", this.Impuestos));
@@ -100,7 +100,7 @@ namespace Logica.Models
             return R;
         }
 
-        public bool ConsultarPorID() 
+        public bool ConsultarPorID()
         {
             bool R = false;
             Conexion MyCnn = new Conexion();
@@ -110,7 +110,7 @@ namespace Logica.Models
             DatosFactura = MyCnn.EjecutarSelect("SPFacturasConsultarPorID");
             if (DatosFactura != null && DatosFactura.Rows.Count > 0)
             {
-             
+
                 R = true;
             }
 
@@ -122,7 +122,7 @@ namespace Logica.Models
         {
             Facturas R = new Facturas();
             Conexion MyCnn = new Conexion();
-            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID",IdFactura));
+            MyCnn.ListaDeParametros.Add(new SqlParameter("@ID", IdFactura));
             DataTable DatosFactura = new DataTable();
             DatosFactura = MyCnn.EjecutarSelect("SPFacturasConsultarPorID");
             if (DatosFactura != null && DatosFactura.Rows.Count > 0)
@@ -144,7 +144,7 @@ namespace Logica.Models
                 R.MiProducto.Nombre = Convert.ToString(MiFila["Nombre"]);
             }
 
-                return R;
+            return R;
         }
 
         public DataTable Listar(string pFiltro = "")

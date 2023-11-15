@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,13 +48,23 @@ namespace P52023_ProyectoTechGear.Formularios
                 string usuario = TxtUsuario.Text.Trim();
                 string contrasennia = TxtContrasennia.Text.Trim();
 
-              //  int idUsuario = Globales.ObjectosGlobales.MiEmpleadoGlobal.Validar
+                int EmpleadoID = Globales.ObjectosGlobales.MiEmpleadoGlobal.ValidarIngreso(usuario, contrasennia);
+
+                if (EmpleadoID > 0)
+                {
+                    //la validacion es correcta m.ahora creamos el usuario globales y ademas permitimos el ingreso
+                    //al sistema
+                    Globales.ObjectosGlobales.MiEmpleadoGlobal = Globales.ObjectosGlobales.MiEmpleadoGlobal.ConsultarPorID(EmpleadoID);
+                    Globales.ObjectosGlobales.MiFormularioPrincipal.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Acceso denegado!", "Error de validacion...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtUsuario.Focus();
+                    TxtUsuario.SelectAll();
+                }
             }
-
-
-
-            Globales.ObjectosGlobales.MiFormularioPrincipal.Show();
-            this.Hide();
         }
 
         private void BtnIngresoDirecto_Click(object sender, EventArgs e)

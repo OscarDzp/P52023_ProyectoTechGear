@@ -18,7 +18,7 @@ namespace Logica.Models
             MiProveedorID = new Proveedores();
         }
         public int ProductoID { get; set; }
-        public string Nombre { get; set; } 
+        public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string StockActual { get; set; }//decimal 
         public string Precio { get; set; }//Decimal
