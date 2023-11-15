@@ -104,7 +104,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            R = MiCnn.EjecutarSelect("SPProductosListar");
+            R = MiCnn.EjecutarSelect("SPMovimientoTipoListar");
 
             return R;
         }
