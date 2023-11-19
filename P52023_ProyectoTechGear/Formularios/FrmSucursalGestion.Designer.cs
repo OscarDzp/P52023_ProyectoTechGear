@@ -34,6 +34,10 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.TxtSucursalDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtSucursalNombre = new System.Windows.Forms.TextBox();
@@ -46,10 +50,6 @@
             this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaSucursal)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,7 @@
             this.BtnLimpiar.TabIndex = 30;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnCerrar
             // 
@@ -77,6 +78,7 @@
             this.BtnCerrar.TabIndex = 31;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // BtnEliminar
             // 
@@ -89,6 +91,7 @@
             this.BtnEliminar.TabIndex = 29;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
@@ -101,6 +104,7 @@
             this.BtnModificar.TabIndex = 28;
             this.BtnModificar.Text = "MODIFICAR";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnAgregar
             // 
@@ -134,6 +138,48 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de la Sucursal";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(417, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 18);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(149, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 18);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(655, 290);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 51;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(634, 290);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 50;
+            this.label15.Text = "*";
+            // 
             // TxtSucursalDescripcion
             // 
             this.TxtSucursalDescripcion.Location = new System.Drawing.Point(242, 126);
@@ -142,6 +188,7 @@
             this.TxtSucursalDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TxtSucursalDescripcion.Size = new System.Drawing.Size(326, 118);
             this.TxtSucursalDescripcion.TabIndex = 11;
+            this.TxtSucursalDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSucursalDescripcion_KeyPress);
             // 
             // label7
             // 
@@ -159,6 +206,7 @@
             this.TxtSucursalNombre.Name = "TxtSucursalNombre";
             this.TxtSucursalNombre.Size = new System.Drawing.Size(238, 20);
             this.TxtSucursalNombre.TabIndex = 5;
+            this.TxtSucursalNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSucursalNombre_KeyPress);
             // 
             // label4
             // 
@@ -205,6 +253,9 @@
             this.DgvListaSucursal.Size = new System.Drawing.Size(767, 229);
             this.DgvListaSucursal.TabIndex = 25;
             this.DgvListaSucursal.VirtualMode = true;
+            this.DgvListaSucursal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaSucursal_CellClick);
+            this.DgvListaSucursal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaSucursal_CellContentClick);
+            this.DgvListaSucursal.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaSucursal_DataBindingComplete);
             // 
             // ColSucursalID
             // 
@@ -237,6 +288,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
             this.TxtBuscar.TabIndex = 24;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // label1
             // 
@@ -246,48 +298,6 @@
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 23;
             this.label1.Text = "Buscar";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(655, 290);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 13);
-            this.label16.TabIndex = 51;
-            this.label16.Text = "Datos Requeridos.....";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(634, 290);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 18);
-            this.label15.TabIndex = 50;
-            this.label15.Text = "*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(149, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 18);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "*";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(417, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 18);
-            this.label5.TabIndex = 53;
-            this.label5.Text = "*";
             // 
             // FrmSucursalGestion
             // 

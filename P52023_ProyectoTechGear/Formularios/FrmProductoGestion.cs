@@ -28,14 +28,18 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaModelos();
             CargarListaCategorias();
             CargarListaProveedor();
+            ActivarBotonAgregar();
         }
 
-        private void CargarListaProducto() 
+        private void CargarListaProducto(string FiltroBusqueda = "") 
         {
             Logica.Models.Productos MiProducto = new Logica.Models.Productos();
+
             DataTable lista = new DataTable();
-            lista = MiProducto.Listar();
-            DgvListaModelos.DataSource = lista;
+
+            lista = MiProducto.Listar(FiltroBusqueda);
+
+            DgvListaProductos.DataSource = lista;
 
         }
 
@@ -194,9 +198,9 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
                 MiProductoLocal.Descripcion = TxtProductoDescripcion.Text.Trim();
 
-                bool IDValido = MiProductoLocal.ConsultarPorID(MiProductoLocal.ProductoID);
+                bool IDValido = MiProductoLocal.ConsultarPorID();
 
-                bool NombreValido = MiProductoLocal.ConsultarPorID(MiProductoLocal.ProductoID);
+                bool NombreValido = MiProductoLocal.ConsultarPorNombre(MiProductoLocal.Nombre);
                 if (IDValido == false  && NombreValido == false)
                 {
                     string Pregunta = string.Format("Esta seguro de agregar el producto {0}?", MiProductoLocal.Nombre);
@@ -224,6 +228,7 @@ namespace P52023_ProyectoTechGear.Formularios
                     CargarListaMarcas();
                     CargarListaModelos();
                     CargarListaCategorias();
+                    ActivarBotonAgregar();
                 }
             }
 
@@ -232,6 +237,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void LimpiarForm()
         {
+            TxtProductoCodigo.Clear();
             TxtProductoNombre.Clear();
             TxtProductoStockActual.Clear();
             TxtProductoPrecio.Clear();
@@ -245,6 +251,172 @@ namespace P52023_ProyectoTechGear.Formularios
         private void label19_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DgvListaModelos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvListaProductos.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+
+                DataGridViewRow MiDvgFila = DgvListaProductos.SelectedRows[0];
+                int IDproducto = Convert.ToInt32(MiDvgFila.Cells["ColProductoID"].Value);
+
+                MiProductoLocal = new Logica.Models.Productos();
+                MiProductoLocal = MiProductoLocal.ConsultarPorID(IDproducto);
+
+                if (MiProductoLocal != null && MiProductoLocal.ProductoID > 0)
+                {
+                    TxtProductoCodigo.Text = MiProductoLocal.ProductoID.ToString();
+                    TxtProductoNombre.Text = MiProductoLocal.Nombre;
+                    CboxProductosCategoria.SelectedValue = MiProductoLocal.MiCategoriaID.CategoriaID;
+                    TxtProductoStockActual.Text = MiProductoLocal.StockActual;//TODO
+                    TxtProductoPrecio.Text = MiProductoLocal.Precio;//TODO
+                    CboxProductosMarca.SelectedValue = MiProductoLocal.MiMarcaID.MarcaID;
+                    CboxProductosModelo.SelectedValue = MiProductoLocal.MiModeloID.ModeloID;
+                    CboxProductosProveedor.SelectedValue = MiProductoLocal.MiProveedorID.ProveedorID;
+                    TxtProductoDescripcion.Text = MiProductoLocal.Descripcion;
+
+
+                    ActivarBotonModificarEliminar();
+                }
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+        }
+
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonModificarEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+        }
+
+        private void DgvListaProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaProductos.ClearSelection();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarValorRequerido())
+            {
+                MiProductoLocal.Nombre = TxtProductoNombre.Text.Trim();
+                MiProductoLocal.MiCategoriaID.CategoriaID = Convert.ToInt32(CboxProductosCategoria.SelectedValue);
+                MiProductoLocal.StockActual = TxtProductoStockActual.Text.Trim();
+                MiProductoLocal.Precio = TxtProductoPrecio.Text.Trim();
+                MiProductoLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxProductosMarca.SelectedValue);
+                MiProductoLocal.MiModeloID.ModeloID = Convert.ToInt32(CboxProductosModelo.SelectedValue);
+                MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
+                MiProductoLocal.Descripcion = TxtProductoDescripcion.Text.Trim();
+
+                if (MiProductoLocal.ConsultarPorID())
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Desea modificar este prodcuto?", "Confirmación", MessageBoxButtons.YesNo);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        if (MiProductoLocal.Actualizar())
+                        {
+                            MessageBox.Show("Producto actualizado correctamente", "Actualizada", MessageBoxButtons.OK);
+
+                            LimpiarForm();
+
+                            CargarListaMarcas();
+
+                            ActivarBotonAgregar();
+
+
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+
+        {
+            if (MiProductoLocal.ProductoID > 0)
+            {
+
+                string Msg = string.Format("¿Esta seguro de eliminar el producto {0}?", MiProductoLocal.Nombre);
+                DialogResult respuresta = MessageBox.Show(Msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuresta == DialogResult.Yes && MiProductoLocal.Eliminar())
+                {
+                    MessageBox.Show("El producto ha sido eliminado", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaCategorias();
+                    CargarListaMarcas();
+                    CargarListaModelos();
+                    CargarListaProducto();
+                    CargarListaProveedor();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtProductoNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void CboxProductosCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void TxtProductoStockActual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+        }
+
+        private void TxtProductoPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+        }
+
+        private void CboxProductosMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void CboxProductosModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void TxtProductoDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaProducto(TxtBuscar.Text.Trim());
+            }
+            CargarListaProducto(TxtBuscar.Text.Trim());
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -114,6 +114,7 @@
             this.DgvListaEmpleados.TabIndex = 2;
             this.DgvListaEmpleados.VirtualMode = true;
             this.DgvListaEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleados_CellClick);
+            this.DgvListaEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleados_CellContentClick);
             this.DgvListaEmpleados.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaEmpleados_DataBindingComplete);
             // 
             // ColEmpleadoID

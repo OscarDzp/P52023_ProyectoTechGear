@@ -30,13 +30,17 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             MdiParent = Globales.ObjectosGlobales.MiFormularioPrincipal;
             CargarListaSucursal();
+            ActivarBotonAgregar();
         }
 
-        private void CargarListaSucursal() 
+        private void CargarListaSucursal(string FiltroBusqueda = "") 
         {
             Logica.Models.Sucursales MiSucursal = new Logica.Models.Sucursales();
+
             DataTable lista = new DataTable();
-            lista = MiSucursal.Listar();
+
+            lista = MiSucursal.Listar(FiltroBusqueda);
+
             DgvListaSucursal.DataSource = lista;
         }
 
@@ -80,7 +84,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiSucursalLocal.Descripcion = TxtSucursalDescripcion.Text.Trim();
 
                 bool NombreValido = MiSucursalLocal.ConsultarPorNombre(MiSucursalLocal.Nombre);
-                bool IDValido = MiSucursalLocal.ConsultarPorID(MiSucursalLocal.SucursalID);
+                bool IDValido = MiSucursalLocal.ConsultarPorID();
 
                 if (NombreValido == false && IDValido == false)
                 {
@@ -114,9 +118,140 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void LimpiarForm()
         {
+            TxtSucursalCodigo.Clear();
             TxtSucursalNombre.Clear();
             TxtSucursalDescripcion.Clear();
         }
 
+        private void DgvListaSucursal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Validamos que se haya seleccionado una linea en la tabla 
+            if (DgvListaSucursal.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+
+                DataGridViewRow MiDvgFila = DgvListaSucursal.SelectedRows[0];
+                int IDsucursal = Convert.ToInt32(MiDvgFila.Cells["ColSucursalID"].Value);
+
+                MiSucursalLocal = new Logica.Models.Sucursales();
+                MiSucursalLocal = MiSucursalLocal.ConsultarPorID(IDsucursal);
+
+                if (MiSucursalLocal != null && MiSucursalLocal.SucursalID > 0)
+                {
+                    TxtSucursalCodigo.Text = MiSucursalLocal.SucursalID.ToString();
+                    TxtSucursalNombre.Text = MiSucursalLocal.Nombre;
+                    TxtSucursalDescripcion.Text = MiSucursalLocal.Descripcion;
+
+
+                    ActivarBotonModificarEliminar();
+                }
+
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarBotonAgregar();
+        }
+            
+
+        private void ActivarBotonAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarBotonModificarEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+        }
+
+        private void DgvListaSucursal_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaSucursal.ClearSelection();
+        }
+
+        private void DgvListaSucursal_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarValorRequerido())
+            {
+                MiSucursalLocal.Nombre = TxtSucursalNombre.Text.Trim();
+                MiSucursalLocal.Descripcion = TxtSucursalDescripcion.Text.Trim();
+
+                if (MiSucursalLocal.ConsultarPorID())
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Desea modificar la Sucursal", "Confirmación", MessageBoxButtons.YesNo);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        if (MiSucursalLocal.Actualizar())
+                        {
+                            MessageBox.Show("Sucursal actualizada correctamente", "Actualizada", MessageBoxButtons.OK);
+
+                            LimpiarForm();
+
+                            CargarListaSucursal();
+
+                            ActivarBotonAgregar();
+
+
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiSucursalLocal.SucursalID > 0)
+            {
+
+                string Msg = string.Format("¿Esta seguro de eliminar la sucursal {0}?", MiSucursalLocal.Nombre);
+                DialogResult respuresta = MessageBox.Show(Msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuresta == DialogResult.Yes && MiSucursalLocal.Eliminar())
+                {
+                    MessageBox.Show("La sucursal ha sido eliminada", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimpiarForm();
+                    CargarListaSucursal();
+                    ActivarBotonAgregar();
+                }
+            }
+        }
+
+        private void TxtSucursalNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void TxtSucursalDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Tools.Validaciones.CaracteresTexto(e);
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            {
+                CargarListaSucursal(TxtBuscar.Text.Trim());
+            }
+            CargarListaSucursal(TxtBuscar.Text.Trim());
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
