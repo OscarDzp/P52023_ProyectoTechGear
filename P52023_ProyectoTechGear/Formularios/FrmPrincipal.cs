@@ -19,7 +19,11 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void aCERCADEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (!Globales.ObjectosGlobales.MiFormularioDeAyuda.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeAyuda = new FrmAyuda();
+                Globales.ObjectosGlobales.MiFormularioDeAyuda.Show();
+            }
         }
 
         private void gARANTIAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -191,6 +195,15 @@ namespace P52023_ProyectoTechGear.Formularios
                 default:
                     break;
 
+            }
+        }
+
+        private void sOBRENOSOTROSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiSobreNosotros.Visible)
+            {
+                Globales.ObjectosGlobales.MiSobreNosotros = new FrmSobreNosotros();
+                Globales.ObjectosGlobales.MiSobreNosotros.Show();
             }
         }
     }

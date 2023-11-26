@@ -41,5 +41,9 @@ namespace P52023_ProyectoTechGear.Globales
         public static Formularios.FrmSoporteGestion MiFormularioDeGestionDeSoporte = new Formularios.FrmSoporteGestion();
 
         public static Logica.Models.Empleados MiEmpleadoGlobal = new Logica.Models.Empleados();
+
+        public static Formularios.FrmSobreNosotros MiSobreNosotros = new Formularios.FrmSobreNosotros();
+
+        public static Formularios.FrmAyuda MiFormularioDeAyuda= new Formularios.FrmAyuda();
     }
 }

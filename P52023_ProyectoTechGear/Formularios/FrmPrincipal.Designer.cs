@@ -109,84 +109,84 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(171, 6);
             // 
             // MnuGestionEmpleados
             // 
             this.MnuGestionEmpleados.Name = "MnuGestionEmpleados";
-            this.MnuGestionEmpleados.Size = new System.Drawing.Size(180, 22);
+            this.MnuGestionEmpleados.Size = new System.Drawing.Size(174, 22);
             this.MnuGestionEmpleados.Text = "EMPLEADO";
             this.MnuGestionEmpleados.Click += new System.EventHandler(this.eMPLEADOToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
             // 
             // cLIENTEToolStripMenuItem
             // 
             this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.cLIENTEToolStripMenuItem.Text = "CLIENTE";
             this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(171, 6);
             // 
             // tRANSACCIONESToolStripMenuItem
             // 
             this.tRANSACCIONESToolStripMenuItem.Name = "tRANSACCIONESToolStripMenuItem";
-            this.tRANSACCIONESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tRANSACCIONESToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.tRANSACCIONESToolStripMenuItem.Text = "TRANSACCIONES";
             this.tRANSACCIONESToolStripMenuItem.Click += new System.EventHandler(this.tRANSACCIONESToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(171, 6);
             // 
             // dETALLEDEVENTAToolStripMenuItem
             // 
             this.dETALLEDEVENTAToolStripMenuItem.Name = "dETALLEDEVENTAToolStripMenuItem";
-            this.dETALLEDEVENTAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dETALLEDEVENTAToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.dETALLEDEVENTAToolStripMenuItem.Text = "DETALLE DE VENTA";
             this.dETALLEDEVENTAToolStripMenuItem.Click += new System.EventHandler(this.dETALLEDEVENTAToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(171, 6);
             // 
             // fACTURASToolStripMenuItem
             // 
             this.fACTURASToolStripMenuItem.Name = "fACTURASToolStripMenuItem";
-            this.fACTURASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fACTURASToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.fACTURASToolStripMenuItem.Text = "FACTURAS";
             this.fACTURASToolStripMenuItem.Click += new System.EventHandler(this.fACTURASToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(171, 6);
             // 
             // pRODUCTOSToolStripMenuItem1
             // 
             this.pRODUCTOSToolStripMenuItem1.Name = "pRODUCTOSToolStripMenuItem1";
-            this.pRODUCTOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.pRODUCTOSToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.pRODUCTOSToolStripMenuItem1.Text = "PRODUCTOS";
             this.pRODUCTOSToolStripMenuItem1.Click += new System.EventHandler(this.pRODUCTOSToolStripMenuItem1_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(171, 6);
             // 
             // MnuGestionEmpleadosRol
             // 
             this.MnuGestionEmpleadosRol.Name = "MnuGestionEmpleadosRol";
-            this.MnuGestionEmpleadosRol.Size = new System.Drawing.Size(180, 22);
+            this.MnuGestionEmpleadosRol.Size = new System.Drawing.Size(174, 22);
             this.MnuGestionEmpleadosRol.Text = "EMPLEADO ROL";
             this.MnuGestionEmpleadosRol.Click += new System.EventHandler(this.eMPLEADOROLToolStripMenuItem_Click);
             // 
@@ -320,6 +320,7 @@
             this.sOBRENOSOTROSToolStripMenuItem.Name = "sOBRENOSOTROSToolStripMenuItem";
             this.sOBRENOSOTROSToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.sOBRENOSOTROSToolStripMenuItem.Text = "SOBRE NOSOTROS";
+            this.sOBRENOSOTROSToolStripMenuItem.Click += new System.EventHandler(this.sOBRENOSOTROSToolStripMenuItem_Click);
             // 
             // aCERCADEToolStripMenuItem
             // 

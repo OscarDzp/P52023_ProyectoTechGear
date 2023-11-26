@@ -117,11 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="OIG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OIG.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Misión: Nuestra misión es crear soluciones de software innovadoras y eficientes que satisfagan las
+ necesidades de nuestros clientes y mejoren sus procesos comerciales. 
+Nos comprometemos a desarrollar soluciones de software de alta calidad, escalables y fáciles de 
+usar que cumplan con los estándares de la industria y superen las expectativas de nuestros clientes. </value>
   </data>
-  <data name="Captura de pantalla 2023-11-25 192305" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2023-11-25 192305.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Visión: Nuestra visión es ser un departamento de desarrollo de software líder en la industria, reconocido por
+ nuestra innovación, calidad y servicio excepcional al cliente. Nos esforzamos por ser los mejores en lo que 
+hacemos y ofrecer soluciones de software que transformen la forma en que nuestros clientes hacen negocios. </value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Participantes. 
+ -Jefe de la empresa
+Camilo Andrés Rodríguez Alvarado
+
+-Vicepresidente
+Byron Ismael Gómez Mariano
+
+-Jefe de programación
+Oscar Andrés Zumbado Porras
+
+-Desarrollor de software
+Jefferson Josué Mora Rojas
+
+
+</value>
   </data>
 </root>
