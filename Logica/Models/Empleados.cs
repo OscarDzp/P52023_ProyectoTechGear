@@ -49,6 +49,7 @@ namespace Logica.Models
 
             return R;
         }
+
         public bool Agregar()
         {
             bool R = false;
