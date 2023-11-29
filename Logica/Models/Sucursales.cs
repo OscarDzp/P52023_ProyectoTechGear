@@ -25,7 +25,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Descripcion", this.Descripcion));
 
-            int resultado = MiCnn.EjecutarDML("SPSucursalAgregar");
+            int resultado = MiCnn.EjecutarDML("SPSucursalesAgregar");
 
             if (resultado > 0) R = true;
 
@@ -36,29 +36,77 @@ namespace Logica.Models
         public bool Eliminar()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.SucursalID));
+
+            int resultado = MiCnn.EjecutarDML("SPSucursalesEliminar");
+
+            if (resultado > 0) R = true;
+
             return R;
         }
         public bool Actualizar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Descripcion", this.Descripcion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.SucursalID));
+
+            int resultado = MiCnn.EjecutarDML("SPSucursalesActualizar");
+
+            if (resultado > 0) R = true;
+
             return R;
         }
-        public bool ConsultarPorID(int pSucursalID)
+        public bool ConsultarPorID()
         {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@SucursalID", pSucursalID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.SucursalID));
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPSucursalConsultarPorID");
+            dt = MiCnn.EjecutarSelect("SPSucursalesConsultarPorID");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
 
             return R;
+        }
+
+        public Sucursales ConsultarPorID (int pSucursalID)
+        {
+            Sucursales R = new Sucursales();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pSucursalID));
+
+            DataTable DatosSucursal = new DataTable();
+
+            DatosSucursal = MiCnn.EjecutarSelect("SPSucursalesConsultarPorID");
+
+            if (DatosSucursal != null && DatosSucursal.Rows.Count > 0)
+            {
+
+                DataRow MiFila = DatosSucursal.Rows[0];
+
+                R.SucursalID = Convert.ToInt32(MiFila["SucursalID"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
+                R.Descripcion = Convert.ToString(MiFila["Descripcion"]);
+
+            }
+
+
+
+            return R;
+
         }
 
         public bool ConsultarPorNombre(string pNombre)
@@ -71,7 +119,7 @@ namespace Logica.Models
 
             DataTable dt = new DataTable();
 
-            dt = MiCnn.EjecutarSelect("SPSucursalConsultarPorNombre");
+            dt = MiCnn.EjecutarSelect("SPSucursalesConsultarPorNombre");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
 
@@ -80,11 +128,15 @@ namespace Logica.Models
 
         }
 
-        public DataTable Listar()
+
+        public DataTable Listar(string pFiltro = "")
         {
+
             DataTable R = new DataTable();
 
             Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPSucursalListar");
 

@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmAyuda.Designer.cs">
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmCategoriaGestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     <Compile Include="Formularios\FrmProveedorGestion.Designer.cs">
       <DependentUpon>FrmProveedorGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmSobreNosotros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmSobreNosotros.Designer.cs">
+      <DependentUpon>FrmSobreNosotros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmSoporteGestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Validaciones.cs" />
+    <EmbeddedResource Include="Formularios\FrmAyuda.resx">
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCategoriaGestion.resx">
       <DependentUpon>FrmCategoriaGestion.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +207,9 @@
     <EmbeddedResource Include="Formularios\FrmProveedorGestion.resx">
       <DependentUpon>FrmProveedorGestion.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmSobreNosotros.resx">
+      <DependentUpon>FrmSobreNosotros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmSoporteGestion.resx">
       <DependentUpon>FrmSoporteGestion.cs</DependentUpon>
@@ -236,6 +254,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OIG.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2023-11-25 192305.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

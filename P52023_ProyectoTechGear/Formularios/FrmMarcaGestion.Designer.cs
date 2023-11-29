@@ -33,6 +33,10 @@
             this.ColPaisOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
@@ -46,10 +50,6 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaMarcas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,9 @@
             this.DgvListaMarcas.Size = new System.Drawing.Size(362, 267);
             this.DgvListaMarcas.TabIndex = 1;
             this.DgvListaMarcas.VirtualMode = true;
+            this.DgvListaMarcas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaMarcas_CellClick);
+            this.DgvListaMarcas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaMarcas_CellContentClick);
+            this.DgvListaMarcas.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaMarcas_DataBindingComplete);
             // 
             // ColMarcaID
             // 
@@ -127,12 +130,55 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles de Marcas";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(375, 148);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 18);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(409, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 18);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(662, 273);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 13);
+            this.label16.TabIndex = 39;
+            this.label16.Text = "Datos Requeridos.....";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(641, 273);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 18);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "*";
+            // 
             // TxtBuscar
             // 
             this.TxtBuscar.Location = new System.Drawing.Point(504, 16);
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(180, 20);
             this.TxtBuscar.TabIndex = 17;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // label4
             // 
@@ -154,6 +200,7 @@
             this.BtnCerrar.TabIndex = 15;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // BtnLimpiar
             // 
@@ -166,6 +213,7 @@
             this.BtnLimpiar.TabIndex = 9;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // TxtMarcaNombre
             // 
@@ -173,6 +221,7 @@
             this.TxtMarcaNombre.Name = "TxtMarcaNombre";
             this.TxtMarcaNombre.Size = new System.Drawing.Size(238, 20);
             this.TxtMarcaNombre.TabIndex = 14;
+            this.TxtMarcaNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMarcaNombre_KeyPress);
             // 
             // TxtMarcaPaisOrigen
             // 
@@ -180,6 +229,7 @@
             this.TxtMarcaPaisOrigen.Name = "TxtMarcaPaisOrigen";
             this.TxtMarcaPaisOrigen.Size = new System.Drawing.Size(238, 20);
             this.TxtMarcaPaisOrigen.TabIndex = 13;
+            this.TxtMarcaPaisOrigen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMarcaPaisOrigen_KeyPress);
             // 
             // TxtMarcaCodigo
             // 
@@ -226,6 +276,7 @@
             this.BtnEliminar.TabIndex = 8;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
@@ -238,6 +289,7 @@
             this.BtnModificar.TabIndex = 7;
             this.BtnModificar.Text = "MODIFICAR";
             this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnAgregar
             // 
@@ -251,48 +303,6 @@
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(662, 273);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 13);
-            this.label16.TabIndex = 39;
-            this.label16.Text = "Datos Requeridos.....";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(641, 273);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 18);
-            this.label15.TabIndex = 38;
-            this.label15.Text = "*";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(409, 198);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 18);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "*";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(375, 148);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 18);
-            this.label6.TabIndex = 41;
-            this.label6.Text = "*";
             // 
             // FrmMarcaGestion
             // 

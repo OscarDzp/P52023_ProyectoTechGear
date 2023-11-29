@@ -19,7 +19,11 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void aCERCADEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (!Globales.ObjectosGlobales.MiFormularioDeAyuda.Visible)
+            {
+                Globales.ObjectosGlobales.MiFormularioDeAyuda = new FrmAyuda();
+                Globales.ObjectosGlobales.MiFormularioDeAyuda.Show();
+            }
         }
 
         private void gARANTIAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,6 +169,41 @@ namespace P52023_ProyectoTechGear.Formularios
             {
                 Globales.ObjectosGlobales.MiFormularioDeGestionDeSoporte = new FrmSoporteGestion();
                 Globales.ObjectosGlobales.MiFormularioDeGestionDeSoporte.Show();
+            }
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            LblEmpleado.Text = Globales.ObjectosGlobales.MiEmpleadoGlobal.Nombre + "(" +
+                Globales.ObjectosGlobales.MiEmpleadoGlobal.MiEmpleadoRol.Rol + ")";
+            //ahora se debe ajustar los permisos de menus para que se muestren o no, dependiendo
+            //del tipo de rol
+            switch (Globales.ObjectosGlobales.MiEmpleadoGlobal.MiEmpleadoRol.EmpleadoRolID)
+            {
+                //ADMIN
+                case 1005:
+                    //Como admin tiene acceso a todo, no es necesario ocultar opciones
+                    break;
+
+                //Usuario
+                case 1006: // ese 1006 es el id de mi base de datos cada uno posiblemente le varie
+                    //ocultan los menus correspodientes
+                    MnuGestionEmpleados.Enabled = false;
+                    MnuGestionEmpleadosRol.Enabled = false;
+
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private void sOBRENOSOTROSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.ObjectosGlobales.MiSobreNosotros.Visible)
+            {
+                Globales.ObjectosGlobales.MiSobreNosotros = new FrmSobreNosotros();
+                Globales.ObjectosGlobales.MiSobreNosotros.Show();
             }
         }
     }

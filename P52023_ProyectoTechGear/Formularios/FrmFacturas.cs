@@ -36,6 +36,8 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaSucursal();
             CargarListaEmpleado();
             CargarListaCliente();
+            CargarListaProductos();
+
         }
 
         private void CargarListaFacturas(string FiltroBusqueda = "")
@@ -100,6 +102,23 @@ namespace P52023_ProyectoTechGear.Formularios
                 CboxFacturaCliente.SelectedIndex = -1;
             }
         }
+        private void CargarListaProductos()
+        {
+            Logica.Models.Productos MiProdcuto = new Logica.Models.Productos();
+
+            DataTable dtProducto = new DataTable();
+
+            dtProducto = MiProdcuto.Listar();
+
+            if (dtProducto != null && dtProducto.Rows.Count > 0)
+            {
+                CboxFacturaProducto.ValueMember = "ProductoID";
+                CboxFacturaProducto.DisplayMember = "Nombre";
+
+                CboxFacturaProducto.DataSource = dtProducto;
+                CboxFacturaProducto.SelectedIndex = -1;
+            }
+        }
 
         private bool ValidarValorRequerido()
         {
@@ -112,7 +131,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 !string.IsNullOrEmpty(DtFacturaFecha.Text.Trim()) &&  // fecha
                 CboxFacturaSucursal.SelectedIndex > -1 &&
                 CboxFacturaEmpleado.SelectedIndex > -1 &&
-                CboxFacturaCliente.SelectedIndex > -1
+                CboxFacturaCliente.SelectedIndex > -1 &&
+                CboxFacturaProducto.SelectedIndex > -1
                 )
             {
                 R = true;
@@ -155,6 +175,11 @@ namespace P52023_ProyectoTechGear.Formularios
                     MessageBox.Show("Se debe elegir un Cliente", "Error de validación", MessageBoxButtons.OK);
                     return false;
                 }
+                if (CboxFacturaProducto.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Se debe elegir un producto", "Error de validación", MessageBoxButtons.OK);
+                    return false;
+                }
 
             }
 
@@ -175,6 +200,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiFacturaLocal.MiSucursal.SucursalID = Convert.ToInt32(CboxFacturaSucursal.SelectedValue);
                 MiFacturaLocal.MiEmpleado.EmpleadoID = Convert.ToInt32(CboxFacturaEmpleado.SelectedValue);
                 MiFacturaLocal.MiCliente.ClienteID = Convert.ToInt32(CboxFacturaCliente.SelectedValue);
+                MiFacturaLocal.MiProducto.ProductoID = Convert.ToInt32(CboxFacturaProducto.SelectedValue);
 
                 bool IDValida = MiFacturaLocal.ConsultarPorTotalFactura(MiFacturaLocal.TotalFactura.ToString()); // linea de dudosa procedencia 
 
@@ -219,6 +245,7 @@ namespace P52023_ProyectoTechGear.Formularios
             CboxFacturaSucursal.SelectedIndex = -1;
             CboxFacturaEmpleado.SelectedIndex = -1;
             CboxFacturaCliente.SelectedIndex = -1;
+            CboxFacturaProducto.SelectedIndex = -1;
         }
 
         private void DgvListaFactura_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -240,6 +267,7 @@ namespace P52023_ProyectoTechGear.Formularios
                     CboxFacturaSucursal.SelectedValue = MiFacturaLocal.MiSucursal.SucursalID;
                     CboxFacturaEmpleado.SelectedValue = MiFacturaLocal.MiEmpleado.EmpleadoID;
                     CboxFacturaCliente.SelectedValue = MiFacturaLocal.MiCliente.ClienteID;
+                    CboxFacturaProducto.SelectedValue = MiFacturaLocal.MiProducto.ProductoID;
                     ActivarBotonesModificarYEliminar();
                 }
 
@@ -284,6 +312,8 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiFacturaLocal.MiSucursal.SucursalID = Convert.ToInt32(CboxFacturaSucursal.SelectedValue);
                 MiFacturaLocal.MiEmpleado.EmpleadoID = Convert.ToInt32(CboxFacturaEmpleado.SelectedValue);
                 MiFacturaLocal.MiCliente.ClienteID = Convert.ToInt32(CboxFacturaCliente.SelectedValue);
+                MiFacturaLocal.MiProducto.ProductoID = Convert.ToInt32(CboxFacturaProducto.SelectedValue);
+
 
                 if (MiFacturaLocal.ConsultarPorID())
                 {
@@ -338,7 +368,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void TxtFacturaTotalFactura_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+            // e.Handled = Tools.Validaciones.CaracteresNumeros(e);
         }
 
         private void TxtFacturaDetalleVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -348,7 +378,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void TxtFacturaImpuesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-         //   e.Handled = Tools.Validaciones.CaracteresNumeros(e);
+            //   e.Handled = Tools.Validaciones.CaracteresNumeros(e);
         }
     }
 }

@@ -36,13 +36,88 @@ namespace Logica.Models
         public bool Eliminar()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.MarcaID));
+
+            int resultado = MiCnn.EjecutarDML("SPMarcasEliminar");
+
+            if (resultado > 0) R = true;
+
             return R;
         }
         public bool Actualizar()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@PaisOrigen", this.PaisOrigen));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.MarcaID));
+
+            int resultado = MiCnn.EjecutarDML("SPMarcasActualizar");
+
+            if (resultado > 0) R = true;
+
             return R;
         }
+
+        public bool ConsultarPorID( )
+        {
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.MarcaID));
+
+            DataTable DatosMarca = new DataTable();
+
+            DatosMarca = MiCnn.EjecutarSelect("SPMarcasConsultarPorID");
+
+            if (DatosMarca != null && DatosMarca.Rows.Count > 0)
+            {
+
+                R = true;
+
+            }
+
+
+
+            return R;
+
+        }
+
+        public Marcas ConsultarPorID (int IdMarca)
+        {
+            Marcas R = new Marcas();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", IdMarca));
+
+            DataTable DatosMarca = new DataTable();
+
+            DatosMarca = MiCnn.EjecutarSelect("SPMarcasConsultarPorID");
+
+            if (DatosMarca != null && DatosMarca.Rows.Count > 0)
+            {
+
+                DataRow MiFila = DatosMarca.Rows[0];
+
+                R.MarcaID = Convert.ToInt32(MiFila["MarcaID"]);
+                R.PaisOrigen = Convert.ToString(MiFila["PaisOrigen"]);
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
+
+            }
+
+
+
+            return R;
+
+        }
+
         public bool ConsultarPorNombre(string pNombre)
         {
             bool R = false;
@@ -62,15 +137,20 @@ namespace Logica.Models
 
         }
 
-        public DataTable Listar()
+        public DataTable Listar(string pFiltro = "")
         {
+
             DataTable R = new DataTable();
 
             Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPMarcasListar");
 
             return R;
         }
+
+
     }
 }

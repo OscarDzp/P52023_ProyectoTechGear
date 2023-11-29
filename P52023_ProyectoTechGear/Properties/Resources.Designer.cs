@@ -63,6 +63,16 @@ namespace P52023_ProyectoTechGear.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2023_11_25_192305 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2023-11-25 192305", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OIG {
             get {
                 object obj = ResourceManager.GetObject("OIG", resourceCulture);

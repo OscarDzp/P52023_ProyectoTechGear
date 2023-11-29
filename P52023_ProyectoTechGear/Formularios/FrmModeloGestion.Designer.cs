@@ -79,6 +79,7 @@
             this.DgvListaModelos.TabIndex = 2;
             this.DgvListaModelos.VirtualMode = true;
             this.DgvListaModelos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaModelos_CellClick);
+            this.DgvListaModelos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaModelos_CellContentClick);
             this.DgvListaModelos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaModelos_DataBindingComplete);
             // 
             // ColModeloID

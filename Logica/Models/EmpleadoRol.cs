@@ -30,6 +30,8 @@ namespace Logica.Models
             Conexion MiCnn = new Conexion();
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
+
             R = MiCnn.EjecutarSelect("SPEmpleadoRolListar");
 
             return R;
@@ -128,6 +130,17 @@ namespace Logica.Models
 
             if (resultado > 0) R = true;
 
+            return R;
+        }
+
+        public bool Eliminar()
+        {
+            bool R = false;
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoRolID));
+
+            int resultado = MiCnn.EjecutarDML("SPEmpleadoRolEliminar");
+            if (resultado > 0) R = true;
             return R;
         }
 

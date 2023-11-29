@@ -259,5 +259,10 @@ namespace P52023_ProyectoTechGear.Formularios
         {
             e.Handled = Tools.Validaciones.CaracteresTexto(e);
         }
+
+        private void DgvListaModelos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
