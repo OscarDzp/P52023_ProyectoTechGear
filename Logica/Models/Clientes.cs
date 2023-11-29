@@ -36,11 +36,13 @@ namespace Logica.Models
             return R;
 
         }
-        public DataTable Listar()
+        public DataTable Listar(string pFiltro = "")
         {
             DataTable R = new DataTable();
 
             Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPClientesListar");
 

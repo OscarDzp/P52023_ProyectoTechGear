@@ -206,6 +206,10 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 }
             }
-        
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }

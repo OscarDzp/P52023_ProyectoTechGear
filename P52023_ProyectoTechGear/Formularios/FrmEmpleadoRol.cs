@@ -167,5 +167,23 @@ namespace P52023_ProyectoTechGear.Formularios
                     }
                 }
             }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MiEmpleadoRolLocal.EmpleadoRolID > 0)
+            {
+                string msg = string.Format("Esta seguro de eliminar al EmpleadoROL {0}?", MiEmpleadoRolLocal.Rol);
+
+                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes && MiEmpleadoRolLocal.Eliminar())
+                {
+                    MessageBox.Show("El Empleado ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Limpiarform();
+                    CargarListaEmpleadoRol();
+                    ActivarBotonAgregar();
+                }
+            }
         }
+    }
     }
