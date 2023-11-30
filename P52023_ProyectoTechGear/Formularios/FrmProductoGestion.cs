@@ -191,13 +191,12 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 MiProductoLocal.Nombre = TxtProductoNombre.Text.Trim();
                 MiProductoLocal.MiCategoriaID.CategoriaID = Convert.ToInt32(CboxProductosCategoria.SelectedValue);
-                MiProductoLocal.StockActual = TxtProductoStockActual.Text.Trim();
-                MiProductoLocal.Precio = TxtProductoPrecio.Text.Trim();
+                MiProductoLocal.StockActual = int.Parse(TxtProductoStockActual.Text.Trim());
+                MiProductoLocal.Precio = decimal.TryParse(TxtProductoPrecio.Text.Trim(), out decimal precio) ? precio : 0;
                 MiProductoLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxProductosMarca.SelectedValue);
                 MiProductoLocal.MiModeloID.ModeloID = Convert.ToInt32(CboxProductosModelo.SelectedValue);
                 MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
                 MiProductoLocal.Descripcion = TxtProductoDescripcion.Text.Trim();
-
                 bool IDValido = MiProductoLocal.ConsultarPorID();
 
                 bool NombreValido = MiProductoLocal.ConsultarPorNombre(MiProductoLocal.Nombre);
@@ -270,8 +269,8 @@ namespace P52023_ProyectoTechGear.Formularios
                     TxtProductoCodigo.Text = MiProductoLocal.ProductoID.ToString();
                     TxtProductoNombre.Text = MiProductoLocal.Nombre;
                     CboxProductosCategoria.SelectedValue = MiProductoLocal.MiCategoriaID.CategoriaID;
-                    TxtProductoStockActual.Text = MiProductoLocal.StockActual;//TODO
-                    TxtProductoPrecio.Text = MiProductoLocal.Precio;//TODO
+                    TxtProductoStockActual.Text = MiProductoLocal.StockActual.ToString();
+                    TxtProductoPrecio.Text = MiProductoLocal.Precio.ToString();//TODO
                     CboxProductosMarca.SelectedValue = MiProductoLocal.MiMarcaID.MarcaID;
                     CboxProductosModelo.SelectedValue = MiProductoLocal.MiModeloID.ModeloID;
                     CboxProductosProveedor.SelectedValue = MiProductoLocal.MiProveedorID.ProveedorID;
@@ -315,8 +314,8 @@ namespace P52023_ProyectoTechGear.Formularios
             {
                 MiProductoLocal.Nombre = TxtProductoNombre.Text.Trim();
                 MiProductoLocal.MiCategoriaID.CategoriaID = Convert.ToInt32(CboxProductosCategoria.SelectedValue);
-                MiProductoLocal.StockActual = TxtProductoStockActual.Text.Trim();
-                MiProductoLocal.Precio = TxtProductoPrecio.Text.Trim();
+                MiProductoLocal.StockActual = int.Parse(TxtProductoStockActual.Text.Trim());
+                MiProductoLocal.Precio = decimal.TryParse(TxtProductoPrecio.Text.Trim(), out decimal precio) ? precio : 0;
                 MiProductoLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxProductosMarca.SelectedValue);
                 MiProductoLocal.MiModeloID.ModeloID = Convert.ToInt32(CboxProductosModelo.SelectedValue);
                 MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
@@ -333,17 +332,23 @@ namespace P52023_ProyectoTechGear.Formularios
                             MessageBox.Show("Producto actualizado correctamente", "Actualizada", MessageBoxButtons.OK);
 
                             LimpiarForm();
-
+                            CargarListaProducto();
+                            CargarListaProveedor();
                             CargarListaMarcas();
-
                             ActivarBotonAgregar();
 
 
+
                         }
+
+                    
+
                     }
+           
                 }
 
             }
+         
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)

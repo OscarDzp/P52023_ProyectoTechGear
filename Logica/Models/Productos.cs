@@ -20,8 +20,8 @@ namespace Logica.Models
         public int ProductoID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string StockActual { get; set; }//decimal 
-        public string Precio { get; set; }//Decimal
+        public int StockActual { get; set; }//decimal 
+        public decimal Precio { get; set; }//Decimal
         public Modelos MiModeloID { get; set; }
         public Marcas MiMarcaID { get; set; }
         public Categorias MiCategoriaID { get; set; }
@@ -41,8 +41,10 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Precio", this.Precio));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@MarcaID", this.MiMarcaID.MarcaID));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ModeloID", this.MiModeloID.ModeloID));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProveedorID", this.MiProveedorID.ProveedorID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProveedorID", this.MiProveedorID.ProveedorID)); // Agregar este parámetro
+
             int resultado = MiCnn.EjecutarDML("SPProductosAgregar");
+
 
             if (resultado > 0) R = true;
 
@@ -90,7 +92,7 @@ namespace Logica.Models
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ProductoID", this.ProductoID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProductoID));
 
             DataTable dt = new DataTable();
 
@@ -124,8 +126,8 @@ namespace Logica.Models
                 R.ProductoID = Convert.ToInt32(MiFila["ProductoID"]);
                 R.Nombre = Convert.ToString(MiFila["Nombre"]);
                 R.MiCategoriaID.CategoriaID= Convert.ToInt32(MiFila["CategoriaID"]);
-                R.StockActual = Convert.ToString(MiFila["StockActual"]);//TODO
-                R.Precio = Convert.ToString(MiFila["Precio"]);//TODO
+                R.StockActual = Convert.ToInt32(MiFila["StockActual"]);//TODO
+                R.Precio = Convert.ToDecimal(MiFila["Precio"]);//TODO
                 R.MiMarcaID.MarcaID = Convert.ToInt32(MiFila["MarcaID"]);
                 R.MiModeloID.ModeloID = Convert.ToInt32(MiFila["ModeloID"]);
                 R.MiProveedorID.ProveedorID = Convert.ToInt32(MiFila["ProveedorID"]);
