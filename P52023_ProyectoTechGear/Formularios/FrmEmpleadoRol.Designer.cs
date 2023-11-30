@@ -42,10 +42,10 @@
             this.TxtEmpleadoRolCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaEmpleadoRol = new System.Windows.Forms.DataGridView();
-            this.ColEmpleadoRolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ColEmpleadoRolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleadoRol)).BeginInit();
             this.SuspendLayout();
@@ -217,23 +217,6 @@
             this.DgvListaEmpleadoRol.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleadoRol_CellClick);
             this.DgvListaEmpleadoRol.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaEmpleadoRol_DataBindingComplete);
             // 
-            // ColEmpleadoRolID
-            // 
-            this.ColEmpleadoRolID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColEmpleadoRolID.DataPropertyName = "ID";
-            this.ColEmpleadoRolID.HeaderText = "EMPLEADO ROL CODIGO";
-            this.ColEmpleadoRolID.Name = "ColEmpleadoRolID";
-            this.ColEmpleadoRolID.ReadOnly = true;
-            this.ColEmpleadoRolID.Width = 80;
-            // 
-            // ColRol
-            // 
-            this.ColRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColRol.DataPropertyName = "Rol";
-            this.ColRol.HeaderText = "ROL";
-            this.ColRol.Name = "ColRol";
-            this.ColRol.ReadOnly = true;
-            // 
             // TxtBuscar
             // 
             this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
@@ -250,6 +233,23 @@
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Buscar";
+            // 
+            // ColEmpleadoRolID
+            // 
+            this.ColEmpleadoRolID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColEmpleadoRolID.DataPropertyName = "EmpleadoRolID";
+            this.ColEmpleadoRolID.HeaderText = "EMPLEADO ROL CODIGO";
+            this.ColEmpleadoRolID.Name = "ColEmpleadoRolID";
+            this.ColEmpleadoRolID.ReadOnly = true;
+            this.ColEmpleadoRolID.Width = 80;
+            // 
+            // ColRol
+            // 
+            this.ColRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColRol.DataPropertyName = "Rol";
+            this.ColRol.HeaderText = "ROL";
+            this.ColRol.Name = "ColRol";
+            this.ColRol.ReadOnly = true;
             // 
             // FrmEmpleadoRol
             // 
