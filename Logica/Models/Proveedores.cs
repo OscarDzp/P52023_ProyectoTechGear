@@ -34,33 +34,11 @@ namespace Logica.Models
 
             return R;
         }
-
-        public DataTable Listar(string pFiltro = "")
-        {
-
-            DataTable R = new DataTable();
-
-            //hay que hacer instancia de la clase conexion
-
-            Conexion MiCnn = new Conexion();
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
-
-            R = MiCnn.EjecutarSelect("SPProveedoresListar");
-
-            return R;
-        }
-
         public bool Eliminar()
         {
             bool R = false;
-            Conexion MiCnn = new Conexion();
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
-
-            int resultado = MiCnn.EjecutarDML("SPProveedorEliminar");
-            if (resultado > 0) R = true;
             return R;
         }
-
         public bool Actualizar()
         {
             bool R = false;
@@ -155,5 +133,17 @@ namespace Logica.Models
 
         }
 
+
+
+        public DataTable Listar()
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.EjecutarSelect("SPProveedoresListar");
+
+            return R;
+        }
     }
 }

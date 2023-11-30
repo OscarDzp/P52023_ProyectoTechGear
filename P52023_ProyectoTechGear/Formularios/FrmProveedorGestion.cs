@@ -26,17 +26,14 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaProveedor();
         }
 
-        private void CargarListaProveedor(string FiltroBusqueda = "")
+        private void CargarListaProveedor()
         {
-            Logica.Models.Proveedores MiProveedorLocal = new Logica.Models.Proveedores();
-
+            Logica.Models.Proveedores MiProveedor = new Logica.Models.Proveedores();
             DataTable lista = new DataTable();
-
-            lista = MiProveedorLocal.Listar(FiltroBusqueda);
-
+            lista = MiProveedor.Listar();
             DgvListaProveedores.DataSource = lista;
-        }
 
+        }
         private bool ValidarValorRequerido()
         {
             bool R = false;
@@ -151,6 +148,9 @@ namespace P52023_ProyectoTechGear.Formularios
 
                     ActivarBotonesModificarYEliminar();
                 }
+
+
+
             }
         }
 
@@ -182,89 +182,30 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-
-            MiProveedorLocal.Nombre = TxtProveedorNombre.Text.Trim();
-            MiProveedorLocal.Contacto = TxtProveedorContacto.Text.Trim();
-            MiProveedorLocal.Telefono = TxtProveedorTelefono.Text.Trim();
-            MiProveedorLocal.CorreoElectronico = TxtProveedorCorreoElectronico.Text.Trim();
-
-
-            if (MiProveedorLocal.ConsultarPorID())
-            {
-                DialogResult Resp = MessageBox.Show("Desea modificar el Proveedor?", "???", MessageBoxButtons.YesNo);
-                if (Resp == DialogResult.Yes)
+         
+                MiProveedorLocal.Nombre = TxtProveedorNombre.Text.Trim();
+                MiProveedorLocal.Contacto = TxtProveedorContacto.Text.Trim();
+                MiProveedorLocal.Telefono = TxtProveedorTelefono.Text.Trim();
+                MiProveedorLocal.CorreoElectronico = TxtProveedorCorreoElectronico.Text.Trim();
+              
+             
+                if (MiProveedorLocal.ConsultarPorID())
                 {
-                    if (MiProveedorLocal.Actualizar())
+                    DialogResult Resp = MessageBox.Show("Desea modificar el Proveedor?", "???", MessageBoxButtons.YesNo);
+                    if (Resp == DialogResult.Yes)
                     {
-                        MessageBox.Show("Empleado modificado correctamenete!!", ":)", MessageBoxButtons.OK);
-                        LimpiarForm();
-                        CargarListaProveedor();
-                        ActivarBotonAgregar();
+                        if (MiProveedorLocal.Actualizar())
+                        {
+                            MessageBox.Show("Empleado modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                            LimpiarForm();
+                            CargarListaProveedor();
+                            ActivarBotonAgregar();
+                        }
+
                     }
 
                 }
-
             }
-        }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (MiProveedorLocal.ProveedorID > 0)
-            {
-                string msg = string.Format("Esta seguro de eliminar al proveedor {0}?", MiProveedorLocal.Nombre);
-
-                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.Yes && MiProveedorLocal.Eliminar())
-                {
-                    MessageBox.Show("El proveedor ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    LimpiarForm();
-                    CargarListaProveedor();
-                    ActivarBotonAgregar();
-                }
-            }
-        }
-
-        private void TxtProveedorNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e);
-        }
-
-        private void TxtProveedorContacto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e);
-        }
-
-        private void TxtProveedorTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
-        }
-
-        private void TxtProveedorCorreoElectronico_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e, false, true);
-        }
-
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void TxtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            {
-                if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
-                {
-                    CargarListaProveedor(TxtBuscar.Text.Trim());
-                }
-                CargarListaProveedor(TxtBuscar.Text.Trim());
-            }
-        }
-    }
+        
+    } 
 }
-
-
-
-
-
-    

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica.Tools;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -49,6 +50,7 @@ namespace Logica.Models
 
             return R;
         }
+
 
         public bool Agregar()
         {
@@ -187,6 +189,31 @@ namespace Logica.Models
             if (dt != null && dt.Rows.Count > 0) R = true;
 
             return R;
+        }
+
+
+        public int ValidarIngreso(string pUsuario, string pContrasennia) 
+        {
+            int R = 0;
+            Conexion myCnn = new Conexion();
+            Crypto myEncriptador = new Crypto();
+            String PasswordEncriptado = myEncriptador.EncriptarEnUnSentido(pContrasennia);
+
+            myCnn.ListaDeParametros.Add(new SqlParameter("@Usuario", pUsuario));
+            myCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", PasswordEncriptado));
+
+            DataTable resultado = myCnn.EjecutarSelect("SPEmpleadosValidarIngreso");
+
+            if (resultado != null && resultado.Rows.Count > 0)
+            {
+                DataRow MiFila = resultado.Rows[0];
+                R = Convert.ToInt32(MiFila["EmpleadoID"]);
+
+            }
+            return R;
+
+
+
         }
     }
 }

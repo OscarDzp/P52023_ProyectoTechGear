@@ -26,15 +26,13 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaEmpleadoRol();
         }
 
-        private void CargarListaEmpleadoRol(string FiltroBusqueda = "")
+        private void CargarListaEmpleadoRol()
         {
-            Logica.Models.EmpleadoRol MiEmpleadoRolLocal = new Logica.Models.EmpleadoRol();
-
+            Logica.Models.EmpleadoRol MiEmpleadoRol = new Logica.Models.EmpleadoRol();
             DataTable lista = new DataTable();
-
-            lista = MiEmpleadoRolLocal.Listar(FiltroBusqueda);
-
+            lista = MiEmpleadoRol.Listar();
             DgvListaEmpleadoRol.DataSource = lista;
+
         }
 
         private bool ValidarValorRequerido()
@@ -169,42 +167,5 @@ namespace P52023_ProyectoTechGear.Formularios
                     }
                 }
             }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (MiEmpleadoRolLocal.EmpleadoRolID > 0)
-            {
-                string msg = string.Format("Esta seguro de eliminar el rol del empleado {0}?", MiEmpleadoRolLocal.Rol);
-
-                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.Yes && MiEmpleadoRolLocal.Eliminar())
-                {
-                    MessageBox.Show("El rol de empleado ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Limpiarform();
-                    CargarListaEmpleadoRol();
-                    ActivarBotonAgregar();
-                }
-            }
         }
-
-        private void TxtEmpleadoRolNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e);
-        }
-
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void TxtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
-            {
-                CargarListaEmpleadoRol(TxtBuscar.Text.Trim());
-            }
-            CargarListaEmpleadoRol(TxtBuscar.Text.Trim());
-        }
-    }
     }

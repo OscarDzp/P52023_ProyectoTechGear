@@ -28,17 +28,16 @@ namespace P52023_ProyectoTechGear.Formularios
             CargarListaClientes();
         }
 
-        private void CargarListaClientes(string FiltroBusqueda = "")
-        { 
-         Logica.Models.Clientes MiClienteLocal = new Logica.Models.Clientes();
-
-        DataTable lista = new DataTable();
-
-        lista = MiClienteLocal.Listar(FiltroBusqueda);
-
+        private void CargarListaClientes() 
+        {
+            Logica.Models.Clientes MiCliente = new Logica.Models.Clientes();
+            DataTable lista = new DataTable();
+            lista = MiCliente.Listar();
             DgvListaClientes.DataSource = lista;
+
         }
-    private bool ValidarValorRequerido()
+
+        private bool ValidarValorRequerido()
         {
             bool R = false;
 
@@ -116,7 +115,7 @@ namespace P52023_ProyectoTechGear.Formularios
                         if (ok)
                         {
                             MessageBox.Show("El Cliente agregado correctamente", "Agregado", MessageBoxButtons.OK);
-
+                         
                         }
                         else
                         {
@@ -161,7 +160,7 @@ namespace P52023_ProyectoTechGear.Formularios
                 MiClienteLocal = MiClienteLocal.ConsultarPorID(IDCliente);
                 if (MiClienteLocal != null && MiClienteLocal.ClienteID > 0)
                 {
-
+                  
                     TxtClienteNombre.Text = MiClienteLocal.Nombre;
                     TxtClienteCorreoElectronico.Text = MiClienteLocal.CorreoElectronico;
                     TxtClienteDireccion.Text = MiClienteLocal.Direccion;
@@ -203,91 +202,34 @@ namespace P52023_ProyectoTechGear.Formularios
             DgvListaClientes.ClearSelection();
         }
 
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-
-            MiClienteLocal.Nombre = TxtClienteNombre.Text.Trim();
-            MiClienteLocal.CorreoElectronico = TxtClienteCorreoElectronico.Text.Trim();
-            MiClienteLocal.Direccion = TxtClienteDireccion.Text.Trim();
-            MiClienteLocal.Telefono = TxtClienteTelefono.Text.Trim();
-            MiClienteLocal.Cedula = Convert.ToInt32(TxtClienteCedula.Text.Trim());
-
-
-            if (MiClienteLocal.ConsultarPorID())
+        private void BtnModificar_Click(object sender, EventArgs e)        
             {
-                DialogResult Resp = MessageBox.Show("Desea modificar el Empleado?", "???", MessageBoxButtons.YesNo);
-                if (Resp == DialogResult.Yes)
-                {
-                    if (MiClienteLocal.Actualizar())
+               
+                    MiClienteLocal.Nombre = TxtClienteNombre.Text.Trim();
+                    MiClienteLocal.CorreoElectronico = TxtClienteCorreoElectronico.Text.Trim();                
+                    MiClienteLocal.Direccion = TxtClienteDireccion.Text.Trim();
+                    MiClienteLocal.Telefono = TxtClienteTelefono.Text.Trim();
+                    MiClienteLocal.Cedula = Convert.ToInt32(TxtClienteCedula.Text.Trim());
+
+
+                    if (MiClienteLocal.ConsultarPorID())
                     {
-                        MessageBox.Show("Cliente modificado correctamenete!!", ":)", MessageBoxButtons.OK);
-                        Limpiarform();
-                        CargarListaClientes();
-                        ActivarBotonAgregar();
+                        DialogResult Resp = MessageBox.Show("Desea modificar el Empleado?", "???", MessageBoxButtons.YesNo);
+                        if (Resp == DialogResult.Yes)
+                        {
+                            if (MiClienteLocal.Actualizar())
+                            {
+                                MessageBox.Show("Cliente modificado correctamenete!!", ":)", MessageBoxButtons.OK);
+                                Limpiarform();
+                                CargarListaClientes();
+                                ActivarBotonAgregar();
+                            }
+
+                        }
+
                     }
-
-                }
-
-            }
-        }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (MiClienteLocal.ClienteID > 0)
-            {
-                string msg = string.Format("Esta seguro de eliminar al cliente {0}?", MiClienteLocal.Nombre);
-
-                DialogResult respuesta = MessageBox.Show(msg, "Confirmacion Requerida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.Yes && MiClienteLocal.Eliminar())
-                {
-                    MessageBox.Show("El cliente ha sido eliminado", "!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Limpiarform();
-                    CargarListaClientes();
-                    ActivarBotonAgregar();
                 }
             }
         }
-
-        private void TxtClienteNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e);
-        }
-
-        private void TxtClienteCorreoElectronico_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e, false, true);
-        }
-
-        private void TxtClienteCedula_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
-        }
-
-        private void TxtClienteDireccion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresTexto(e);
-        }
-
-        private void TxtClienteTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = Tools.Validaciones.CaracteresNumeros(e);
-        }
-
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void TxtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
-            {
-                CargarListaClientes(TxtBuscar.Text.Trim());
-            }
-            CargarListaClientes(TxtBuscar.Text.Trim());
-        }
-    }
-}
-
+    
 

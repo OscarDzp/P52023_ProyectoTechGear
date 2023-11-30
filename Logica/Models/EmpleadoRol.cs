@@ -22,29 +22,14 @@ namespace Logica.Models
 
         public DataTable Listar(string pFiltro = "")
         {
-
             DataTable R = new DataTable();
 
-            //hay que hacer instancia de la clase conexion
-
             Conexion MiCnn = new Conexion();
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPEmpleadoRolListar");
 
-            return R;
-        }
-
-        public bool Eliminar()
-        {
-            bool R = false;
-            Conexion MiCnn = new Conexion();
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoRolID));
-
-            int resultado = MiCnn.EjecutarDML("SPEmpleadoRolEliminar");
-            if (resultado > 0) R = true;
             return R;
         }
 
@@ -57,7 +42,8 @@ namespace Logica.Models
             DataTable DatosEmpleadoRol = new DataTable();
             DatosEmpleadoRol = MyCnn.EjecutarSelect("SPEmpleadoRolesConsultarPorID");
             if (DatosEmpleadoRol != null && DatosEmpleadoRol.Rows.Count > 0)
-            {              
+            {
+                //el usuario existe
                 R = true;
             }
 
@@ -130,17 +116,6 @@ namespace Logica.Models
 
             if (resultado > 0) R = true;
 
-            return R;
-        }
-
-        public bool Eliminar()
-        {
-            bool R = false;
-            Conexion MiCnn = new Conexion();
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoRolID));
-
-            int resultado = MiCnn.EjecutarDML("SPEmpleadoRolEliminar");
-            if (resultado > 0) R = true;
             return R;
         }
 

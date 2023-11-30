@@ -77,7 +77,6 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(292, 20);
             this.TxtBuscar.TabIndex = 1;
-            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // DgvListaProveedores
             // 
@@ -235,7 +234,6 @@
             this.TxtProveedorCorreoElectronico.Name = "TxtProveedorCorreoElectronico";
             this.TxtProveedorCorreoElectronico.Size = new System.Drawing.Size(152, 20);
             this.TxtProveedorCorreoElectronico.TabIndex = 20;
-            this.TxtProveedorCorreoElectronico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtProveedorCorreoElectronico_KeyPress);
             // 
             // TxtProveedorContacto
             // 
@@ -243,15 +241,13 @@
             this.TxtProveedorContacto.Name = "TxtProveedorContacto";
             this.TxtProveedorContacto.Size = new System.Drawing.Size(153, 20);
             this.TxtProveedorContacto.TabIndex = 19;
-            this.TxtProveedorContacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtProveedorContacto_KeyPress);
             // 
             // TxtProveedorNombre
             // 
-            this.TxtProveedorNombre.Location = new System.Drawing.Point(148, 84);
+            this.TxtProveedorNombre.Location = new System.Drawing.Point(148, 77);
             this.TxtProveedorNombre.Name = "TxtProveedorNombre";
             this.TxtProveedorNombre.Size = new System.Drawing.Size(153, 20);
             this.TxtProveedorNombre.TabIndex = 18;
-            this.TxtProveedorNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtProveedorNombre_KeyPress);
             // 
             // TxtProveedorTelefono
             // 
@@ -259,7 +255,6 @@
             this.TxtProveedorTelefono.Name = "TxtProveedorTelefono";
             this.TxtProveedorTelefono.Size = new System.Drawing.Size(152, 20);
             this.TxtProveedorTelefono.TabIndex = 17;
-            this.TxtProveedorTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtProveedorTelefono_KeyPress);
             // 
             // TxtProveedorCodigo
             // 
@@ -350,7 +345,6 @@
             this.BtnEliminar.TabIndex = 7;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnLimpiar
             // 
@@ -376,7 +370,6 @@
             this.BtnCerrar.TabIndex = 14;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // FrmProveedorGestion
             // 
