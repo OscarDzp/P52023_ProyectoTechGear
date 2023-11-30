@@ -54,14 +54,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaClientes = new System.Windows.Forms.DataGridView();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ColClienteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaClientes)).BeginInit();
             this.SuspendLayout();
@@ -365,6 +365,23 @@
             this.DgvListaClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaClientes_CellClick);
             this.DgvListaClientes.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaClientes_DataBindingComplete);
             // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(184, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
+            // 
             // ColClienteID
             // 
             this.ColClienteID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -372,6 +389,7 @@
             this.ColClienteID.HeaderText = "CODIGO CLIENTE";
             this.ColClienteID.Name = "ColClienteID";
             this.ColClienteID.ReadOnly = true;
+            this.ColClienteID.Visible = false;
             this.ColClienteID.Width = 80;
             // 
             // ColNombre
@@ -412,23 +430,6 @@
             this.ColCedula.HeaderText = "CEDULA";
             this.ColCedula.Name = "ColCedula";
             this.ColCedula.ReadOnly = true;
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
             // 
             // FrmClienteGestion
             // 
