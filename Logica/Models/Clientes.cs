@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Logica.Models
 {
     public class Clientes
-    {      
+    {
         public int ClienteID { get; set; }
         public string Nombre { get; set; }
         public string CorreoElectronico { get; set; }
@@ -36,13 +36,17 @@ namespace Logica.Models
             return R;
 
         }
-        public DataTable Listar()
+        public DataTable Listar(string pFiltro = "")
         {
+
             DataTable R = new DataTable();
 
-            Conexion MiCnn = new Conexion();
+            //hay que hacer instancia de la clase conexion
 
-            R = MiCnn.EjecutarSelect("SPClientesListar");
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
+
+            R = MiCnn.EjecutarSelect("[SPClientesListar]");
 
             return R;
         }
@@ -50,8 +54,14 @@ namespace Logica.Models
         public bool Eliminar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ClienteID));
+
+            int resultado = MiCnn.EjecutarDML("SPClientesEliminar");
+            if (resultado > 0) R = true;
             return R;
         }
+
         public bool Actualizar()
         {
             bool R = false;
@@ -63,7 +73,7 @@ namespace Logica.Models
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.Direccion));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
-          
+
             MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ClienteID));
             int resultado = MiCnn.EjecutarDML("SPClientesActualizar");
 
@@ -117,7 +127,7 @@ namespace Logica.Models
             DataTable DatosCliente = new DataTable();
             DatosCliente = MyCnn.EjecutarSelect("SPClientesConsultarPorID");
             if (DatosCliente != null && DatosCliente.Rows.Count > 0)
-            {           
+            {
                 R = true;
             }
 
@@ -140,13 +150,13 @@ namespace Logica.Models
                 R.CorreoElectronico = Convert.ToString(MiFila["CorreoElectronico"]);
                 R.Direccion = Convert.ToString(MiFila["Direccion"]);
                 R.Telefono = Convert.ToString(MiFila["Telefono"]);
-                R.Cedula = Convert.ToInt32(MiFila["Cedula"]);            
+                R.Cedula = Convert.ToInt32(MiFila["Cedula"]);
 
             }
             return R;
 
         }
 
-       
+
     }
 }

@@ -42,10 +42,10 @@
             this.TxtEmpleadoRolCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaEmpleadoRol = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColEmpleadoRolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaEmpleadoRol)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             this.BtnCerrar.TabIndex = 27;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // BtnEliminar
             // 
@@ -86,6 +87,7 @@
             this.BtnEliminar.TabIndex = 25;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnModificar
             // 
@@ -166,6 +168,7 @@
             this.TxtEmpleadoRolNombre.Name = "TxtEmpleadoRolNombre";
             this.TxtEmpleadoRolNombre.Size = new System.Drawing.Size(208, 20);
             this.TxtEmpleadoRolNombre.TabIndex = 7;
+            this.TxtEmpleadoRolNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmpleadoRolNombre_KeyPress);
             // 
             // label3
             // 
@@ -214,22 +217,6 @@
             this.DgvListaEmpleadoRol.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaEmpleadoRol_CellClick);
             this.DgvListaEmpleadoRol.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaEmpleadoRol_DataBindingComplete);
             // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
-            // 
             // ColEmpleadoRolID
             // 
             this.ColEmpleadoRolID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -246,6 +233,23 @@
             this.ColRol.HeaderText = "ROL";
             this.ColRol.Name = "ColRol";
             this.ColRol.ReadOnly = true;
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(230, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(184, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // FrmEmpleadoRol
             // 

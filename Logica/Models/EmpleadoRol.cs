@@ -17,19 +17,29 @@ namespace Logica.Models
         public string Rol { get; set; }
 
 
-
-
-
         public DataTable Listar(string pFiltro = "")
         {
+
             DataTable R = new DataTable();
 
-            Conexion MiCnn = new Conexion();
+            //hay que hacer instancia de la clase conexion
 
+            Conexion MiCnn = new Conexion();
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
 
             R = MiCnn.EjecutarSelect("SPEmpleadoRolListar");
 
+            return R;
+        }
+
+        public bool Eliminar()
+        {
+            bool R = false;
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.EmpleadoRolID));
+
+            int resultado = MiCnn.EjecutarDML("SPEmpleadoRolEliminar");
+            if (resultado > 0) R = true;
             return R;
         }
 
@@ -43,7 +53,6 @@ namespace Logica.Models
             DatosEmpleadoRol = MyCnn.EjecutarSelect("SPEmpleadoRolesConsultarPorID");
             if (DatosEmpleadoRol != null && DatosEmpleadoRol.Rows.Count > 0)
             {
-                //el usuario existe
                 R = true;
             }
 
@@ -104,8 +113,8 @@ namespace Logica.Models
             return R;
         }
 
-    public bool Agregar()
-       {
+        public bool Agregar()
+        {
             bool R = false;
 
             Conexion MiCnn = new Conexion();
@@ -118,7 +127,5 @@ namespace Logica.Models
 
             return R;
         }
-
     }
-
 }

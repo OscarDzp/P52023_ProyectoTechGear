@@ -15,7 +15,7 @@ namespace Logica.Models
         public string Contacto { get; set; }
         public string Telefono { get; set; }
         public string CorreoElectronico { get; set; }
- 
+
 
         public bool Agregar()
         {
@@ -34,11 +34,33 @@ namespace Logica.Models
 
             return R;
         }
+
+        public DataTable Listar(string pFiltro = "")
+        {
+
+            DataTable R = new DataTable();
+
+            //hay que hacer instancia de la clase conexion
+
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Filtro", pFiltro));
+
+            R = MiCnn.EjecutarSelect("SPProveedoresListar");
+
+            return R;
+        }
+
         public bool Eliminar()
         {
             bool R = false;
+            Conexion MiCnn = new Conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.ProveedorID));
+
+            int resultado = MiCnn.EjecutarDML("SPProveedorEliminar");
+            if (resultado > 0) R = true;
             return R;
         }
+
         public bool Actualizar()
         {
             bool R = false;
@@ -123,27 +145,15 @@ namespace Logica.Models
                 DataRow MiFila = DatosProveedor.Rows[0];
 
                 R.ProveedorID = Convert.ToInt32(MiFila["ProveedorID"]);
-                R.Nombre = Convert.ToString(MiFila["Nombre"]);            
+                R.Nombre = Convert.ToString(MiFila["Nombre"]);
                 R.Contacto = Convert.ToString(MiFila["Contacto"]);
                 R.Telefono = Convert.ToString(MiFila["Telefono"]);
                 R.CorreoElectronico = Convert.ToString(MiFila["CorreoElectronico"]);
-          
+
             }
             return R;
 
         }
 
-
-
-        public DataTable Listar()
-        {
-            DataTable R = new DataTable();
-
-            Conexion MiCnn = new Conexion();
-
-            R = MiCnn.EjecutarSelect("SPProveedoresListar");
-
-            return R;
-        }
     }
 }
