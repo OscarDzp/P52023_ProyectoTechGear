@@ -90,7 +90,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
             if (dtRoles != null && dtRoles.Rows.Count > 0)
             {
-                CboxEmpleadoRol.ValueMember = "ID";
+                CboxEmpleadoRol.ValueMember = "EmpleadoRolID";
                 CboxEmpleadoRol.DisplayMember = "Rol";
 
                 CboxEmpleadoRol.DataSource = dtRoles;
