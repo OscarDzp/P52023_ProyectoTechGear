@@ -86,7 +86,7 @@ namespace Logica.Models
 
             return R;
         }
-        public bool ConsultarPorID ()
+        public bool ConsultarPorID()
         {
             bool R = false;
 
@@ -99,19 +99,19 @@ namespace Logica.Models
             dt = MiCnn.EjecutarSelect("SPProductosConsultarPorID");
 
             if (dt != null && dt.Rows.Count > 0) R = true;
+            {
 
-
-            return R;
-
+                return R;
+            }
         }
 
-        public Productos ConsultarPorID (int pProductosID)
+        public Productos ConsultarPorID(int IDproducto)
         {
             Productos R = new Productos();
 
             Conexion MiCnn = new Conexion();
 
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", pProductosID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", IDproducto));
 
             DataTable DatosProducto = new DataTable();
 
@@ -125,7 +125,7 @@ namespace Logica.Models
 
                 R.ProductoID = Convert.ToInt32(MiFila["ProductoID"]);
                 R.Nombre = Convert.ToString(MiFila["Nombre"]);
-                R.MiCategoriaID.CategoriaID= Convert.ToInt32(MiFila["CategoriaID"]);
+                R.MiCategoriaID.CategoriaID = Convert.ToInt32(MiFila["CategoriaID"]);
                 R.StockActual = Convert.ToInt32(MiFila["StockActual"]);//TODO
                 R.Precio = Convert.ToDecimal(MiFila["Precio"]);//TODO
                 R.MiMarcaID.MarcaID = Convert.ToInt32(MiFila["MarcaID"]);
@@ -138,7 +138,7 @@ namespace Logica.Models
             return R;
         }
 
-            public bool ConsultarPorNombre(string pNombre)
+        public bool ConsultarPorNombre(string pNombre)
         {
             bool R = false;
 

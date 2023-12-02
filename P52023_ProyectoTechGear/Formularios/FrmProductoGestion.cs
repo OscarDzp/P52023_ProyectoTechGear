@@ -191,8 +191,8 @@ namespace P52023_ProyectoTechGear.Formularios
 
                 MiProductoLocal.Nombre = TxtProductoNombre.Text.Trim();
                 MiProductoLocal.MiCategoriaID.CategoriaID = Convert.ToInt32(CboxProductosCategoria.SelectedValue);
-                MiProductoLocal.StockActual = int.Parse(TxtProductoStockActual.Text.Trim());
-                MiProductoLocal.Precio = decimal.TryParse(TxtProductoPrecio.Text.Trim(), out decimal precio) ? precio : 0;
+                MiProductoLocal.StockActual = Convert.ToInt32(TxtProductoStockActual.Text.Trim());
+                MiProductoLocal.Precio = Convert.ToInt32(TxtProductoPrecio.Text.Trim());
                 MiProductoLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxProductosMarca.SelectedValue);
                 MiProductoLocal.MiModeloID.ModeloID = Convert.ToInt32(CboxProductosModelo.SelectedValue);
                 MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
@@ -314,8 +314,8 @@ namespace P52023_ProyectoTechGear.Formularios
             {
                 MiProductoLocal.Nombre = TxtProductoNombre.Text.Trim();
                 MiProductoLocal.MiCategoriaID.CategoriaID = Convert.ToInt32(CboxProductosCategoria.SelectedValue);
-                MiProductoLocal.StockActual = int.Parse(TxtProductoStockActual.Text.Trim());
-                MiProductoLocal.Precio = decimal.TryParse(TxtProductoPrecio.Text.Trim(), out decimal precio) ? precio : 0;
+                MiProductoLocal.StockActual = Convert.ToInt32(TxtProductoStockActual.Text.Trim());
+                MiProductoLocal.Precio = Convert.ToInt32(TxtProductoPrecio.Text.Trim());
                 MiProductoLocal.MiMarcaID.MarcaID = Convert.ToInt32(CboxProductosMarca.SelectedValue);
                 MiProductoLocal.MiModeloID.ModeloID = Convert.ToInt32(CboxProductosModelo.SelectedValue);
                 MiProductoLocal.MiProveedorID.ProveedorID = Convert.ToInt32(CboxProductosProveedor.SelectedValue);
@@ -412,7 +412,7 @@ namespace P52023_ProyectoTechGear.Formularios
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()))
+            if (!string.IsNullOrEmpty(TxtBuscar.Text.Trim()) && TxtBuscar.Text.Count() >= 3)
             {
                 CargarListaProducto(TxtBuscar.Text.Trim());
             }
