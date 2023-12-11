@@ -51,13 +51,12 @@
             this.TxtCodigoDetalleVenta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvListaDetalleVenta = new System.Windows.Forms.DataGridView();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ColDetalleVentaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaDetalleVenta)).BeginInit();
             this.SuspendLayout();
@@ -308,8 +307,7 @@
             this.ColDetalleVentaID,
             this.ColSubtotal,
             this.ColPrecioUnitario,
-            this.ColCantidad,
-            this.ColNombre});
+            this.ColCantidad});
             this.DgvListaDetalleVenta.Location = new System.Drawing.Point(12, 66);
             this.DgvListaDetalleVenta.MultiSelect = false;
             this.DgvListaDetalleVenta.Name = "DgvListaDetalleVenta";
@@ -321,6 +319,23 @@
             this.DgvListaDetalleVenta.VirtualMode = true;
             this.DgvListaDetalleVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaDetalleVenta_CellClick);
             this.DgvListaDetalleVenta.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaDetalleVenta_DataBindingComplete);
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Location = new System.Drawing.Point(286, 9);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
+            this.TxtBuscar.TabIndex = 20;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar";
             // 
             // ColDetalleVentaID
             // 
@@ -354,31 +369,6 @@
             this.ColCantidad.HeaderText = "CANTIDAD";
             this.ColCantidad.Name = "ColCantidad";
             this.ColCantidad.ReadOnly = true;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColNombre.DataPropertyName = "Nombre";
-            this.ColNombre.HeaderText = "PRODUCTO";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Location = new System.Drawing.Point(286, 9);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(316, 20);
-            this.TxtBuscar.TabIndex = 20;
-            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Buscar";
             // 
             // FrmDetalleVenta
             // 
@@ -429,16 +419,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtDetalleVentaCantidad;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDetalleVentaID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColSubtotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombre;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDetalleVentaID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColSubtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCantidad;
     }
 }
